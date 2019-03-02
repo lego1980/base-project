@@ -5,13 +5,14 @@ import styles from './HomeView.css';
 class HomeView extends Component {
   render() {
     return (
-        <header className={"HomeHeader"}>
-          <img src={logo} className={"HomeLogo"} alt="logo" />
+      <div className={"HomeView"}>
+        <header className={"HomeViewHeader"}>
+          <img src={logo} className={"HomeViewLogo"} alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
-            className={"HomeLink"}
+            className={"HomeViewLink"}
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -19,6 +20,7 @@ class HomeView extends Component {
             Learn React
           </a>
         </header>
+      </div>
     );
   }
 }

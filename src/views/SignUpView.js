@@ -4,7 +4,7 @@ import styles from './SignUpView.css';
 class SignUpView extends Component {
   render() {
     return (
-        <div className={"SignUp"}>
+        <div className={"SignUpView"}>
         </div>
     );
   }

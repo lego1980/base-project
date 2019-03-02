@@ -4,7 +4,7 @@ import styles from './LoginView.css';
 class LoginView extends Component {
   render() {
     return (
-        <div className={"Login"}>
+        <div className={"LoginView"}>
         </div>
     );
   }
