@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
-import './HomeView.css';
+import styles from './HomeView.css';
 
 class HomeView extends Component {
   render() {
     return (
-        <header className="Home-header">
-          <img src={logo} className="Home-logo" alt="logo" />
+        <header className={"HomeHeader"}>
+          <img src={logo} className={"HomeLogo"} alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
-            className="Home-link"
+            className={"HomeLink"}
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
