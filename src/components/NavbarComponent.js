@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink as RRNavLink } from 'react-router-dom'; //how to use reactstrap navbar with react-router-dom - https://github.com/reactstrap/reactstrap/issues/1285
 
 import React from 'react';
 import {
@@ -32,30 +33,36 @@ export default class NavbarCompoment extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand exact tag={RRNavLink} to="/" >reactstrap</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink exact tag={RRNavLink} to="/login/" activeClassName="active">Log In</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink exact tag={RRNavLink} to="/signup/" activeClassName="active">Sign Up</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
+                <DropdownItem>
+                    <NavLink exact tag={RRNavLink} to="/account/" activeClassName="active">Account</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
+                    <NavLink exact tag={RRNavLink} to="/contact/" activeClassName="active">Contact Us</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink exact tag={RRNavLink} to="/about/" activeClassName="active">About Us</NavLink>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
-                    Reset
+                    <NavLink exact tag={RRNavLink} to="/login/" activeClassName="active">Log In</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink exact tag={RRNavLink} to="/signup/" activeClassName="active">Sign Up</NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

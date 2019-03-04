@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import styles from './DefautlView.css';
+import styles from './DefaultView.css';
 
-class DefautlView extends Component {
+class DefaultView extends Component {
   render() {
     return (
-        <div className={"DefautlView"}>
+        <div className={"DefaultView"}>
         </div>
     );
   }
 }
 
-export default DefautlView;
+export default DefaultView;
