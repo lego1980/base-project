@@ -1,0 +1,47 @@
+.OverlayColumnsGrid {
+    font-size: 1.2rem;
+    display: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px,auto);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.OverlayRowsGrid {
+    font-size: 1.2rem;
+    display: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    grid-auto-columns: minmax(100px,auto);
+    grid-template-rows: repeat(12, 1fr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.OverlayColumnsGrid p,
+.OverlayRowsGrid p {
+    border: 1px solid rgb(255,255,255);
+    background: rgb(0, 0, 0);
+    margin: 0;
+    opacity: 0.3;
+}
+
+.OverlayGridCheckBox {
+    display: inline-block;
+    position: relative;
+}
+
+.OverlayGridCheckBox[type=checkbox]:checked + .MainGrid .OverlayColumnsGrid,
+.OverlayGridCheckBox[type=checkbox]:checked + .MainGrid .OverlayRowsGrid {
+    display: grid;          
+}
