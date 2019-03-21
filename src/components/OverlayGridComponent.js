@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styels from './OverlayGrid.css';
+import styels from './OverlayGridComponent.css';
 
 export const OverlayGridCheckBox = (props) => {
     return(

@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { OverlayGridCheckBox, OverlayRowsGrid, OverlayColumnsGrid } from '../components/OverlayGridComponent';
 
 //css
-import styles from './GridApp.css';
+import styles from './Grid2App.css';
 
-export default class GridApp extends Component {
+export default class Grid2App extends Component {
   render() {
     return (
       <BrowserRouter>
