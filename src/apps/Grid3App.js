@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { OverlayGridCheckBox, OverlayRowsGrid, OverlayColumnsGrid } from '../components/OverlayGridComponent';
 
 //css
-import styles from './Grid2App.css';
+import styles from './Grid3App.css';
 
-export default class Grid2App extends Component {
+export default class Grid3App extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -15,36 +15,36 @@ export default class Grid2App extends Component {
           <div className={"MainGrid"}>
             <OverlayColumnsGrid />
             <OverlayRowsGrid />
-            <header role="header FadeOut">
+            <div className={"header"} role="header">
               <div className={"item"}>
                 header
               </div>
-            </header>
-            <main role="main">
+            </div>
+            <div className={"main"} role="main">
               <div className={"item"}>
                 main
               </div>
-            </main>
-            <nav role="nav">
+            </div>
+            <div className={"nav"} role="nav">
               <div className={"item"}>
                 nav
               </div>
-            </nav>
-            <aside role="aside">
+            </div>
+            <div className={"aside"} role="aside">
               <div className={"item"}>
                 aside
               </div>
-            </aside>
-            <section role="section">
+            </div>
+            <div className={"section"} role="section">
               <div className={"item"}>
                 section
               </div>
-            </section>
-            <footer role="footer">
+            </div>
+            <div className={"footer"} role="footer">
               <div className={"item"}>
                 footer
               </div>
-            </footer>          
+            </div>          
           </div>
         </div>
       </BrowserRouter>

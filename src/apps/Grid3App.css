@@ -12,13 +12,17 @@ body {
 
 .MainGrid {
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.3rem;    
     display: grid;
+    display: -ms-grid;
     max-width: 960px;
     margin: 0 auto;
+    -ms-grid-gap: 1rem;
     grid-gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: minmax(100px,auto);    
+    -ms-grid-rows: auto auto auto auto;   
     grid-template-areas:
         "header header header header"
         "footer footer footer footer"
@@ -33,49 +37,51 @@ body {
    
 }
 
-@media screen and (min-width: 760px) {
-    .MainGrid {
-        position: relative;
-        font-size: 1.2rem;
-        max-width: 100%;
-        margin: 0 auto;
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: minmax(100px,auto);
-        grid-template-areas:
-            "nav header header header"
-            "nav main main main"
-            "nav main main main"
-            "nav aside section section"
-            "nav aside section section"
-            "nav footer footer footer"
-            "nav footer footer footer"
-            "nav footer footer footer";
-    }
-}
-
-header {
+header,
+.header {
+    -ms-grid-row: 1; 
+    -ms-grid-column: 1; 
+    -ms-grid-column-span: 4;
     grid-area: header;
 }
 
-nav {
+nav,
+.nav {
+    -ms-grid-row: 5; 
+    -ms-grid-column: 3; 
+    -ms-grid-column-span: 2;
     grid-area: nav;
 }
 
-aside {
+aside,
+.aside {
+    -ms-grid-row: 5; 
+    -ms-grid-column: 1; 
+    -ms-grid-column-span: 2;
     grid-area: aside;
 }
 
-main {
+main,
+.main {
+    -ms-grid-row: 3; 
+    -ms-grid-column-span: 5;
+    -ms-grid-column: 1; 
     grid-area: main;
 }
 
-section {
+section,
+.section {
+    -ms-grid-row: 6; 
+    -ms-grid-column: 1; 
+    -ms-grid-column-span: 5;
     grid-area: section;
 }
 
-footer{
+footer,
+.footer {
+    -ms-grid-row: 2; 
+    -ms-grid-column: 1; 
+    -ms-grid-column-span: 5;
     grid-area: footer;
 }
 
@@ -87,20 +93,15 @@ footer{
 }
 */
 
-header, nav, aside, main, section, footer {
+header, nav, aside, main, section, footer,
+.header, .nav, .aside, .main, .section, .footer {
     padding: 0;
-    background: rgba(200,200,200,1);
-    
+    background: rgba(200,200,200,1); 
 }
 
 body {
     opacity: 1;
     transition: 1s opacity;
-}
-
-body.FadeOut {
-    opacity: 0;
-    transition: none;
 }
 
 .item {
@@ -109,15 +110,6 @@ body.FadeOut {
     background-color: lightblue;
     padding: 3rem;
     pointer-events: none;
-    opacity: 0;
-    transition: none;
-}
-
-header:hover .item {
     opacity: 1;
-    transition: 1s opacity;
-    /*
-    transform: rotateY(360deg);
-    transition: transform 600ms ease-in-out 100ms;
-    */
+    transition: none;
 }
