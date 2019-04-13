@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { usersStore } from'./usersReducer';
+import { usersReducer } from'./usersReducer';
 
-export const BaseAppStore = combineReducers({
-    usersStore
+export const BaseAppReducer = combineReducers({
+    usersReducer
 });

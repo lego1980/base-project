@@ -13,17 +13,19 @@ body {
 .MainGrid {
     position: relative;
     font-size: 1.3rem;    
+    display: -ms-grid;    
     display: grid;
-    display: -ms-grid;
     max-width: 960px;
-    margin: 0 auto;
-    -ms-grid-gap: 1rem;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto; 
+    -ms-grid-gap: 1rem;   
+    grid-gap: 1rem;    
+    /* grid-template-columns: repeat(4, 1fr); */
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-rows: minmax(100px,auto);    
-    -ms-grid-rows: auto auto auto auto;   
-    grid-template-areas:
+    grid-column: 1fr 1fr 1fr 1fr;    
+    /* grid-auto-rows: minmax(100px,auto);   */         
+    -ms-grid-rows: auto auto auto auto;
+    grid-rows: auto auto auto auto;   
+    /* grid-template-areas:
         "header header header header"
         "footer footer footer footer"
         "main main main main"
@@ -33,7 +35,7 @@ body {
         "section section section section"
         "section section section section"
         "section section section section"
-        "section section section section";
+        "section section section section"; */
    
 }
 
@@ -41,48 +43,60 @@ header,
 .header {
     -ms-grid-row: 1; 
     -ms-grid-column: 1; 
-    -ms-grid-column-span: 4;
-    grid-area: header;
+    -ms-grid-column-span: 5;
+    grid-row: 1; 
+    grid-column: 1 / 5;
+    /* grid-area: header; */
 }
 
 nav,
-.nav {
-    -ms-grid-row: 5; 
+.nav {    
+    -ms-grid-row: 9; 
     -ms-grid-column: 3; 
     -ms-grid-column-span: 2;
-    grid-area: nav;
+    grid-row: 4; 
+    grid-column: 3 / 5; 
+    /* grid-area: nav; */
 }
 
 aside,
-.aside {
-    -ms-grid-row: 5; 
+.aside {    
+    -ms-grid-row: 9; 
     -ms-grid-column: 1; 
     -ms-grid-column-span: 2;
-    grid-area: aside;
+    grid-row: 4; 
+    grid-column: 1 / 3; 
+    /* grid-area: aside; */
 }
 
 main,
-.main {
+.main {    
     -ms-grid-row: 3; 
     -ms-grid-column-span: 5;
-    -ms-grid-column: 1; 
-    grid-area: main;
+    -ms-grid-column: 1;
+    grid-row: 3; 
+    grid-column: 1 / 5; 
+    /* grid-area: main; */
 }
 
 section,
-.section {
-    -ms-grid-row: 6; 
+.section {    
+    -ms-grid-row: 10; 
     -ms-grid-column: 1; 
     -ms-grid-column-span: 5;
-    grid-area: section;
+    grid-row: 5; 
+    grid-column: 1 / 5; 
+    /* grid-area: section; */
 }
 
 footer,
-.footer {
+.footer {    
     -ms-grid-row: 2; 
     -ms-grid-column: 1; 
     -ms-grid-column-span: 5;
-    grid-area: footer;
+    grid-row: 2; 
+    grid-column: 1 / 5; 
+    /* grid-area: footer; */
 }
 
 /* any direct desecendant*/
@@ -96,7 +110,7 @@ footer,
 header, nav, aside, main, section, footer,
 .header, .nav, .aside, .main, .section, .footer {
     padding: 0;
-    background: rgba(200,200,200,1); 
+    background: rgba(200,200,200,1);
 }
 
 body {
@@ -105,7 +119,7 @@ body {
 }
 
 .item {
-    width: inherit;
+    width: 100%;
     height: 100%;
     background-color: lightblue;
     padding: 3rem;

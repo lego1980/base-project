@@ -1,7 +1,10 @@
 //core
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { createStore } from 'redux'
+
+import { applyMiddleware, createStore, compose } from 'redux';
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 
 //css
 import styles from './BaseApp.css';
@@ -19,14 +22,20 @@ import ContactView from '../views/ContactView';
 import ErrorView from '../views/ErrorView';
 
 //reducers
-import { BaseAppStore } from '../reducers/BaseAppReducer'
+import { BaseAppReducer } from '../reducers/BaseAppReducer'
 
 //actions
 import { getUsers, postUsers } from '../actions/usersActions'
 
+// create middleware with compose for redux dev tools
+const middleware = compose(
+  applyMiddleware(thunk, logger),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+)
+
 const store = createStore(
-  BaseAppStore,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  BaseAppReducer,
+  middleware
 );
 
 // Log the initial state
