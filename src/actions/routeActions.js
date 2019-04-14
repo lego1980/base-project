@@ -10,14 +10,24 @@ export const ROUTE_CONTACT_US = 'ROUTE_CONTACT_US';
 export const ROUTE_TERMS = 'ROUTE_TERMS';
 export const ROUTE_USER_AGREEMENT = 'ROUTE_USER_AGREEMENT';
 
-export const GET_ROUTE = (dispatch) => { 
-    dispatch({type: ROUTE_DEFAULT, route: "/" });
+//defined route actions
+export const ROUTE_ACTIONS = (dispatch) => {
+    return {
+        setLocationRoute: (options) => { 
+            dispatch({type: options.type, route: options.route });
+        }
+    }
 }
 
-export const GET_ROUTE_LOG_IN = (dispatch) => { 
-    dispatch({type: ROUTE_LOG_IN, route: "/login/" });
-}
 
-export const GET_ROUTE_SIGN_UP = (dispatch) => { 
-    dispatch({type: ROUTE_SIGN_UP, route: "/signup/" });
-}
+// export const GET_ROUTE = (dispatch) => { 
+//     dispatch({type: ROUTE_DEFAULT, route: "/" });
+// }
+
+// export const GET_ROUTE_LOG_IN = (dispatch) => { 
+//     dispatch({type: ROUTE_LOG_IN, route: "/login/" });
+// }
+
+// export const GET_ROUTE_SIGN_UP = (dispatch) => { 
+//     dispatch({type: ROUTE_SIGN_UP, route: "/signup/" });
+// }

@@ -14,7 +14,9 @@ import {
 const initialState = {
     fetching: false,
     fetched: false,
-    route: ROUTE_DEFAULT,
+    type: ROUTE_DEFAULT,
+    route: "/",    
+    pathname: "/",
     error: null
 };
 
@@ -23,48 +25,66 @@ export const routeReducer = (state = initialState, action) => {
         case ROUTE_LOG_IN: 
             return { 
                 ...state,
-                route : ROUTE_LOG_IN               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname              
             };
         case ROUTE_LOG_OUT: 
             return { 
                 ...state,
-                route : ROUTE_LOG_OUT               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname              
             };  
         case ROUTE_SIGN_UP: 
             return { 
                 ...state,
-                route : ROUTE_SIGN_UP               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };
         case ROUTE_HOME: 
             return { 
                 ...state,
-                route : ROUTE_HOME               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };
         case ROUTE_ACCOUNT: 
             return { 
                 ...state,
-                route : ROUTE_ACCOUNT               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };
         case ROUTE_ABOUT_US: 
             return { 
                 ...state,
-                route : ROUTE_ABOUT_US               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };
         case ROUTE_CONTACT_US: 
             return { 
                 ...state,
-                route : ROUTE_CONTACT_US               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };
             break; 
         case ROUTE_TERMS: 
             return { 
                 ...state,
-                route : ROUTE_TERMS               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };
         case ROUTE_USER_AGREEMENT: 
             return { 
                 ...state,
-                route : ROUTE_ABOUT_US               
+                type : action.type,
+                route : action.route,
+                pathname : window.location.pathname               
             };        
         default:
             return { 

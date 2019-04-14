@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
+// import axios
+import axios from "axios";
+
 //css
 import styles from './BaseApp.css';
 
@@ -18,23 +21,28 @@ import AboutView from '../views/AboutView';
 import ContactView from '../views/ContactView';
 import ErrorView from '../views/ErrorView';
 
-// //store
-// import { BaseAppStore } from '../stores/BaseAppStore';
-// //actions
-// import { GET_ROUTE_LOG_IN } from '../actions/routeActions';
-// import { GET_USERS } from '../actions/usersActions';
+//actions
+import { ROUTE_ACTIONS } from '../actions/routeActions';
+import { USERS_ACTIONS } from'../actions/usersActions';
+
+
 // //Log the initial state
 // BaseAppStore.dispatch((dispatch) => GET_ROUTE_LOG_IN(dispatch));
 // BaseAppStore.dispatch((dispatch) => GET_USERS(dispatch));
 
-@connect((store) => {
-  return {
-    data: store
+export class BaseApp extends React.Component {
+  componentWillMount() {
+    //console.log("RENDER route",this.props.route);
+    //console.log("RENDER users",this.props.users);
+    
+    let routeOptions = {type:"ROUTE_SIGN_UP",route:"/signup/"};  
+    this.props.setLocationRoute(routeOptions);
+
+    let usersOptions = {page:2};  
+    this.props.getUsers(usersOptions);    
   }
-})
-export default class BaseApp extends React.Component {
-  render() {   
-    console.log("RENDER",this.props.data); 
+
+  render() { 
     return (
       <BrowserRouter>
         <div>
@@ -53,3 +61,30 @@ export default class BaseApp extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    route: state.route,
+    users: state.users
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLocationRoute: (options) => { 
+      ROUTE_ACTIONS(dispatch).setLocationRoute(options);
+      //dispatch({type: ROUTE_LOG_IN})      
+    },
+    getUsers: (options) => { 
+      USERS_ACTIONS(dispatch).getUsers(options);
+      // dispatch({type: USERS_PENDING });
+      // axios.get("https://reqres.in/api/users?page=2").then((response) => {
+      //     dispatch({type: USERS_FULFILLED, payload: response.data });
+      // }).catch((err) => {
+      //     dispatch({type: USERS_REJECTED, payload: err });
+      // });
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(BaseApp);

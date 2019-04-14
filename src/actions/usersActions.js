@@ -1,26 +1,57 @@
 // import axios
 import axios from "axios";
 
-//defined switch statement actions
+//defined type actions for reducers
 export const USERS_PENDING = 'USERS_PENDING';
 export const USERS_FULFILLED = 'USERS_FULFILLED';
 export const USERS_REJECTED = 'USERS_REJECTED';
 
-//defined actions
-export const GET_USERS = (dispatch) => { 
-    // return {
-    //     type: 'USERS',
-    //     //payload: axios.get("https://reqrdes.in/api/users?page=2")
-    //     //payload: axios.get("http://rest.learncode.academy/api/learncode/friends")
-    //     payload: axios.get("http://192.16d8.0.31/users")
-    // }
-    dispatch({type: USERS_PENDING });
-    axios.get("https://reqres.in/api/users?page=2").then((response) => {
-        dispatch({type: USERS_FULFILLED, payload: response.data });
-    }).catch((err) => {
-        dispatch({type: USERS_REJECTED, payload: err });
-    })
+//defined users actions
+export const USERS_ACTIONS = (dispatch) => {
+    return {
+        getUsers: (options) => { 
+            dispatch({type: USERS_PENDING });
+            axios.get("https://reqres.in/api/users?page="+options.page).then((response) => {
+                dispatch({type: USERS_FULFILLED, payload: response.data });
+            }).catch((err) => {
+                dispatch({type: USERS_REJECTED, payload: err });
+            });
+        }
+    }
 }
+
+export const USER_ACTIONS = (dispatch) => {
+    return {
+        getUser: (options) => {
+        },
+        updateUser: (options) => {
+        },
+        deleteUser: (options) => {
+        },
+        createUser: (options) => {
+        }
+    }
+}
+
+//defined actions
+// export const GET_USERS = (dispatch) => { 
+//     // return {
+//     //     type: 'USERS_FULFILLED',
+//     //     payload: axios.get("https://reqrdes.in/api/users?page=2")
+//     //     //payload: axios.get("http://rest.learncode.academy/api/learncode/friends")
+//     //     //payload: axios.get("http://192.16d8.0.31/users")
+//     // }
+//     return {
+//         call: () => { 
+//             dispatch({type: USERS_PENDING });
+//             axios.get("https://reqres.in/api/users?page=2").then((response) => {
+//                 dispatch({type: USERS_FULFILLED, payload: response.data });
+//             }).catch((err) => {
+//                 dispatch({type: USERS_REJECTED, payload: err });
+//             });
+//         }
+//     }
+// }
 
 // export const postUsers = () => { 
 //     return {

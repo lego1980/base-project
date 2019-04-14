@@ -8,8 +8,8 @@ import { usersReducer } from'../reducers/usersReducer';
 
 // create base app combine reducers
 const BaseAppCombineReducer = combineReducers({
-    routeReducer,
-    usersReducer
+    route : routeReducer,
+    users : usersReducer
 });
 
 // create middleware with compose for redux dev tools
