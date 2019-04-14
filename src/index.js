@@ -5,8 +5,6 @@ import BaseApp from './apps/BaseApp';
 import { BaseAppStore } from './stores/BaseAppStore';
 import * as serviceWorker from './serviceWorker';
 
-
-
 const app = document.getElementById('root');
 ReactDOM.render(<Provider store={BaseAppStore}><BaseApp /></Provider>, app);
 
