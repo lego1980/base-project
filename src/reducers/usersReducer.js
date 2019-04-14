@@ -1,4 +1,4 @@
-import { GET_USERS, POST_USERS, PUT_USERS, PATCH_USERS, DELETE_USERS } from'../actions/usersActions';
+import { USERS_PENDING, USERS_FULFILLED, USERS_REJECTED } from'../actions/usersActions';
 
 const initialState = {
     fetching: false,
@@ -9,18 +9,25 @@ const initialState = {
 
 export const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_USERS:
+        case USERS_PENDING:
             return { 
                 ...state,
+                fetching: true,
                 users : action.payload               
             };
-            break;
-        case POST_USERS:
+        case USERS_FULFILLED:
             return { 
                 ...state,
+                fetching: false,
+                fetched: true,
                 users : action.payload               
-            }; 
-            break;   
+            };         
+        case USERS_REJECTED:
+            return { 
+                ...state,
+                fetching: false,
+                error : action.payload           
+            };
         default:
             return state;
     }

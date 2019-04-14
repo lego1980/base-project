@@ -1,10 +1,7 @@
 //core
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-import { applyMiddleware, createStore, compose } from 'redux';
-import logger from "redux-logger";
-import thunk from "redux-thunk";
+import { connect } from "react-redux";
 
 //css
 import styles from './BaseApp.css';
@@ -21,30 +18,23 @@ import AboutView from '../views/AboutView';
 import ContactView from '../views/ContactView';
 import ErrorView from '../views/ErrorView';
 
-//reducers
-import { BaseAppReducer } from '../reducers/BaseAppReducer'
+// //store
+// import { BaseAppStore } from '../stores/BaseAppStore';
+// //actions
+// import { GET_ROUTE_LOG_IN } from '../actions/routeActions';
+// import { GET_USERS } from '../actions/usersActions';
+// //Log the initial state
+// BaseAppStore.dispatch((dispatch) => GET_ROUTE_LOG_IN(dispatch));
+// BaseAppStore.dispatch((dispatch) => GET_USERS(dispatch));
 
-//actions
-import { getUsers, postUsers } from '../actions/usersActions'
-
-// create middleware with compose for redux dev tools
-const middleware = compose(
-  applyMiddleware(thunk, logger),
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-)
-
-const store = createStore(
-  BaseAppReducer,
-  middleware
-);
-
-// Log the initial state
-console.log('initial state', store.getState());
-store.dispatch(getUsers());
-console.log('get state', store.getState());
-
-export default class BaseApp extends Component {
-  render() {
+@connect((store) => {
+  return {
+    data: store
+  }
+})
+export default class BaseApp extends React.Component {
+  render() {   
+    console.log("RENDER",this.props.data); 
     return (
       <BrowserRouter>
         <div>

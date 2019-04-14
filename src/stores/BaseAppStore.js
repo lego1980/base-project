@@ -1,17 +1,26 @@
-import { createStore } from 'redux'
+import { combineReducers } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 
-//reducers
-import { BaseAppStore } from '../reducers/BaseAppReducer';
+import { routeReducer } from'../reducers/routeReducer';
+import { usersReducer } from'../reducers/usersReducer';
 
-//actions
-import { getUsers, postUsers } from '../actions/usersActions';
+// create base app combine reducers
+const BaseAppCombineReducer = combineReducers({
+    routeReducer,
+    usersReducer
+});
 
-export const storeApp = createStore(
-    BaseAppStore,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// create middleware with compose for redux dev tools
+const middleware = compose(
+    applyMiddleware(thunk, logger),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-// Log the initial state
-console.log('initial state', storeApp.getState());
-storeApp.dispatch(getUsers());
-console.log('get state', storeApp.getState());
+//export BaseStore
+export const BaseAppStore = createStore(
+    BaseAppCombineReducer,
+    middleware
+);
+  
