@@ -1,4 +1,4 @@
-import { GET_USERS_PENDING, GET_USERS_FULFILLED, GET_USERS_REJECTED } from'../../redux/actions/usersActions';
+import { GET_USERS_PENDING, GET_USERS_FULFILLED, GET_USERS_REJECTED } from'../../actions/users/UsersActions';
 
 const initialState = {
     fetching: false,

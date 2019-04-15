@@ -7,17 +7,17 @@ import { connect } from "react-redux";
 import styles from './BaseApp.css';
 
 //views
-import HomeView from '../../components/views/HomeView';
-import SignUpView from '../../components/views/SignUpView';
-import LoginView from '../../components/views/LoginView';
-import AccountView from '../../components/views/AccountView';
-import AboutView from '../../components/views/AboutView';
-import ContactView from '../../components/views/ContactView';
-import ErrorView from '../../components/views/ErrorView';
+import HomeView from '../../views/home/HomeView';
+import SignUpView from '../../views/signup/SignUpView';
+import LoginView from '../../views/login/LoginView';
+import AccountView from '../../views/account/AccountView';
+import AboutView from '../../views/about/AboutView';
+import ContactView from '../../views/contact/ContactView';
+import ErrorView from '../../views/error/ErrorView';
 
 //actions
-import { ROUTE_ACTIONS } from '../../redux/actions/routeActions';
-import { USERS_ACTIONS } from'../../redux/actions/usersActions';
+import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
+import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 export class BaseApp extends React.Component {
   componentWillMount() {   

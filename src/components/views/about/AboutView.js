@@ -6,8 +6,8 @@ class AboutView extends Component {
     
     return (
       <div className={"AboutView"}>
-          ABOUT VIEW
-        </div>
+        ABOUT VIEW
+      </div>
     );
   }
 }

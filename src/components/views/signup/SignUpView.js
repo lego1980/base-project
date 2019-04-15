@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 //actions
-import { ROUTE_ACTIONS } from '../../redux/actions/routeActions';
-import { USERS_ACTIONS } from'../../redux/actions/usersActions';
+import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
+import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 import styles from './SignUpView.css';
 

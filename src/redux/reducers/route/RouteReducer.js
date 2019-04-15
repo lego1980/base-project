@@ -1,7 +1,7 @@
 import { 
     GET_ROUTE, 
     SET_ROUTE
-} from'../../redux/actions/routeActions';
+} from'../../actions/route/RouteActions';
 
 const initialState = {
     fetching: false,
