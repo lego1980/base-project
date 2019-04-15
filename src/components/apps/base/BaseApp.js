@@ -1,12 +1,15 @@
-//core
+// core
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
-//css
+// css
 import styles from './BaseApp.css';
 
-//views
+// mudules - components
+import HeaderModule from '../../modules/header/HeaderModule';
+
+// views - components
 import HomeView from '../../views/home/HomeView';
 import SignUpView from '../../views/signup/SignUpView';
 import LoginView from '../../views/login/LoginView';
@@ -15,7 +18,7 @@ import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
 import ErrorView from '../../views/error/ErrorView';
 
-//actions
+// actions
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
 import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
@@ -34,8 +37,9 @@ export class BaseApp extends React.Component {
 
   render() { 
     return (
-      <BrowserRouter>
+      <BrowserRouter>        
         <div>
+          <HeaderModule />
           <Switch>
             <Route path="/" exact component={HomeView} />
             <Route path="/login/" exact component={LoginView} /> 

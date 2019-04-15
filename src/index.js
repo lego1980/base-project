@@ -1,8 +1,14 @@
+//core
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+// app
 import BaseApp from './components/apps/base/BaseApp';
+
+// store
 import { BaseAppStore } from './redux/stores/base/BaseAppStore';
+
+// service worker
 import * as serviceWorker from './serviceWorker';
 
 const app = document.getElementById('root');

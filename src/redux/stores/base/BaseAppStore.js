@@ -1,8 +1,12 @@
+// core
 import { combineReducers } from 'redux';
 import { applyMiddleware, createStore, compose } from 'redux';
+
+// middleware
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
+// reducers
 import { routeReducer } from'../../reducers/route/RouteReducer';
 import { usersReducer } from'../../reducers/users/UsersReducer';
 
@@ -18,7 +22,7 @@ const middleware = compose(
     window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-//export BaseStore
+// export BaseStore
 export const BaseAppStore = createStore(
     BaseAppCombineReducer,
     middleware

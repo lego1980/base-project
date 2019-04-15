@@ -1,0 +1,8 @@
+.home-view {
+    padding: 6.0rem 6.0rem 0;
+    transform: translateX(-100rem);
+    opacity: 0;
+    animation: slideRight 1.0s forwards, fadeIn 3.0s forwards;
+    animation-delay: 1.0s;
+    z-index: 100;
+}

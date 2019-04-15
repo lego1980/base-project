@@ -1,0 +1,31 @@
+@-webkit-keyframes slideRight {
+    from {
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideRight {
+    from {
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@-o-keyframes slideRight {
+    from {
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+    }
+    to {
+        transform: translateX(0);
+    }
+}
