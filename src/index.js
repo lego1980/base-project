@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import BaseApp from './apps/BaseApp';
-import { BaseAppStore } from './stores/BaseAppStore';
+import BaseApp from './components/apps/BaseApp';
+import { BaseAppStore } from './redux/stores/BaseAppStore';
 import * as serviceWorker from './serviceWorker';
 
 const app = document.getElementById('root');

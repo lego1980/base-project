@@ -3,8 +3,8 @@ import { applyMiddleware, createStore, compose } from 'redux';
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
-import { routeReducer } from'../reducers/routeReducer';
-import { usersReducer } from'../reducers/usersReducer';
+import { routeReducer } from'../../redux/reducers/routeReducer';
+import { usersReducer } from'../../redux/reducers/usersReducer';
 
 // create base app combine reducers
 const BaseAppCombineReducer = combineReducers({

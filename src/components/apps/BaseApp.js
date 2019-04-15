@@ -3,27 +3,22 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
-// import axios
-import axios from "axios";
-
 //css
 import styles from './BaseApp.css';
 
-//core components
-import NavbarComponent from '../components/NavbarComponent';
 
 //views
-import HomeView from '../views/HomeView';
-import SignUpView from '../views/SignUpView';
-import LoginView from '../views/LoginView';
-import AccountView from '../views/AccountView';
-import AboutView from '../views/AboutView';
-import ContactView from '../views/ContactView';
-import ErrorView from '../views/ErrorView';
+import HomeView from '../../components/views/HomeView';
+import SignUpView from '../../components/views/SignUpView';
+import LoginView from '../../components/views/LoginView';
+import AccountView from '../../components/views/AccountView';
+import AboutView from '../../components/views/AboutView';
+import ContactView from '../../components/views/ContactView';
+import ErrorView from '../../components/views/ErrorView';
 
 //actions
-import { ROUTE_ACTIONS } from '../actions/routeActions';
-import { USERS_ACTIONS } from'../actions/usersActions';
+import { ROUTE_ACTIONS } from '../../redux/actions/routeActions';
+import { USERS_ACTIONS } from'../../redux/actions/usersActions';
 
 
 // //Log the initial state
@@ -46,7 +41,6 @@ export class BaseApp extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <NavbarComponent />
           <Switch>
             <Route path="/" exact component={HomeView} />
             <Route path="/login/" exact component={LoginView} /> 

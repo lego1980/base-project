@@ -9,7 +9,7 @@ import {
     ROUTE_CONTACT_US,
     ROUTE_TERMS,
     ROUTE_USER_AGREEMENT
-} from'../actions/routeActions';
+} from'../../redux/actions/routeActions';
 
 const initialState = {
     fetching: false,

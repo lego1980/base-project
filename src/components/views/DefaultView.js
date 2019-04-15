@@ -5,6 +5,7 @@ class DefaultView extends Component {
   render() {
     return (
         <div className={"DefaultView"}>
+          DEFAULT VIEW
         </div>
     );
   }

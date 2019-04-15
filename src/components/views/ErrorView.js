@@ -5,6 +5,7 @@ class ErrorView extends Component {
   render() {
     return (
         <div className={"ErrorView"}>
+          ERROR VIEW
         </div>
     );
   }

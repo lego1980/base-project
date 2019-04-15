@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+//import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { connect } from "react-redux";
+
+//actions
+import { ROUTE_ACTIONS } from '../../redux/actions/routeActions';
+import { USERS_ACTIONS } from'../../redux/actions/usersActions';
+
 import styles from './SignUpView.css';
 
-class SignUpView extends React.Component {
+export class SignUpView extends React.Component {
+  componentWillMount() {
+    console.log("route SignUpView",this.props.route);
+    console.log("route SignUpView",this.props.users);
+    
+    let routeOptions = {type:"ROUTE_SIGN_UP",route:"/signup/"};  
+    //this.props.setLocationRoute(routeOptions);
+
+    let usersOptions = {page:1};  
+    //this.props.getUsers(usersOptions);    
+  }
+  
   render() {
     return (
       <div className={"animate-left"}>
-        <Form>
+        SING UP VIEW
+        {/* <Form>
           <FormGroup>
             <Label for="exampleEmail">Input without validation</Label>
             <Input />
@@ -43,10 +61,27 @@ class SignUpView extends React.Component {
             <FormFeedback tooltip>Oh noes! that name is already taken</FormFeedback>
             <FormText>Example help text that remains unchanged.</FormText>
           </FormGroup>
-        </Form>
+        </Form> */}
       </div>
     );
   }
 }
 
-export default SignUpView;
+const mapStateToProps = (state) => {
+  return {
+    route: state.route,
+    users: state.users
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLocationRoute: (options) => { 
+      ROUTE_ACTIONS(dispatch).setLocationRoute(options);     
+    },
+    getUsers: (options) => { 
+      USERS_ACTIONS(dispatch).getUsers(options);
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignUpView);

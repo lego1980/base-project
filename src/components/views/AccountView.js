@@ -5,6 +5,7 @@ class AccountView extends Component {
   render() {
     return (
         <div className={"AccountView"}>
+          ACCOUNT VIEW
         </div>
     );
   }
