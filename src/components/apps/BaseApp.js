@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 //css
 import styles from './BaseApp.css';
 
-
 //views
 import HomeView from '../../components/views/HomeView';
 import SignUpView from '../../components/views/SignUpView';
@@ -20,20 +19,16 @@ import ErrorView from '../../components/views/ErrorView';
 import { ROUTE_ACTIONS } from '../../redux/actions/routeActions';
 import { USERS_ACTIONS } from'../../redux/actions/usersActions';
 
-
-// //Log the initial state
-// BaseAppStore.dispatch((dispatch) => GET_ROUTE_LOG_IN(dispatch));
-// BaseAppStore.dispatch((dispatch) => GET_USERS(dispatch));
-
 export class BaseApp extends React.Component {
-  componentWillMount() {
-    //console.log("RENDER route",this.props.route);
-    //console.log("RENDER users",this.props.users);
+  componentWillMount() {   
     
-    let routeOptions = {type:"ROUTE_SIGN_UP",route:"/signup/"};  
-    this.props.setLocationRoute(routeOptions);
+    let getRouteOptions = {type:"GET_ROUTE"};  
+    this.props.getLocationRoute(getRouteOptions);
 
-    let usersOptions = {page:2};  
+    let setRouteOptions = {type:"SET_ROUTE",route:"/signup/"};  
+    this.props.setLocationRoute(setRouteOptions);
+
+    let usersOptions = {page:1};  
     this.props.getUsers(usersOptions);    
   }
 
@@ -65,18 +60,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getLocationRoute: (options) => { 
+      ROUTE_ACTIONS(dispatch).getLocationRoute(options);   
+    },
     setLocationRoute: (options) => { 
-      ROUTE_ACTIONS(dispatch).setLocationRoute(options);
-      //dispatch({type: ROUTE_LOG_IN})      
+      ROUTE_ACTIONS(dispatch).setLocationRoute(options);   
     },
     getUsers: (options) => { 
       USERS_ACTIONS(dispatch).getUsers(options);
-      // dispatch({type: USERS_PENDING });
-      // axios.get("https://reqres.in/api/users?page=2").then((response) => {
-      //     dispatch({type: USERS_FULFILLED, payload: response.data });
-      // }).catch((err) => {
-      //     dispatch({type: USERS_REJECTED, payload: err });
-      // });
     }
   }
 }

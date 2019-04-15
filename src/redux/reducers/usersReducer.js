@@ -1,4 +1,4 @@
-import { USERS_PENDING, USERS_FULFILLED, USERS_REJECTED } from'../../redux/actions/usersActions';
+import { GET_USERS_PENDING, GET_USERS_FULFILLED, GET_USERS_REJECTED } from'../../redux/actions/usersActions';
 
 const initialState = {
     fetching: false,
@@ -9,20 +9,20 @@ const initialState = {
 
 export const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case USERS_PENDING:
+        case GET_USERS_PENDING:
             return { 
                 ...state,
                 fetching: true,
                 users : action.payload               
             };
-        case USERS_FULFILLED:
+        case GET_USERS_FULFILLED:
             return { 
                 ...state,
                 fetching: false,
                 fetched: true,
                 users : action.payload               
             };         
-        case USERS_REJECTED:
+        case GET_USERS_REJECTED:
             return { 
                 ...state,
                 fetching: false,
