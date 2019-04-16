@@ -1,6 +1,8 @@
 html {
+  color: rgba(255,255,255,1);
   font-size: 10px;
   font-family: Verdana, Geneva, serif;
+  background-color: rgba(255,255,255,1);
 }
 
 body {
@@ -8,4 +10,9 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+}
+
+a {
+  color: rgba(97,218,251,1);
+  text-decoration: none;
 }

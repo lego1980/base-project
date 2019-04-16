@@ -6,8 +6,8 @@
     height: 5.0rem;
     transform: translateY(-10rem);
     opacity: 0;
-    background: rgba(0,0,0,0.8);
-    animation: slideDown 1.0s forwards, fadeIn 1.5s forwards;
+    background: rgba(0,0,0,1.0);
+    animation: slideDown 0.5s forwards, fadeIn 1.0s forwards;
     z-index: 1000;
 }
 
@@ -42,9 +42,13 @@
     display: inline-block;
 }
 
-.header-links li,
-.header-links li a {
+.header-links li {
     color: rgba(255,255,255,1);
+}
+
+.header-links li a {
+    color: rgba(97,218,251,1);
+    text-decoration: none;
 }
 
 @media screen and (min-width: 760px) {

@@ -12,7 +12,7 @@ class HeaderModule extends Component {
     return (
       <div className={"header-module"}>
         <div className={"header-logo"}>
-          HeaderLogo
+          <Link to="/">HeaderLogo</Link>
         </div>   
         <ul className={"header-links header-dropdown"}>
           <li><Link to="/">Dropdown</Link></li>
