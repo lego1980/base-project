@@ -9,7 +9,7 @@ import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 // css
 import './HomeView.css';
 import '../../styles/keyframes/fadeIn.css';
-import '../../styles/keyframes/slideRight.css';
+import '../../styles/keyframes/slideX.css';
 
 
 export class HomeView extends Component {

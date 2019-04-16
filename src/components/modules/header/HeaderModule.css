@@ -7,7 +7,7 @@
     transform: translateY(-10rem);
     opacity: 0;
     background: rgba(0,0,0,1.0);
-    animation: slideDown 0.5s forwards, fadeIn 1.0s forwards;
+    animation: slideY 0.5s forwards, fadeIn 1.0s forwards;
     z-index: 1000;
 }
 
@@ -17,6 +17,9 @@
     top: 0.5rem;
     left: 3.0rem;
     padding: 1rem 0;
+    transform: translateX(-1000rem);
+    animation: slideX 0.5s forwards;
+    animation-delay: 0.5s;
 }
 
 .header-links {
@@ -26,15 +29,21 @@
     right: 3.0rem;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 .header-links.header-inline {
-    display: none;
+    opacity: 1;
+    transform: translateX(-1000rem);
+    animation: slideRightOut 2.0s forwards, fadeOut 2.0s forwards;
+    animation-delay: 0.5s;
 }
 
 .header-links.header-dropdown {
-    display: inline-block;
+    opacity: 0;
+    transform: translateX(1000rem);
+    animation: slideX 0.5s forwards, fadeIn 1.0s forwards;;
+    animation-delay: 0.5s;
 }
 
 .header-links li {
@@ -61,10 +70,16 @@
     }    
 
     .header-links.header-dropdown {
-        display: none;
+        opacity: 1;
+        transform: translateX(-1000rem);
+        animation: slideRightOut 2s forwards, fadeOut 2.0s forwards;
+        animation-delay: 0.5s;
     }
 
     .header-links.header-inline {
-        display: inline-block;
+        opacity: 0;
+        transform: translateX(1000rem);
+        animation: slideX 0.5s forwards, fadeIn 1.0s forwards; ;
+        animation-delay: 0.5s;
     }
 }

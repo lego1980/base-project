@@ -1,4 +1,4 @@
-@-webkit-keyframes slideDown {
+@-webkit-keyframes slideY {
     from {
     }
     to {
@@ -6,7 +6,7 @@
     }
 }
 
-@-moz-keyframes slideDown {
+@-moz-keyframes slideY {
     from {
     }
     to {
@@ -14,7 +14,7 @@
     }
 }
 
-@-o-keyframes slideDown {
+@-o-keyframes slideY {
     from {
     }
     to {
@@ -22,7 +22,7 @@
     }
 }
 
-@keyframes slideDown {
+@keyframes slideY {
     from {
     }
     to {

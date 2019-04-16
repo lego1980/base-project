@@ -1,0 +1,31 @@
+@-webkit-keyframes slideRightOut {
+    from {
+    }
+    to {
+        transform: translateX(1000rem);
+    }
+}
+
+@-moz-keyframes slideRightOut {
+    from {
+    }
+    to {
+        transform: translateX(1000rem);
+    }
+}
+
+@-o-keyframes slideRightOut {
+    from {
+    }
+    to {
+        transform: translateX(1000rem);
+    }
+}
+
+@keyframes slideRightOut {
+    from {
+    }
+    to {
+        transform: translateX(1000rem);
+    }
+}

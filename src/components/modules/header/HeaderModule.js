@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 // css
 import './HeaderModule.css';
 import '../../styles/keyframes/fadeIn.css';
-import '../../styles/keyframes/slideDown.css';
+import '../../styles/keyframes/fadeOut.css';
+import '../../styles/keyframes/slideY.css';
+import '../../styles/keyframes/slideX.css';
+import '../../styles/keyframes/slideRightOut.css';
 
 class HeaderModule extends Component {
   render() {    

@@ -1,4 +1,4 @@
-@-webkit-keyframes slideRight {
+@-webkit-keyframes slideX {
     from {
     }
     to {
@@ -6,7 +6,7 @@
     }
 }
 
-@-moz-keyframes slideRight {
+@-moz-keyframes slideX {
     from {
     }
     to {
@@ -14,7 +14,7 @@
     }
 }
 
-@-o-keyframes slideRight {
+@-o-keyframes slideX {
     from {
     }
     to {
@@ -22,7 +22,7 @@
     }
 }
 
-@keyframes slideRight {
+@keyframes slideX {
     from {
     }
     to {
