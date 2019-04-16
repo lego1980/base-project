@@ -15,7 +15,7 @@
     position: absolute;
     display: inline-block;
     top: 0.5rem;
-    left: 6.0rem;
+    left: 3.0rem;
     padding: 1rem 0;
 }
 
@@ -23,7 +23,7 @@
     position: absolute;
     display: inline-block;
     top: 0.5rem;
-    right: 6.0rem;
+    right: 3.0rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -48,9 +48,18 @@
 }
 
 @media screen and (min-width: 760px) {
+    .header-logo {
+        left: 6.0rem;
+    }
+
+    .header-links {
+        right: 6.0rem;
+    }    
+
     .header-links.header-dropdown {
         display: none;
     }
+
     .header-links.header-inline {
         display: inline-block;
     }
