@@ -3,7 +3,7 @@
     padding: 6.0rem 3.0rem;
     transform: translateX(-1000rem);    
     animation: slideX 0.5s forwards;
-    animation-delay: 1.0s;
+    animation-delay: 0.5s;
     z-index: 100;
 }
 

@@ -1,10 +1,14 @@
 // core
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
+// transition group plugin
+import { CSSTransition } from 'react-transition-group';
+
 // css
-import styles from './BaseApp.css';
+import './BaseApp.css';
+import '../../styles/transitionGroup/page.css';
 
 // mudules - components
 import HeaderModule from '../../modules/header/HeaderModule';
@@ -22,6 +26,17 @@ import ErrorView from '../../views/error/ErrorView';
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
 import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
+// routes
+const routes = [
+  { path: '/', name: 'About', Component: HomeView },
+  { path: '/login', name: 'LogIn', Component: LoginView },
+  { path: '/signup', name: 'SignUp', Component: SignUpView },
+  { path: '/account', name: 'Account', Component: AccountView },
+  { path: '/about', name: 'About', Component: AboutView },
+  { path: '/contanct', name: 'Contact', Component: ContactView },
+  { path: '/contact', name: 'Error', Component: ErrorView },
+]
+
 export class BaseApp extends React.Component {
   componentWillMount() {   
     
@@ -37,20 +52,42 @@ export class BaseApp extends React.Component {
 
   render() { 
     return (
-      <BrowserRouter>        
+      <Router>        
         <div>
           <HeaderModule />
-          <Switch>
-            <Route path="/" exact component={HomeView} />
-            <Route path="/login/" exact component={LoginView} /> 
-            <Route path="/signup/" exact component={SignUpView} />
-            <Route path="/account/" exact component={AccountView} />            
-            <Route path="/about/" exact component={AboutView} />
-            <Route path="/contact/" exact component={ContactView} />
-            <Route component={ErrorView} />   
-          </Switch>
+          <div className={"container"}>
+            {routes.map(({ path, Component }) => (
+              <Route key={path} exact path={path}>
+                {({ match }) => (
+                  <CSSTransition
+                    in={match != null}
+                    timeout={300}
+                    classNames="page"
+                    unmountOnExit
+                  >
+                    <div className="page">
+                      <Component />
+                    </div>
+                  </CSSTransition>
+                )}
+              </Route>
+            ))}
+          </div>
+          {
+            /*  DO NOT USE SWITCH WHEN USING TRANSITION GROUP - SWITCH AUTOMATICALLY ROUTES WHEN MATCH          
+            <Switch>
+              <Route path="/" exact component={HomeView} />
+              <Route path="/login/" exact component={LoginView} /> 
+              <Route path="/signup/" exact component={SignUpView} />
+              <Route path="/account/" exact component={AccountView} />            
+              <Route path="/about/" exact component={AboutView} />
+              <Route path="/contact/" exact component={ContactView} />
+              <Route component={ErrorView} />   
+            </Switch> 
+            */
+          }
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
