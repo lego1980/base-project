@@ -58,6 +58,7 @@ export class BaseApp extends React.Component {
   }
 
   componentWillReceiveProps() {
+    console.log("componentWillReceiveProps",this.props.location);
     //When props are updated, update the current path 
     //props supplies us with the location object which has a router location info
     this.setState({ prevDepth: this.getPathDepth(this.props.location) });
@@ -79,13 +80,21 @@ export class BaseApp extends React.Component {
                 <CSSTransition
                   key={location.key}
                   timeout={450}
-                  classNames="pageSlider"
+                  classNames={"pageSlider"}
                 >
-                  <Switch location={location}>
-                    <Route exact path="/" component={HomeView}></Route>
-                    <Route exact path="/signup/" component={SignUpView}></Route>
-                    <Route exact path="/login/" component={LogInView}></Route>
-                  </Switch>
+                  <div
+                    className={
+                      this.getPathDepth(location) - this.state.prevDepth >= 0
+                        ? "left"
+                        : "right"
+                    }
+                  >
+                    <Switch location={location}>
+                      <Route exact path="/" component={HomeView}></Route>
+                      <Route exact path="/signup/" component={SignUpView}></Route>
+                      <Route exact path="/login/" component={LogInView}></Route>
+                    </Switch>
+                  </div>
                 </CSSTransition>
               </TransitionGroup>
           )} /> 
