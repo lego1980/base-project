@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
 // transition group plugin
-import { CSSTransition } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 // css
 import './BaseApp.css';
-import '../../styles/transitionGroup/page.css';
+import '../../styles/pageSlider/pageSlider.css';
 
 // mudules - components
 import HeaderModule from '../../modules/header/HeaderModule';
@@ -16,7 +16,7 @@ import HeaderModule from '../../modules/header/HeaderModule';
 // views - components
 import HomeView from '../../views/home/HomeView';
 import SignUpView from '../../views/signup/SignUpView';
-import LoginView from '../../views/login/LoginView';
+import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView';
 import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
@@ -29,7 +29,7 @@ import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 // routes
 const routes = [
   { path: '/', name: 'About', Component: HomeView },
-  { path: '/login', name: 'LogIn', Component: LoginView },
+  { path: '/login', name: 'LogIn', Component: LogInView },
   { path: '/signup', name: 'SignUp', Component: SignUpView },
   { path: '/account', name: 'Account', Component: AccountView },
   { path: '/about', name: 'About', Component: AboutView },
@@ -38,6 +38,13 @@ const routes = [
 ]
 
 export class BaseApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      prevDepth: this.getPathDepth(this.props.location)
+    };
+  }
+
   componentWillMount() {   
     
     let getRouteOptions = {type:"GET_ROUTE"};  
@@ -50,46 +57,78 @@ export class BaseApp extends React.Component {
     this.props.getUsers(usersOptions);    
   }
 
-  render() { 
-    return (
-      <Router>        
-        <div>
-          <HeaderModule />
-          <div className={"container"}>
-            {routes.map(({ path, Component }) => (
-              <Route key={path} exact path={path}>
-                {({ match }) => (
-                  <CSSTransition
-                    in={match != null}
-                    timeout={300}
-                    classNames="page"
-                    unmountOnExit
-                  >
-                    <div className="page">
-                      <Component />
-                    </div>
-                  </CSSTransition>
-                )}
-              </Route>
-            ))}
-          </div>
-          {
-            /*  DO NOT USE SWITCH WHEN USING TRANSITION GROUP - SWITCH AUTOMATICALLY ROUTES WHEN MATCH          
-            <Switch>
-              <Route path="/" exact component={HomeView} />
-              <Route path="/login/" exact component={LoginView} /> 
-              <Route path="/signup/" exact component={SignUpView} />
-              <Route path="/account/" exact component={AccountView} />            
-              <Route path="/about/" exact component={AboutView} />
-              <Route path="/contact/" exact component={ContactView} />
-              <Route component={ErrorView} />   
-            </Switch> 
-            */
-          }
-        </div>
-      </Router>
-    );
+  componentWillReceiveProps() {
+    //When props are updated, update the current path 
+    //props supplies us with the location object which has a router location info
+    this.setState({ prevDepth: this.getPathDepth(this.props.location) });
   }
+  
+  getPathDepth(loc) {
+    let pathArr = loc.pathname.split("/");
+    pathArr = pathArr.filter(n => n !== "");
+    return pathArr.length;
+  }
+
+  render() {
+    return (
+      <Router> 
+        <div>
+          <HeaderModule/>
+          <Route render={({location}) => (
+              <TransitionGroup>
+                <CSSTransition
+                  key={location.key}
+                  timeout={450}
+                  classNames="pageSlider"
+                >
+                  <Switch location={location}>
+                    <Route exact path="/" component={HomeView}></Route>
+                    <Route exact path="/signup/" component={SignUpView}></Route>
+                    <Route exact path="/login/" component={LogInView}></Route>
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+          )} /> 
+        </div>
+      </Router> 
+    )    
+  }
+
+  // render() { 
+  //   return (
+
+
+  //     <Router>        
+  //       <div>
+  //         <HeaderModule />
+  //         <div className={
+  //           this.getPathDepth(this.props.location) - this.state.prevDepth >= 0
+  //             ? "container left"
+  //             : "containerr right"
+  //           }
+  //         >
+  //           {routes.map(({ path, Component }) => (
+  //             <Route key={path} exact path={path}>
+  //               {({ match }) => (
+  //                 <CSSTransition
+  //                   in={match != null}
+  //                   timeout={300}
+  //                   classNames="page"
+  //                   unmountOnExit
+  //                 >
+  //                   <div className="page">
+  //                     <Component />
+  //                   </div>
+  //                 </CSSTransition>
+  //               )}
+  //             </Route>
+  //           ))}
+  //         </div>
+          
+  //       </div>
+  //     </Router>
+  //   );
+  // }
 }
 
 const mapStateToProps = (state) => {

@@ -1,9 +1,9 @@
 .home-view {
     background-color: rgba(40,44,52,1);
     padding: 6.0rem 3.0rem;
-    transform: translateX(-1000rem);    
+    /* transform: translateX(-1000rem);    
     animation: slideX 0.5s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.5s; */
     z-index: 100;
 }
 

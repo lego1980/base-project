@@ -24,7 +24,7 @@ export class SignUpView extends React.Component {
   
   render() {
     return (
-      <div className={"sign-up-view"}>
+      <div className={"page sign-up-view"}>
         SIGN UP VIEW<br/>
         <p>SIGN UP VIEW p</p>
         <div>SIGN UP VIEW div</div>

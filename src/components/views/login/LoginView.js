@@ -1,14 +1,14 @@
 import React from 'react';
 
 // css
-import './LoginView.css';
+import './LogInView.css';
 import '../../styles/keyframes/fadeIn.css';
 import '../../styles/keyframes/slideX.css';
 
-export default class LoginView extends React.Component {
+export default class LogInView extends React.Component {
   render() {
     return (
-      <div className={"log-in-view"}>
+      <div className={"page log-in-view"}>
         LOG IN VIEW<br/>
         <p>LOG IN VIEW p</p>
         <div>LOG IN VIEW div</div>

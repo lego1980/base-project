@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+
 // app
 import BaseApp from './components/apps/base/BaseApp';
 
@@ -14,7 +15,7 @@ import * as serviceWorker from './serviceWorker';
 const app = document.getElementById('root');
 ReactDOM.render(
     <Provider store={BaseAppStore}>
-        <BaseApp />
+        <BaseApp location={window.location} />
     </Provider>, 
     app
 );

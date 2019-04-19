@@ -26,7 +26,7 @@ export class HomeView extends Component {
 
   render() {
     return (
-      <div className={"home-view"}>
+      <div className={"page home-view"}>
         HOME VIEW<br/>
         <p>HOME VIEW p</p>
         <div>HOME VIEW div</div>
