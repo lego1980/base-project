@@ -14,8 +14,8 @@ import '../../styles/keyframes/slideX.css';
 
 export class HomeView extends Component {
   componentWillMount() {
-    console.log("route HomeView",this.props.route);
-    console.log("route HomeView",this.props.users);
+    //console.log("route HomeView",this.props.route);
+    //console.log("route HomeView",this.props.users);
 
     let routeOptions = {type:"ROUTE_DEFAULT",route:"/"};  
     //this.props.setLocationRoute(routeOptions);

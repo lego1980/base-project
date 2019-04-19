@@ -12,8 +12,8 @@ import '../../styles/keyframes/slideX.css';
 
 export class SignUpView extends React.Component {
   componentWillMount() {
-    console.log("route SignUpView",this.props.route);
-    console.log("route SignUpView",this.props.users);
+    //console.log("route SignUpView",this.props.route);
+    //console.log("route SignUpView",this.props.users);
     
     let routeOptions = {type:"ROUTE_SIGN_UP",route:"/signup/"};  
     //this.props.setLocationRoute(routeOptions);

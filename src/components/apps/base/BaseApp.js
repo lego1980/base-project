@@ -41,11 +41,13 @@ export class BaseApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      prevDepth: this.getPathDepth(this.props.location)
+      // prevDepth: this.getPathDepth(this.props.location)
+      prevPathName: this.getPathName(this.props.location),
+      prevFlow: "right"
     };
   }
 
-  componentWillMount() {   
+  componentWillMount() {  
     
     let getRouteOptions = {type:"GET_ROUTE"};  
     this.props.getLocationRoute(getRouteOptions);
@@ -61,13 +63,49 @@ export class BaseApp extends React.Component {
     console.log("componentWillReceiveProps",this.props.location);
     //When props are updated, update the current path 
     //props supplies us with the location object which has a router location info
-    this.setState({ prevDepth: this.getPathDepth(this.props.location) });
+    //this.setState({ prevDepth: this.getPathDepth(this.props.location) });
+    this.setState({ prevPathName: this.getPathName(this.props.location) });
   }
   
-  getPathDepth(loc) {
-    let pathArr = loc.pathname.split("/");
-    pathArr = pathArr.filter(n => n !== "");
-    return pathArr.length;
+  // getPathDepth(obj) {
+  //   let pathArr = obj.pathname.split("/");
+  //   pathArr = pathArr.filter(n => n !== "");    
+  //   return pathArr.length;
+  // }
+
+  getPathName(obj) {    
+    let location = obj;
+    return location.pathname;
+  }
+
+  getFlow(currentLocation,previousLocation) {
+    // console.log("currentLocation",currentLocation);
+    // console.log("previousLocation",previousLocation);
+    let that = this; 
+    let flow = "right";
+    let prevFlow = that.state.prevFlow;  
+    // if (currentLocation != previousLocation) {
+    //   if (prevFlow == "left") {    
+    //     flow = "right";
+    //   } else {    
+    //     flow = "left";
+    //   }
+    // } else {   
+    //   if (prevFlow == "left") {
+    //     flow = "right";
+    //   } else {
+    //     flow = "left";
+    //   }       
+    // }
+
+    if (prevFlow == "left") {
+      flow = "right";
+    } else {
+      flow = "left";
+    } 
+    that.state.prevPathName = currentLocation;
+    that.state.prevFlow = flow;
+    return flow;
   }
 
   render() {
@@ -82,13 +120,7 @@ export class BaseApp extends React.Component {
                   timeout={450}
                   classNames={"pageSlider"}
                 >
-                  <div
-                    className={
-                      this.getPathDepth(location) - this.state.prevDepth >= 0
-                        ? "left"
-                        : "right"
-                    }
-                  >
+                  <div className={ this.getFlow(location.pathname,this.state.prevPathName) }>
                     <Switch location={location}>
                       <Route exact path="/" component={HomeView}></Route>
                       <Route exact path="/signup/" component={SignUpView}></Route>

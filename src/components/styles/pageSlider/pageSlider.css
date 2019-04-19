@@ -32,12 +32,12 @@
 }
 
 .pageSlider-exit.pageSlider-exit-active.left > .page {
-    transform: translate3d(100%,0,0);
+    transform: translate3d(-100%,0,0);
     transition: transform 300ms linear 150ms;
 }
 
 .pageSlider-exit.pageSlider-exit-active.right > .page {
-    transform: translate3d(-100%,0,0);
+    transform: translate3d(100%,0,0);
     transition: transform 300ms linear 150ms;
 }
 
