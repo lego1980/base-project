@@ -4,11 +4,8 @@ import {
 } from'../../actions/route/RouteActions';
 
 const initialState = {
-    fetching: false,
-    fetched: false,
     type: GET_ROUTE,
-    route: "/",    
-    pathname: "/",
+    location: null,
     error: null
 };
 
@@ -18,8 +15,7 @@ export const routeReducer = (state = initialState, action) => {
             return { 
                 ...state,
                 type : action.type,
-                route : action.route,
-                pathname : window.location.pathname              
+                location : action.location           
             };
         case GET_ROUTE: 
             return { 

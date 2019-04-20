@@ -9,7 +9,7 @@ export const ROUTE_ACTIONS = (dispatch) => {
             dispatch({type: options.type});
         },
         setLocationRoute: (options) => { 
-            dispatch({type: options.type, route: options.route });
+            dispatch({type: options.type, location: options.location });
         }
     }
 }
