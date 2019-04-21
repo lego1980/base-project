@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 // actions
-import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
 import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // css
@@ -12,14 +11,7 @@ import '../../styles/keyframes/slideX.css';
 
 export class SignUpView extends React.Component {
   componentWillMount() {
-    //console.log("route SignUpView",this.props.route);
-    //console.log("route SignUpView",this.props.users);
-    
-    let routeOptions = {type:"ROUTE_SIGN_UP",route:"/signup/"};  
-    //this.props.setLocationRoute(routeOptions);
-
-    let usersOptions = {page:1};  
-    //this.props.getUsers(usersOptions);    
+    console.log("this.props SignUpView",this.props);
   }
   
   render() {
@@ -47,15 +39,11 @@ export class SignUpView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    route: state.route,
     users: state.users
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLocationRoute: (options) => { 
-      ROUTE_ACTIONS(dispatch).setLocationRoute(options);     
-    },
     getUsers: (options) => { 
       USERS_ACTIONS(dispatch).getUsers(options);
     }

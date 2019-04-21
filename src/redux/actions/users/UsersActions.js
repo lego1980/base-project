@@ -20,18 +20,18 @@ export const USERS_ACTIONS = (dispatch) => {
     }
 }
 
-export const USER_ACTIONS = (dispatch) => {
-    return {
-        getUser: (options) => {
-        },
-        updateUser: (options) => {
-        },
-        deleteUser: (options) => {
-        },
-        createUser: (options) => {
-        }
-    }
-}
+// export const USER_ACTIONS = (dispatch) => {
+//     return {
+//         getUser: (options) => {
+//         },
+//         updateUser: (options) => {
+//         },
+//         deleteUser: (options) => {
+//         },
+//         createUser: (options) => {
+//         }
+//     }
+// }
 
 //defined actions
 // export const GET_USERS = (dispatch) => { 

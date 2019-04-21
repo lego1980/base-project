@@ -6,6 +6,10 @@ import '../../styles/keyframes/fadeIn.css';
 import '../../styles/keyframes/slideX.css';
 
 export default class LogInView extends React.Component {
+  componentWillMount() {
+    console.log("this.props LogInView",this.props); 
+  }
+  
   render() {
     return (
       <div className={"page log-in-view"}>

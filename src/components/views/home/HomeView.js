@@ -14,10 +14,11 @@ import '../../styles/keyframes/slideX.css';
 
 export class HomeView extends Component {
   componentWillMount() {
+    console.log("this.props HomeView",this.props); 
     //console.log("route HomeView",this.props.route);
     //console.log("route HomeView",this.props.users);
 
-    let routeOptions = {type:"ROUTE_DEFAULT",route:"/"};  
+    //let routeOptions = {type:"ROUTE_DEFAULT",route:"/"};  
     //this.props.setLocationRoute(routeOptions);
 
     let usersOptions = {page:2};  
@@ -49,7 +50,7 @@ export class HomeView extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    route: state.route,
+    //route: state.route,
     users: state.users
   }
 }

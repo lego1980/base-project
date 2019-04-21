@@ -1,6 +1,8 @@
-//core
+// core
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// redux and router redux
 import { Provider } from 'react-redux';
 
 // app
@@ -12,10 +14,11 @@ import { BaseAppStore } from './redux/stores/base/BaseAppStore';
 // service worker
 import * as serviceWorker from './serviceWorker';
 
+//const history = syncHistoryWithStore(window.history, BaseAppStore);
 const app = document.getElementById('root');
 ReactDOM.render(
     <Provider store={BaseAppStore}>
-        <BaseApp location={window.location} />
+        <BaseApp />
     </Provider>, 
     app
 );

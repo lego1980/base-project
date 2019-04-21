@@ -6,9 +6,6 @@ import { connect } from "react-redux";
 // transition group plugin
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-// Utils
-import { GET_LOCATION_PATH_NAME } from '../../utils/LocationUtils';
-
 // css
 import './BaseApp.css';
 import '../../styles/pageSlider/pageSlider.css';
@@ -33,62 +30,42 @@ import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 export class BaseApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      prevPathName: GET_LOCATION_PATH_NAME(this.props.location),
-      prevFlow: "right"
-    };
   }
 
-  componentWillMount() {    
-    let setRouteOptions = {type:"SET_ROUTE", location: this.props.location};  
-    this.props.setLocationRoute(setRouteOptions);
+  componentWillMount() {
+    //let setRouteOptions = {type:"SET_ROUTE", location: this.props.location};  
+    //this.props.setLocationRoute(setRouteOptions);
 
     let usersOptions = {page:1};  
     this.props.getUsers(usersOptions);     
   } 
-
-  getFlow(currentLocation) {
-    let that = this;    
-    let flow = "right";
-    let prevFlow = that.state.prevFlow;  
-   
-    if (prevFlow == "left") {
-      flow = "right";
-    } else {
-      flow = "left";
-    } 
-
-    // let setPreviousLocationRouteOptions = {type: SET_PREVIOUS_LOCATION_ROUTE, previousPathName: GET_LOCATION_PATH_NAME(this.props.location)};  
-    // this.props.setPreviousLocationRoute(setPreviousLocationRouteOptions);
-
-    // let setFlowRouteOptions = {type: SET_FLOW_ROUTE, flowRoute: flow};  
-    // this.props.setFlowRoute(setFlowRouteOptions);
-
-    that.state.prevPathName = currentLocation;
-    that.state.prevFlow = flow;
-
-    return flow;
-  }
 
   render() {
     return (
       <Router> 
         <div>
           <HeaderModule/>
-          <Route render={({location}) => (
+          <Route render={(props) => (
               <TransitionGroup className="wrapper">
                 <CSSTransition
-                  key={location}
+                  key={props.location.key}
                   timeout={450}
                   classNames={"pageSlider"}
                 >
-                  <div className={ this.getFlow(location.pathname) }>
-                    <Switch location={location}>
-                      <Route exact path="/" component={HomeView}></Route>
-                      <Route exact path="/signup/" component={SignUpView}></Route>
-                      <Route exact path="/login/" component={LogInView}></Route>
-                    </Switch>
-                  </div>
+                  <Switch location={props.location}>
+                    <Route
+                      path='/'
+                      render={(props) => <HomeView {...props} />}
+                    />
+                    <Route
+                      path='/signup/'
+                      render={(props) => <SignUpView {...props} />}
+                    />
+                    <Route
+                      path='/login/'
+                      render={(props) => <LogInView {...props} />}
+                    />
+                  </Switch>
                 </CSSTransition>
               </TransitionGroup>
           )} /> 
@@ -104,7 +81,6 @@ const mapStateToProps = (state) => {
     users: state.users
   }
 }
-
 const mapDispatchToProps = (dispatch) => {
   return {
     setLocationRoute: (options) => { 
