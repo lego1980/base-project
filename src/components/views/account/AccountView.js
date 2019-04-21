@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import styles from './AccountView.css';
+import React from 'react';
+import './AccountView.css';
 
-class AccountView extends Component {
+export default class AccountView extends React.Component {
   render() {
     return (
-        <div className={"AccountView"}>
+        <div className={"page view account-view"}>
           ACCOUNT VIEW
         </div>
     );
   }
 }
-
-export default AccountView;

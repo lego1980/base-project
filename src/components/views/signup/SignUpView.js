@@ -1,19 +1,26 @@
 // core
 import React from 'react';
+import { connect } from "react-redux";
+
+// actions
+import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
+import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // css
+import '../../styles/views/defaultView.css';
 import  './SignUpView.css';
-import '../../styles/keyframes/fadeIn.css';
-import '../../styles/keyframes/slideX.css';
 
-export default class SignUpView extends React.Component {
+export class SignUpView extends React.Component {
   componentWillMount() {
-    console.log("this.props SignUpView",this.props);
   }
-  
+
+  componentDidMount() {    
+    console.log("this.props SignUpView",this.props);     
+  }
+
   render() {
     return (
-      <div className={"page sign-up-view"}>
+      <div className={"page view sign-up-view"}>
         SIGN UP VIEW<br/>
         <p>SIGN UP VIEW p</p>
         <div>SIGN UP VIEW div</div>
@@ -33,3 +40,19 @@ export default class SignUpView extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    route: state.route,
+    users: state.users
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    ...ROUTE_ACTIONS(dispatch), 
+    ...USERS_ACTIONS(dispatch) 
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignUpView);

@@ -28,7 +28,17 @@ import ContactView from '../../views/contact/ContactView';
 import ErrorView from '../../views/error/ErrorView';
 
 export class BaseApp extends React.Component {
-    render() {
+  componentWillMount() {
+    console.log("componentWillMount this.props BaseApp",this.props);   
+    let usersOptions = { page : 2 }; 
+    this.props.getUsers(usersOptions);
+  }
+
+  componentDidMount() {    
+    console.log("componentDidMount this.props BaseApp",this.props); 
+  }  
+  
+  render() {
     return (
       <Router> 
         <div>
@@ -55,6 +65,24 @@ export class BaseApp extends React.Component {
                       path='/login/'
                       exact                      
                       render={(props) => <LogInView {...props} />}
+                    />
+                    <Route
+                      path='/account/'
+                      exact
+                      render={(props) => <AccountView {...props} />}
+                    />
+                    <Route
+                      path='/about/'
+                      exact
+                      render={(props) => <AboutView {...props} />}
+                    />
+                    <Route
+                      path='/contact/'
+                      exact                      
+                      render={(props) => <ContactView {...props} />}
+                    />
+                    <Route               
+                      render={(props) => <ErrorView {...props} />}
                     />
                   </Switch>
                 </CSSTransition>

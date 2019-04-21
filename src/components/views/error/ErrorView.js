@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import styles from './ErrorView.css';
+import React from 'react';
+import './ErrorView.css';
 
-class ErrorView extends Component {
+export default class ErrorView extends React.Component {
   render() {
     return (
-        <div className={"ErrorView"}>
+        <div className={"page view error-view"}>
           ERROR VIEW
         </div>
     );
   }
 }
-
-export default ErrorView;

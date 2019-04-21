@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import styles from './AboutView.css';
+import React from 'react';
+import './AboutView.css';
 
-class AboutView extends Component {
+export default class AboutView extends React.Component {
   render() {
     
     return (
-      <div className={"AboutView"}>
+      <div className={"page view about-view"}>
         ABOUT VIEW
       </div>
     );
   }
 }
-export default AboutView;

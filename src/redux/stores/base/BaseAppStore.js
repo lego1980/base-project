@@ -20,7 +20,7 @@ const BaseAppCombineReducer = combineReducers({
 // create middleware with compose for redux dev tools
 const middleware = compose(
     applyMiddleware(thunk, logger),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
 );
 
 // export BaseStore

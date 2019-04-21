@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './ContactView.css';
+import './ContactView.css';
 
 export default class ContactView extends React.Component {
   render() {
     return (
-      <div className={"ContactView"}>
+      <div className={"page view contact-view"}>
         CONTACT VIEW        
       </div>      
     );
