@@ -4,6 +4,11 @@
     z-index: 100;
 }
 
+li.item {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
 @media screen and (min-width: 760px) {
     .home-view {
         padding: 6.0rem 6.0rem;

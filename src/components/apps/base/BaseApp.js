@@ -29,13 +29,14 @@ import ErrorView from '../../views/error/ErrorView';
 
 export class BaseApp extends React.Component {
   componentWillMount() {
-    console.log("componentWillMount this.props BaseApp",this.props);   
+    //console.log("componentWillMount this.props BaseApp",this.props);   
     let usersOptions = { page : 2 }; 
     this.props.getUsers(usersOptions);
+    return true;
   }
 
   componentDidMount() {    
-    console.log("componentDidMount this.props BaseApp",this.props); 
+    //console.log("componentDidMount this.props BaseApp",this.props); 
   }  
   
   render() {

@@ -13,26 +13,28 @@
 
 .pageSlider-appear,
 .pageSlider-enter  {
-    opacity: 0;
+    /* opacity: 0; */
     transform: translate3d(-100%,0,0);
     z-index: 1;
 }
 
 .pageSlider-appear-active,
 .pageSlider-enter.pageSlider-enter-active  {
-    opacity: 1;
+    /* opacity: 1; */
     transform: translate3d(0,0,0);
-    transition: transform 300ms linear 150ms, opacity 150ms linear 150ms;
+    transition: transform 300ms linear 150ms;
 }
 
 .pageSlider-exit {
-    opacity: 0;
+    /* opacity: 0; */
     transform: translate3d(0,0,0);
-    transition: transform 300ms linear 150ms, opacity 150ms linear 150ms;
+    transition: transform 300ms linear 150ms;
+    z-index: 0;
 }
 
 .pageSlider-exit.pageSlider-exit-active {
-    opacity: 0;
+    /* opacity: 0; */
     transform: translate3d(100%,0,0);
-    transition: transform 300ms linear 150ms, opacity 150ms linear 150ms;
+    transition: transform 300ms linear 150ms;
+    z-index: 0;
 } 

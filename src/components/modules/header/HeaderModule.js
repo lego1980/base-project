@@ -1,5 +1,5 @@
 // core
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // css
@@ -10,7 +10,7 @@ import '../../styles/keyframes/slideY.css';
 import '../../styles/keyframes/slideX.css';
 import '../../styles/keyframes/slideRightOut.css';
 
-class HeaderModule extends Component {
+export default class HeaderModule extends React.Component {
   render() {    
     return (
       <div className={"header-module"}>
@@ -29,4 +29,3 @@ class HeaderModule extends Component {
     );
   }
 }
-export default HeaderModule;

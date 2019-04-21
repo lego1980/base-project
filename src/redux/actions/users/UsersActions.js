@@ -13,6 +13,10 @@ export const USERS_ACTIONS = (dispatch) => {
             dispatch({type: GET_USERS_PENDING});
             axios.get("https://reqres.in/api/users?page="+options.page).then((response) => {
                 dispatch({type: GET_USERS_FULFILLED, payload: response.data });
+                // setTimeout(() => {
+                //     dispatch({type: GET_USERS_FULFILLED, payload: response.data });
+                // }, 10000);
+            
             }).catch((err) => {
                 dispatch({type: GET_USERS_REJECTED, payload: err });
             });
