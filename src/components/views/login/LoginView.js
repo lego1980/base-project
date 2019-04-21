@@ -1,11 +1,15 @@
 import React from 'react';
+import { connect } from "react-redux";
+
+// actions
+import { ROUTE_ACTIONS } from'../../../redux/actions/route/RoutesActions';
 
 // css
 import './LogInView.css';
 import '../../styles/keyframes/fadeIn.css';
 import '../../styles/keyframes/slideX.css';
 
-export default class LogInView extends React.Component {
+export class LogInView extends React.Component {
   componentWillMount() {
     console.log("this.props LogInView",this.props); 
   }
@@ -34,4 +38,16 @@ export default class LogInView extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    route: state.route
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    ...ROUTE_ACTIONS(dispatch) 
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LogInView);

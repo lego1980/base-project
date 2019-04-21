@@ -7,12 +7,12 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 // reducers
-//import { routeReducer } from'../../reducers/route/RouteReducer';
+import { routeReducer } from'../../reducers/route/RouteReducer';
 import { usersReducer } from'../../reducers/users/UsersReducer';
 
 // create base app combine reducers
 const BaseAppCombineReducer = combineReducers({
-    //route : routeReducer,
+    route : routeReducer,
     users : usersReducer
 
 });

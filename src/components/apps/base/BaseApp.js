@@ -3,6 +3,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
+// actions
+import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
+import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
+
 // transition group plugin
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -23,24 +27,8 @@ import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
 import ErrorView from '../../views/error/ErrorView';
 
-// actions
-import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
-import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
-
 export class BaseApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentWillMount() {
-    //let setRouteOptions = {type:"SET_ROUTE", location: this.props.location};  
-    //this.props.setLocationRoute(setRouteOptions);
-
-    let usersOptions = {page:1};  
-    this.props.getUsers(usersOptions);     
-  } 
-
-  render() {
+    render() {
     return (
       <Router> 
         <div>
@@ -55,14 +43,17 @@ export class BaseApp extends React.Component {
                   <Switch location={props.location}>
                     <Route
                       path='/'
+                      exact
                       render={(props) => <HomeView {...props} />}
                     />
                     <Route
                       path='/signup/'
+                      exact
                       render={(props) => <SignUpView {...props} />}
                     />
                     <Route
                       path='/login/'
+                      exact                      
                       render={(props) => <LogInView {...props} />}
                     />
                   </Switch>
@@ -81,14 +72,11 @@ const mapStateToProps = (state) => {
     users: state.users
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
-  return {
-    setLocationRoute: (options) => { 
-      ROUTE_ACTIONS(dispatch).setLocationRoute(options);   
-    },
-    getUsers: (options) => { 
-      USERS_ACTIONS(dispatch).getUsers(options);
-    }
+  return { 
+    ...ROUTE_ACTIONS(dispatch), 
+    ...USERS_ACTIONS(dispatch) 
   }
 }
 

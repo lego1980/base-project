@@ -1,11 +1,13 @@
 import { 
     GET_ROUTE, 
     SET_ROUTE
-} from'../../actions/route/RouteActions';
+} from'../../actions/route/RoutesActions';
 
 const initialState = {
     type: GET_ROUTE,
     location: null,
+    match: null,
+    history: null,
     error: null
 };
 

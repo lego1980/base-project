@@ -1,28 +1,19 @@
 // core
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-
-// actions
-import { ROUTE_ACTIONS } from '../../../redux/actions/route/RouteActions';
-import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
+import React from 'react';
 
 // css
 import './HomeView.css';
 import '../../styles/keyframes/fadeIn.css';
 import '../../styles/keyframes/slideX.css';
 
-
-export class HomeView extends Component {
+export default class HomeView extends React.Component {
   componentWillMount() {
-    console.log("this.props HomeView",this.props); 
-    //console.log("route HomeView",this.props.route);
-    //console.log("route HomeView",this.props.users);
-
-    //let routeOptions = {type:"ROUTE_DEFAULT",route:"/"};  
-    //this.props.setLocationRoute(routeOptions);
-
     let usersOptions = {page:2};  
-    //this.props.getUsers(usersOptions);      
+    this.props.getUsers(usersOptions);  
+  }
+
+  componentDidMount() {    
+    console.log("this.props HomeView",this.props);     
   }
 
   render() {
@@ -47,23 +38,3 @@ export class HomeView extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    //route: state.route,
-    users: state.users
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setLocationRoute: (options) => { 
-      ROUTE_ACTIONS(dispatch).setLocationRoute(options);     
-    },
-    getUsers: (options) => { 
-      USERS_ACTIONS(dispatch).getUsers(options);
-    }
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(HomeView);

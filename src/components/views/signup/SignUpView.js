@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-
-// actions
-import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
+// core
+import React from 'react';
 
 // css
 import  './SignUpView.css';
 import '../../styles/keyframes/fadeIn.css';
 import '../../styles/keyframes/slideX.css';
 
-export class SignUpView extends React.Component {
+export default class SignUpView extends React.Component {
   componentWillMount() {
     console.log("this.props SignUpView",this.props);
   }
@@ -36,18 +33,3 @@ export class SignUpView extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    users: state.users
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getUsers: (options) => { 
-      USERS_ACTIONS(dispatch).getUsers(options);
-    }
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(SignUpView);
