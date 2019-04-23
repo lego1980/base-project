@@ -1,7 +1,6 @@
 .wrapper {
     position: absolute;
     top: 0px;
-    bottom: 0px;
     left: 0px;
     right: 0px;  
     transform: translateX(-1000rem);
@@ -14,7 +13,6 @@
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 100%;
 }
 
 .pageSlider-appear,

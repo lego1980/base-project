@@ -11,7 +11,7 @@
 .bars-loader {
   color: rgba(97,218,251,1);
   text-indent: -9999em;
-  margin: 35% auto;
+  margin: 50% auto;
   position: absolute;
   font-size: 11px;
   -webkit-transform: translateZ(0);
@@ -68,3 +68,9 @@
     height: 5em;
   }
 }
+
+/* @media screen and (min-width: 760px) {
+  .bars-loader {
+    margin: 35% auto;
+  }
+} */
