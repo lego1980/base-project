@@ -15,26 +15,6 @@ export default class DropDown extends React.Component {
     };
   }
 
-  getInitialState = () => {
-      return {
-          hover: false
-      };
-  }
-
-  onMouseEnterHandler = (event) => {
-      this.setState({
-        open: event.target.innerText,
-      });
-      console.log('enter',event);
-  }
-
-  onMouseLeaveHandler = (event) => {
-      // this.setState({
-      //   open: null,
-      // });
-      console.log('leave',event);
-  }
-
   openList = () => {
     return (
       <ul className={"dropdown-list"}>
@@ -69,7 +49,7 @@ export default class DropDown extends React.Component {
           this.state.arrayList.map((name, index) => {
             return (
               <div className={"dropdown-item"} key={`${name}-${index}`}>
-                <span className={"dropdown-name"} onMouseLeave={this.onMouseLeaveHandler} onMouseEnter={ this.openDropDown } onClick={(event) => this.openDropDown(event) }>
+                <span className={"dropdown-name"} onClick={(event) => this.openDropDown(event) }>
                   { name }
                 </span>
                   { name === this.state.open ? this.openList() : null }
