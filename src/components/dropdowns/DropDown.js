@@ -10,7 +10,6 @@ export default class DropDown extends React.Component {
   constructor() {
     super();
     this.state = {
-      arrayList: ['Matt', 'Maxx', 'Newton'],
       arrayList: ['Dropdown'],
       open: null
     };
@@ -26,14 +25,14 @@ export default class DropDown extends React.Component {
       this.setState({
         open: event.target.innerText,
       });
-      console.log('enter');
+      console.log('enter',event);
   }
 
   onMouseLeaveHandler = (event) => {
-      this.setState({
-        open: null,
-      });
-      console.log('leave');
+      // this.setState({
+      //   open: null,
+      // });
+      console.log('leave',event);
   }
 
   openList = () => {
@@ -48,9 +47,18 @@ export default class DropDown extends React.Component {
   }
 
   openDropDown = (event) => {
-    console.log(event.target.innerText);
+    this.setState({ 
+      open: event.target.innerText 
+    }, () => {
+      document.addEventListener('click', this.closeDropDown);
+    });
+  }
+
+  closeDropDown = (event) => {
     this.setState({
-      open: event.target.innerText,
+      open: null,
+    }, () => {
+      document.removeEventListener('click', this.closeDropDown);
     });
   }
 
@@ -61,7 +69,7 @@ export default class DropDown extends React.Component {
           this.state.arrayList.map((name, index) => {
             return (
               <div className={"dropdown-item"} key={`${name}-${index}`}>
-                <span className={"dropdown-name"} onMouseLeave={this.onMouseLeaveHandler} onMouseEnter={ this.openDropDown } onClick={ this.openDropDown }>
+                <span className={"dropdown-name"} onMouseLeave={this.onMouseLeaveHandler} onMouseEnter={ this.openDropDown } onClick={(event) => this.openDropDown(event) }>
                   { name }
                 </span>
                   { name === this.state.open ? this.openList() : null }
