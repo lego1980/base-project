@@ -1,0 +1,25 @@
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+}
+
+.dropdown-item .dropdown-name {
+    cursor: pointer;
+}
+
+.dropdown-item .dropdown-name {
+    color: rgba(97,218,251,1);
+    text-decoration: none;
+}
+
+.dropdown-list { 
+    position: absolute;  
+    list-style-type: none;
+    background-color: rgb(0,0,0,0.7); 
+    border: 1px solid rgba(0,0,0,1);
+}
+
+.dropdown-list li {
+    color: rgba(255,255,255,1);
+}

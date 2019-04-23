@@ -1,14 +1,14 @@
-.loader {
+.bar-loader {
     height: 4px;
     width: 100%;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     background-color: rgba(221,221,221,1);
     top: 5.0rem;
     z-index: 200;
   }
 
-  .loader:before{
+ .bar-loader:before{
     display: block;
     position: absolute;
     content: "";
@@ -19,9 +19,14 @@
     animation: loading 2s linear infinite;
   }
 
-  .loader.done:before{
-    animation: loading 2s linear forwards;
+  .bar-loader.done:before{
+    animation: none; /*loading 2s linear forwards;*/
   }
+
+  .bar-loader.done {    
+    background-color: rgba(40,44,52,1);
+    transition: background-color 500ms linear;
+  } 
   
   @keyframes loading {
       from {left: -200px; width: 30%;}

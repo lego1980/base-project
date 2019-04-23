@@ -8,6 +8,7 @@ import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // components
 import BarLoader from '../../../components/loaders/BarLoader';
+import BarsLoader from '../../../components/loaders/BarsLoader';
 
 // css
 import '../../styles/views/defaultView.css';
@@ -40,9 +41,7 @@ export class HomeView extends React.Component {
         <BarLoader done={(complete) ? "done" : ""} /> 
         <div className={"page view home-view"}>          
           HOME VIEW<br/>
-          {
-            console.log("props",props)
-          }
+          <BarsLoader done={(complete) ? "done" : ""} /> 
           {             
             complete === true
             ?

@@ -1,0 +1,16 @@
+.account-view {
+    background-color: rgba(40,44,52,1);
+    padding: 6.0rem 3.0rem;
+    z-index: 100;
+}
+
+section.item {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@media screen and (min-width: 760px) {
+    .account-view {
+        padding: 6.0rem 6.0rem;
+    }
+}

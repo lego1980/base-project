@@ -2,6 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// components
+import DropDown from '../../dropdowns/DropDown';
+
 // css
 import './HeaderModule.css';
 import '../../styles/keyframes/fadeIn.css';
@@ -17,13 +20,15 @@ export default class HeaderModule extends React.Component {
         <div className={"header-logo"}>
           <Link to="/">HeaderLogo</Link>
         </div>   
-        <ul className={"header-links header-dropdown"}>
-          <li><Link to="/">Dropdown</Link></li>
-        </ul>       
+        <div className={"header-links header-dropdown"}>
+          {/* <li><Link to="/">Dropdown</Link></li> */}
+          <DropDown />
+        </div>       
         <ul className={"header-links header-inline"}>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/signup/">Sign Up</Link></li>
           <li><Link to="/login/">Login</Link></li>
+          <li><Link to="/account/">Account</Link></li>
         </ul>        
       </div>
     );
