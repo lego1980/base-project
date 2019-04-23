@@ -1,4 +1,8 @@
+// core
 import React from 'react';
+
+// css
+import '../../styles/views/defaultView.css';
 import './ErrorView.css';
 
 export default class ErrorView extends React.Component {
