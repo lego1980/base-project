@@ -8,6 +8,9 @@
     opacity: 0;
     background: rgba(0,0,0,1.0);
     animation: slideY 0.5s forwards, fadeIn 1.0s forwards;
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
     z-index: 1000;
 }
 
@@ -16,10 +19,19 @@
     display: inline-block;
     top: 0.5rem;
     left: 3.0rem;
-    padding: 1rem 0;
+    padding: 0;
     transform: translateX(-1000rem);
     animation: slideX 0.5s forwards;
     animation-delay: 0.5s;
+}
+
+.header-logo a img.base-logo {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    height: 5.0rem;
+    animation: logo-spin infinite 20s linear;
 }
 
 .header-links {
@@ -67,6 +79,15 @@
     margin-right: 5px;
 }
 
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (min-width: 760px) {
     .header-logo {
         left: 6.0rem;
@@ -78,6 +99,7 @@
 
     .header-links li {
         padding: 1.0rem;
+        margin-right: 2.5rem;
     }
 
     .header-links.header-dropdown {

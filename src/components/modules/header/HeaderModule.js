@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 // components
 import DropDown from '../../dropdowns/DropDown';
 
+// images
+import logo from '../../../images/logo.svg';
+
 // css
 import './HeaderModule.css';
 import '../../styles/keyframes/fadeIn.css';
@@ -18,7 +21,7 @@ export default class HeaderModule extends React.Component {
     return (
       <div className={"header-module"}>
         <div className={"header-logo"}>
-          <Link to="/">HeaderLogo</Link>
+          <Link to="/"><img src={logo} className="base-logo" alt="logo" /></Link>
         </div>   
         <div className={"header-links header-dropdown"}>
           <DropDown />
