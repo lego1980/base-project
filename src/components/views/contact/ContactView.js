@@ -2,7 +2,7 @@
 import React from 'react';
 
 // css
-import '../../styles/views/defaultView.css';
+import '../../styles/views/globalView.css';
 import './ContactView.css';
 
 export default class ContactView extends React.Component {

@@ -7,7 +7,7 @@ import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // css
-import '../../styles/views/defaultView.css';
+import '../../styles/views/globalView.css';
 import  './SignUpView.css';
 
 export class SignUpView extends React.Component {

@@ -11,7 +11,7 @@ import BarLoader from '../../../components/loaders/BarLoader';
 import BarsLoader from '../../../components/loaders/BarsLoader';
 
 // css
-import '../../styles/views/defaultView.css';
+import '../../styles/views/globalView.css';
 import '../../styles/keyframes/fadeIn.css';
 import './HomeView.css';
 
