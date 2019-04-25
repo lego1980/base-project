@@ -26,7 +26,7 @@
     position: absolute;
     display: inline-block;
     top: 0.5rem;
-    right: 3.0rem;
+    right: 1.0rem;
     list-style: none;
     margin: 0;
     padding: 0;    
@@ -47,7 +47,7 @@
 }
 
 .header-links li {
-    padding: 1rem;
+    padding: 2.0rem;
     display: inline-block;
 }
 
@@ -56,8 +56,15 @@
 }
 
 .header-links li a {
+    font-size: 1.5rem;
     color: rgba(97,218,251,1);
     text-decoration: none;
+}
+
+.icon::before {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
 }
 
 @media screen and (min-width: 760px) {
@@ -68,6 +75,10 @@
     .header-links {
         right: 6.0rem;
     }    
+
+    .header-links li {
+        padding: 1.0rem;
+    }
 
     .header-links.header-dropdown {
         opacity: 1;

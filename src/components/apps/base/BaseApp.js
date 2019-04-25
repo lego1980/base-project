@@ -12,6 +12,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 // css
 import './BaseApp.css';
+import '../../styles/fonts/base.css';
 import '../../styles/pageSlider/pageSlider.css';
 import '../../styles/keyframes/slideY.css';
 

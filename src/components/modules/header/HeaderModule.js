@@ -24,10 +24,10 @@ export default class HeaderModule extends React.Component {
           <DropDown />
         </div>       
         <ul className={"header-links header-inline"}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/signup/">Sign Up</Link></li>
-          <li><Link to="/login/">Login</Link></li>
-          <li><Link to="/account/">Account</Link></li>
+          <li><Link to="/" className="icon icon-home">Home</Link></li>
+          <li><Link to="/signup/" className="icon icon-pen">Sign Up</Link></li>
+          <li><Link to="/login/" className="icon icon-signin">Login</Link></li>
+          <li><Link to="/account/" className="icon icon-settings">Account</Link></li>
         </ul>        
       </div>
     );

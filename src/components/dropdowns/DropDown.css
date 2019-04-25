@@ -1,11 +1,12 @@
 .dropdown-wrapper {
     position: relative;
     display: inline-block;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .dropdown-item .dropdown-name {
     cursor: pointer;
+    font-size: 2.5rem;
 }
 
 .dropdown-item .dropdown-name {
@@ -14,7 +15,8 @@
 }
 
 .dropdown-list { 
-    position: absolute;  
+    position: absolute;
+    right: 0;  
     list-style-type: none;
     padding: 0;
     margin: 0;
