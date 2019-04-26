@@ -15,9 +15,9 @@ export class LogInView extends React.Component {
     return (
       <main className={"page view log-in-view"}>
         <h1>LOG IN VIEW</h1>
-        <form noValidate>
-          <input type="text" name="username" placeholder="username" />
-          <input type="password" name="password" placeholder="password" />
+        <form>
+          <input type="text" name="username" placeholder="username" required />
+          <input type="password" name="password" placeholder="password" required />
           <input type="submit" value="LOG IN" />
           <input type="reset" value="CLEAR" />
         </form>
