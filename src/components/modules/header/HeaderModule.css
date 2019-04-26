@@ -102,6 +102,10 @@
         margin-right: 2.5rem;
     }
 
+    .header-links li:last-child {
+        margin-right: 0;
+    }
+
     .header-links.header-dropdown {
         opacity: 1;
         transform: translateX(1000rem);

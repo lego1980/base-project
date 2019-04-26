@@ -4,45 +4,35 @@ import { connect } from "react-redux";
 
 // actions
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
-import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
+//import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // components
 import BarLoader from '../../../components/loaders/BarLoader';
 import BarsLoader from '../../../components/loaders/BarsLoader';
 
 // css
-import '../../styles/views/globalView.css';
-import '../../styles/keyframes/fadeIn.css';
+import '../../styles/global/globalView.css';
 import './HomeView.css';
 
 export class HomeView extends React.Component {
-  componentWillMount() {
-  }
-
-  componentDidMount() {     
-  }
-  
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.users.fetched && !nextProps.users.fetching) {
-      //console.log("SHOW PAGE");
-    }
-
-    //console.log("this.props HomeView",this.props.users); 
+    console.log("shouldComponentUpdate",nextProps,nextState);
+    // if (nextProps.users.fetched && !nextProps.users.fetching) {      
+    // }
     return true;
   }
   
   render() {
-    console.log("render",this.props);
-    let props = this.props;
-    let complete = (props.users.fetched && !props.users.fetching) ? true : false;
+    //let props = this.props;
+    let complete = false; // (props.users.fetched && !props.users.fetching) ? true : false;
 
     return (
-      <div>
+      <main>
         <BarLoader done={(complete) ? "done" : ""} /> 
         <div className={"page view home-view"}>          
-          HOME VIEW<br/>
+          <h1>HOME VIEW</h1>
           <BarsLoader done={(complete) ? "done" : ""} /> 
-          {             
+          {/* {             
             complete === true
             ?
               props.users.users.data.map((user, index) => {
@@ -50,24 +40,22 @@ export class HomeView extends React.Component {
               })
             : 
               null
-          }
+          } */}
         </div>
-      </div>
+      </main>
     )  
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    route: state.route,
-    users: state.users
+    route: state.route
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    ...ROUTE_ACTIONS(dispatch), 
-    ...USERS_ACTIONS(dispatch) 
+    ...ROUTE_ACTIONS(dispatch)
   }
 }
 

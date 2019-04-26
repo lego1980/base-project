@@ -2,7 +2,8 @@
 import React from 'react';
 
 // css
-import '../../styles/views/globalView.css';
+import '../../styles/global/globalView.css';
+import '../../styles/global/globalForm.css';
 import './DefaultView.css';
 
 export default class DefaultView extends React.Component {

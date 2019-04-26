@@ -11,7 +11,8 @@ import BarLoader from '../../../components/loaders/BarLoader';
 import BarsLoader from '../../../components/loaders/BarsLoader';
 
 // css
-import '../../styles/views/globalView.css';
+import '../../styles/global/globalView.css';
+import '../../styles/global/globalForm.css';
 import './AccountView.css';
 
 export class AccountView extends React.Component {
