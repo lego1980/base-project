@@ -1,4 +1,23 @@
-input {
+form {
+    max-width: 25rem;
+    display: block;
+    margin: 10rem auto;
+}
+
+form h1 {    
+    width: 24rem;
+    text-align: center;
+    font-size: 2.5rem;
+    display: block; 
+    font-weight: 100;
+    padding: 0;
+    margin: 1rem;  
+}
+
+input,
+a.link-button {
+    width: 21rem;
+    display: inline-block;    
     padding: 1rem;
     margin: 1rem;
     border: none;
@@ -12,13 +31,26 @@ input::placeholder {
 
 input[type="button"],
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+a.link-button {
+    width: 23rem;
     cursor: pointer;
     background-color: rgba(97,218,251,1);
 }
 
-input[type="button"],
+a.link-button {
+    text-align: center;
+    padding: 1rem 0;
+    background: transparent;
+}
+
+input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
+    background-color: rgba(190,240,253,1);
+}
+
+a.link-button:hover {
+    color: rgba(0,0,0,1);
     background-color: rgba(190,240,253,1);
 }

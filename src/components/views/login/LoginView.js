@@ -15,13 +15,14 @@ export class LogInView extends React.Component {
   render() {
     return (
       <main className={"page view log-in-view"}>
-        <h1>LOG IN VIEW</h1>
+        
         <form>
+          <h1>User Login</h1>
           <input type="text" name="username" placeholder="username" required />
           <input type="password" name="password" placeholder="password" required />
           <input type="submit" value="LOG IN" />
-          <input type="reset" value="CLEAR" />
-          <Link to="/register/" className="">REGISTER</Link>
+          {/* <input type="reset" value="CLEAR" /> */}
+          <Link to="/register/" className={"link-button"}>REGISTER</Link>
         </form>
       </main>
     )

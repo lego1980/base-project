@@ -15,14 +15,15 @@ export class RegisterView extends React.Component {
   render() {
     return (
       <main className={"page view sign-up-view"}>
-        <h1>REGISTER VIEW</h1>
-        <form>
+        
+        <form className={"form"}>
+          <h1>Create Account</h1>
           <input type="text" name="username" placeholder="username" required />
           <input type="password" name="password" placeholder="password" required />
           <input type="password" name="confirmPassword" placeholder="confirm password" required />
-          <input type="submit" value="SIGN IN" />
-          <input type="reset" value="CLEAR" />
-          <Link to="/login/" className="">LOG IN</Link>
+          <input type="submit" value="GET STARTED" />
+          {/* <input type="reset" value="CLEAR" /> */}
+          <Link to="/login/" className="link-button">LOG IN</Link>
         </form>
       </main>
     )
