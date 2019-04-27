@@ -21,7 +21,7 @@ import HeaderModule from '../../modules/header/HeaderModule';
 
 // views - components
 import HomeView from '../../views/home/HomeView';
-import SignUpView from '../../views/signup/SignUpView';
+import RegisterView from '../../views/register/RegisterView';
 import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView';
 import AboutView from '../../views/about/AboutView';
@@ -59,9 +59,9 @@ export class BaseApp extends React.Component {
                       render={(props) => <HomeView {...props} />}
                     />
                     <Route
-                      path='/signup/'
+                      path='/register/'
                       exact
-                      render={(props) => <SignUpView {...props} />}
+                      render={(props) => <RegisterView {...props} />}
                     />
                     <Route
                       path='/login/'

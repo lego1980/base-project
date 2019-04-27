@@ -28,9 +28,9 @@ export default class HeaderModule extends React.Component {
         </div> 
         <nav>      
           <ul className={"header-links header-inline"}>
-            <li><Link to="/" className="icon icon-home">Home</Link></li>
-            <li><Link to="/signup/" className="icon icon-pen">Sign Up</Link></li>
-            <li><Link to="/login/" className="icon icon-signin">Login</Link></li>
+            <li><Link to="/" className="icon icon-home">HOME</Link></li>
+            <li><Link to="/register/" className="icon icon-pen">REGISTER</Link></li>
+            <li><Link to="/login/" className="icon icon-signin">LOG IN</Link></li>
             {/* <li><Link to="/account/" className="icon icon-settings">Account</Link></li> */}
           </ul> 
         </nav>       

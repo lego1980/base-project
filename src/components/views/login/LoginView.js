@@ -1,5 +1,6 @@
 // core
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
 // actions
@@ -20,6 +21,7 @@ export class LogInView extends React.Component {
           <input type="password" name="password" placeholder="password" required />
           <input type="submit" value="LOG IN" />
           <input type="reset" value="CLEAR" />
+          <Link to="/register/" className="">REGISTER</Link>
         </form>
       </main>
     )
