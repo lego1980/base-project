@@ -20,7 +20,8 @@ import '../../styles/keyframes/slideY.css';
 import HeaderModule from '../../modules/header/HeaderModule';
 
 // views - components
-import HomeView from '../../views/home/HomeView';
+//import HomeView from '../../views/home/HomeView';
+import ParallaxView from '../../views/parallax/ParallaxView';
 import RegisterView from '../../views/register/RegisterView';
 import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView';
@@ -56,7 +57,7 @@ export class BaseApp extends React.Component {
                     <Route
                       path='/'
                       exact
-                      render={(props) => <HomeView {...props} />}
+                      render={(props) => <ParallaxView {...props} />}
                     />
                     <Route
                       path='/register/'

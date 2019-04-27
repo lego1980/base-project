@@ -1,0 +1,115 @@
+.parallax-view {
+    padding: 5.0rem 0 0;
+}
+
+/* 
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    opacity: 0.65;
+    background-position: center;
+    background-size: cover;
+} 
+*/
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}  
+
+.bgimg-1 {
+    background-image: url("../../../images/parallax/img_parallax.jpg");
+    height: 30rem;
+}
+  
+.bgimg-2 {
+    background-image: url("../../../images/parallax/img_parallax2.jpg");
+    min-height: 20rem;
+}
+  
+.bgimg-3 {
+    background-image: url("../../../images/parallax/img_parallax3.jpg");
+    min-height: 20rem;
+}
+  
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+  
+.caption span.border {
+    background-color: rgba(40,44,52,1);
+    color:  rgba(255,255,255,1);
+    padding: 1.8rem;
+    font-size: 2.5rem;
+    letter-spacing: 1rem;
+}
+  
+h3 {
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+}
+
+.box1 {
+    color: rgba(255,255,255,1);
+    background-color: rgba(40,44,52,1);
+    text-align:center;
+    padding: 1rem 1rem;
+}
+
+.box2,
+.box3 {
+    position: relative;
+}
+
+.inner-box {
+    color: #ddd;
+    background-color: rgba(40,44,52,1);
+    text-align: center;
+    padding: 1rem 1rem;
+}
+
+.inner-span {
+    background-color: transparent;
+    font-size: 2.5rem;
+    color: #f7f7f7;
+}
+
+@media screen and (min-width: 760px) {
+    .parallax-view {
+        padding: 5.0rem 0 0;
+    }
+    
+    .bgimg-1 {
+        height: 60rem;
+    }
+    
+    .bgimg-2 {
+        min-height: 40rem;
+    }
+    
+    .bgimg-3 {
+        min-height: 40rem;
+    }
+
+    .box1,
+    .inner-box {
+        padding: 5rem 8rem;
+    }    
+} 
+
+/* Turn off parallax scrolling for tablets and phones */
+/* https://www.w3schools.com/howto/howto_css_parallax.asp */
+/* @media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+} */
+  

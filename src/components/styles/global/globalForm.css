@@ -1,7 +1,9 @@
 form {
     max-width: 25rem;
     display: block;
-    margin: 10rem auto;
+    margin: 5rem auto;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 form h1 {    
@@ -16,10 +18,15 @@ form h1 {
 
 input,
 a.link-button {
+    font-family: inherit; /* inherit for other browser */
+    font-size: inherit; /* inherit for other browser */
+    -moz-appearance: none; /* Safari iphone */
+    -webkit-appearance: none; /* Mozilla */
     width: 21rem;
     display: inline-block;    
     padding: 1rem;
     margin: 1rem;
+    border-radius: 0; /* Safari iphone */
     border: none;
     outline: none;
     box-shadow: none; /* FF - red error shadow */
