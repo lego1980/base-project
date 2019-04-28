@@ -21,7 +21,7 @@ import HeaderModule from '../../modules/header/HeaderModule';
 
 // views - components
 //import HomeView from '../../views/home/HomeView';
-import ParallaxView from '../../views/parallax/ParallaxView.1';
+import ParallaxView from '../../views/parallax/ParallaxView.2';
 import RegisterView from '../../views/register/RegisterView';
 import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView';
@@ -42,12 +42,13 @@ export class BaseApp extends React.Component {
   }  
   
   render() {
-    return (
+    return (     
       <Router> 
         <div>
           <HeaderModule/>
           <Route render={(props) => (
-              <TransitionGroup className="wrapper">
+              // parallax <TransitionGroup className="wrapper">
+              <TransitionGroup>
                 <CSSTransition
                   key={props.location.key}
                   timeout={450}

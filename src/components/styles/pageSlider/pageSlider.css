@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -6,7 +6,7 @@
     transform: translateX(-1000rem);
     animation: slideY 0.5s forwards;
     animation-delay: 0.5s;  
-}
+} */
 
 .page {
     position: absolute;
