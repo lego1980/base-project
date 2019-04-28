@@ -1,0 +1,176 @@
+.parallax-view {
+    padding: 5.0rem 0 0;
+    /* The height needs to be set to a fixed value for the effect to work.
+    * 100vh is the full height of the viewport. */
+    height: 100vh;
+    /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+    overflow-x: hidden;
+    /* Enable scrolling on the page. */
+    overflow-y: auto;
+    /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+    -webkit-perspective: 2px;
+    perspective: 2px;
+}
+
+.section.parallax {
+    position: relative;
+    height: 100vh;
+    display: block;
+    color: rgba(255,255,255,1);
+    overflow: hidden;
+}
+
+.section {
+    position: relative;
+    height: 100vh;
+    display: block;
+    color: rgba(255,255,255,1);
+}
+
+.section .inner-box {
+    background: rgba(40,44,52,1);
+}
+  
+.parallax::after {
+    /* Display and position the pseudo-element */
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.65;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Move the pseudo-element back away from the camera,
+        * then scale it back up to fill the viewport.
+        * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+    transform: translateZ(-1px) scale(1.5);
+    /* Force the background image to fill the whole element. */
+    background-size: cover;
+    /* Keep the image from overlapping sibling elements. */ 
+    z-index: -1;    
+}
+
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bgimg-1::after {
+    background-image: url("../../../images/parallax/img_parallax.jpg");
+}
+
+.bgimg-2::after {
+    background-image: url("../../../images/parallax/img_parallax2.jpg");
+}
+
+.bgimg-3::after {
+    background-image: url("../../../images/parallax/img_parallax3.jpg");
+}
+
+.inner-box {
+    color: rgba(255,255,255,1);
+    background-color: rgba(40,44,52,1);
+    text-align: center;
+    padding: 3rem 3rem;
+}
+
+.inner-box p {
+    font-weight: 100;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+  
+.caption span.border {
+    background-color: rgba(40,44,52,0.7);
+    color:  rgba(255,255,255,1);
+    padding: 1.8rem;
+    font-size: 2.5rem;
+    letter-spacing: 1rem;
+}
+
+@media screen and (min-width: 760px) {
+    .parallax-view {
+        padding: 5.0rem 0 0;
+        overflow: hidden;
+        height: auto;
+        -webkit-perspective: none;
+        perspective: none;
+    }
+    
+    .parallax::after,
+    .bgimg-1::after, 
+    .bgimg-2::after, 
+    .bgimg-3::after {
+        display: none;
+        overflow: hidden;
+    }
+    
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        position: relative;
+        min-height: 60rem;
+        opacity: 0.65;        
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    } 
+
+    .bgimg-1 {
+        background-image: url("../../../images/parallax/img_parallax.jpg");
+    }
+      
+    .bgimg-2 {
+        background-image: url("../../../images/parallax/img_parallax2.jpg");
+    }
+      
+    .bgimg-3 {
+        background-image: url("../../../images/parallax/img_parallax3.jpg");
+    }
+      
+    h3 {
+        letter-spacing: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+        position: relative;
+        color: rgba(255,255,255,1);
+        background-color: rgba(40,44,52,1);
+        text-align:center;
+        padding: 1rem 1rem;
+    }
+
+    .inner-box {
+        padding: 6rem 6rem;
+    }
+    
+    .inner-span {
+        background-color: transparent;
+        font-size: 2.5rem;
+        color: rgba(255,255,255,1);
+    }   
+    
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+    }
+      
+    .caption span.border {
+        background-color: rgba(40,44,52,0.7);
+        color:  rgba(255,255,255,1);
+        padding: 1.8rem;
+        font-size: 2.5rem;
+        letter-spacing: 1rem;
+    }
+} 

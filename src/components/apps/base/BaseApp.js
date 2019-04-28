@@ -21,7 +21,7 @@ import HeaderModule from '../../modules/header/HeaderModule';
 
 // views - components
 //import HomeView from '../../views/home/HomeView';
-import ParallaxView from '../../views/parallax/ParallaxView';
+import ParallaxView from '../../views/parallax/ParallaxView.1';
 import RegisterView from '../../views/register/RegisterView';
 import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView';
