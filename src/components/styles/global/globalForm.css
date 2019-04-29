@@ -22,7 +22,7 @@ a.link-button {
     font-size: inherit; /* inherit for other browser */
     -moz-appearance: none; /* Safari iphone */
     -webkit-appearance: none; /* Mozilla */
-    width: 21rem;
+    width: 100%;
     display: inline-block;    
     padding: 1rem;
     margin: 1rem;
