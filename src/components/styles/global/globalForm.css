@@ -49,6 +49,7 @@ a.link-button {
     text-align: center;
     padding: 1rem 1rem;
     background: transparent;
+    margin: 1rem auto;
 }
 
 input[type="button"]:hover,
