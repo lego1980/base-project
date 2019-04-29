@@ -1,7 +1,8 @@
 .view {
     background-color: rgba(40,44,52,1);
-    padding: 6.0rem 3.0rem;
+    padding: 6.0rem 1.0rem;
     z-index: 100;
+    min-width: 32rem;
 }
 
 section.item {

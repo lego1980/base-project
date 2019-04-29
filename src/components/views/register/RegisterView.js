@@ -14,11 +14,11 @@ import  './RegisterView.css';
 export class RegisterView extends React.Component {  
   render() {
     return (
-      <main className={"page view sign-up-view"}>
-        
+      <main className={"page view sign-up-view"}>        
         <form className={"form"}>
           <h1>Create Account</h1>
           <input type="text" name="username" placeholder="username" required />
+          <input type="text" name="email" placeholder="email" required />
           <input type="password" name="password" placeholder="password" required />
           <input type="password" name="confirmPassword" placeholder="confirm password" required />
           <input type="submit" value="GET STARTED" />

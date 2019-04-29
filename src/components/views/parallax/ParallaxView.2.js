@@ -52,7 +52,7 @@ export class ParallaxView extends React.Component {
             </div>
           </div>
           
-          <div className={"section bgimg-2"}>
+          <div  className={"section bgimg-2"}>
             <div className={"box"}>
               <div className={"inner-box"}>
                 <h2>Parallax Demo</h2>

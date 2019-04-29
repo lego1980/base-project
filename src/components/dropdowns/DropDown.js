@@ -7,8 +7,8 @@ import './DropDown.css';
 
 export default class DropDown extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       arrayList: ['Dropdown'],
       open: null
