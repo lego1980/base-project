@@ -16,6 +16,7 @@
     padding: 1rem;
     color: rgba(255,255,255,1);
     cursor: pointer;
+    border: 0.1rem solid rgba(0,0,0,0.5);
 }
 
 .list-dropdown-list li.selected {
@@ -46,5 +47,9 @@ input.input-dropdown {
     color: rgba(97,218,251,1);
     position: absolute;
     right: 1.5rem;
-    top: 1.0rem;
+    top: 1.3rem;
+}
+
+.list-dropdown-item.open::before {
+    color: rgba(0,0,0,1);
 }

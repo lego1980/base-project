@@ -2,9 +2,9 @@
 import React from 'react';
 
 // css
-import './ListDropDown.css';
+import './ListDropDownEdit.css';
 
-export default class ListDropDown extends React.Component {
+export default class ListDropDownEdit extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,7 +20,8 @@ export default class ListDropDown extends React.Component {
   }
 
   setItem = (event) => {
-    this.setState({
+    this.setState({ 
+      //open: event.target.innerText 
       selectedValue: event.target.getAttribute('data-name') 
     }, () => {
       document.addEventListener('click', this.closeDropDown);
@@ -42,7 +43,9 @@ export default class ListDropDown extends React.Component {
   }
 
   openDropDown = (name) => {
-    this.setState({
+    console.log(name);
+    this.setState({ 
+      //open: event.target.innerText 
       open:  name
     }, () => {
       document.addEventListener('click', this.closeDropDown);
@@ -63,13 +66,13 @@ export default class ListDropDown extends React.Component {
         opts['required'] = 'required';
     }
     if (this.props.readonly) {
-      opts['readonly'] = 'readonly';
+        opts['readonly'] = 'readonly';
     }
     if (this.props.disabled) {
-      opts['disabled'] = 'disabled';
+        opts['disabled'] = 'disabled';
     }  
     return (
-      <div className={"list-dropdown-wrapper"}>           
+      <div className={"list-dropdown-edit-wrapper"}>           
         <div className={"list-dropdown-item " + ((this.state.name === this.state.open) ? " open" : "") } key={this.state.name+"-dropdown-"+this.props.index} onClick={() => this.openDropDown(this.state.name)}>
             <input 
                 name={this.state.name} 

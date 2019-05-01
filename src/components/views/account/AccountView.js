@@ -7,7 +7,8 @@ import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // components
-import ListDropDown from '../../../components/dropdowns/ListDropDown';
+import ListDropDownEdit from '../../../components/dropdowns/ListDropDownEdit';
+import InputEdit from '../../inputs/InputEdit';
 import BarLoader from '../../../components/loaders/BarLoader';
 import BarsLoader from '../../../components/loaders/BarsLoader';
 
@@ -30,15 +31,102 @@ export class AccountView extends React.Component {
         <div className={"page view account-view"}>         
           <BarsLoader done={(complete) ? "done" : ""} /> 
           <form className={"form"}>
-            <h1>Account Information</h1>
-            <input type="text" name="username" placeholder="username" required />
-            <input type="email" name="email" placeholder="email" />
-            <input type="text" name="firstname" placeholder="first name" />
-            <input type="text" name="lastname" placeholder="last name" />
-            <input type="text" name="age" placeholder="age" />
-            <input type="password" name="password" placeholder="password" required />
-            <input type="password" name="confirmPassword" placeholder="confirm password" required />
-            <ListDropDown name={"gender"} data={GenderDropDown} placeholder="select gender" />
+            <h1>Account</h1>
+            
+            <InputEdit 
+              classes =""
+              inputType ="text"
+              inputId = "firstname"
+              inputName = "firstname" 
+              inputValue = ""
+              inputPlaceholder = "Enter first name"
+              required = "required"
+              readonly = ""
+              disabled = ""
+            />
+
+            <InputEdit 
+              classes =""
+              inputType ="text"
+              inputId = "lastname"
+              inputName = "lastname" 
+              inputValue = ""
+              inputPlaceholder = "Enter last name"
+              required = "required"
+              readonly = ""
+              disabled = ""
+            />
+
+            <InputEdit 
+              classes =""
+              inputType ="text"
+              inputId = "age"
+              inputName = "age" 
+              inputValue = ""
+              inputPlaceholder = "Enter age"
+              required = ""
+              readonly = ""
+              disabled = ""
+            />
+
+            <ListDropDownEdit
+              id={"gender"} 
+              name={"gender"} 
+              data={GenderDropDown} 
+              placeholder="select gender"
+              required = ""
+              readonly = "readonly"
+              disabled = "" 
+            /> 
+
+            <InputEdit 
+              classes =""
+              inputType ="text"
+              inputId = "username"
+              inputName = "username" 
+              inputValue = ""
+              inputPlaceholder = "Enter username"
+              required = "required"
+              readonly = ""
+              disabled = ""
+            />
+
+            <InputEdit 
+              classes =""
+              inputType ="email"
+              inputId = "email"
+              inputName = "email" 
+              inputValue = ""
+              inputPlaceholder = "Enter email"
+              required = "required"
+              readonly = ""
+              disabled = ""
+            />           
+
+            <InputEdit 
+              classes =""
+              inputType ="password"
+              inputId = "password"
+              inputName = "password" 
+              inputValue = ""
+              inputPlaceholder = "Enter password"
+              required = "required"
+              readonly = ""
+              disabled = ""
+            />
+
+            <InputEdit 
+              classes =""
+              inputType ="password"
+              inputId = "confirmPassword"
+              inputName = "confirmPassword" 
+              inputValue = ""
+              inputPlaceholder = "Confirm password"
+              required = "required"
+              readonly = ""
+              disabled = ""
+            />
+
             <input type="submit" value="UPDATE" />
           </form>
         </div>

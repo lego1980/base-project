@@ -1,5 +1,5 @@
 form {
-    width: auto;
+    width: 75%;
     display: block;
     margin: 5rem auto;
     -moz-appearance: none;
@@ -61,4 +61,10 @@ input[type="reset"]:hover {
 a.link-button:hover {
     color: rgba(0,0,0,1);
     background-color: rgba(190,240,253,1);
+}
+
+@media screen and (min-width: 760px) {
+    form {
+        width: 25%;
+    }
 }
