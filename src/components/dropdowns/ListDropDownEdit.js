@@ -43,9 +43,7 @@ export default class ListDropDownEdit extends React.Component {
   }
 
   openDropDown = (name) => {
-    console.log(name);
     this.setState({ 
-      //open: event.target.innerText 
       open:  name
     }, () => {
       document.addEventListener('click', this.closeDropDown);

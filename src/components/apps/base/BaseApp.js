@@ -11,10 +11,10 @@ import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 // css
-import './BaseApp.css';
-import '../../styles/fonts/base.css';
-import '../../styles/pageSlider/pageSlider.css';
-import '../../styles/keyframes/slideY.css';
+import './BaseApp.scss';
+import '../../../styles/fonts/base.css';
+import '../../../styles/pageSlider/pageSlider.css';
+import '../../../styles/keyframes/slideY.css';
 
 // mudules - components
 import HeaderModule from '../../modules/header/HeaderModule';

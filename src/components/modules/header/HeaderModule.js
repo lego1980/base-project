@@ -10,11 +10,11 @@ import logo from '../../../images/logo.svg';
 
 // css
 import './HeaderModule.css';
-import '../../styles/keyframes/fadeIn.css';
-import '../../styles/keyframes/fadeOut.css';
-import '../../styles/keyframes/slideY.css';
-import '../../styles/keyframes/slideX.css';
-import '../../styles/keyframes/slideRightOut.css';
+import '../../../styles/keyframes/fadeIn.css';
+import '../../../styles/keyframes/fadeOut.css';
+import '../../../styles/keyframes/slideY.css';
+import '../../../styles/keyframes/slideX.css';
+import '../../../styles/keyframes/slideRightOut.css';
 
 export default class HeaderModule extends React.Component {
   render() {    

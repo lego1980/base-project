@@ -7,17 +7,17 @@ import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // components
-import ListDropDownEdit from '../../../components/dropdowns/ListDropDownEdit';
+import ListDropDownEdit from '../../dropdowns/ListDropDownEdit';
 import InputEdit from '../../inputs/InputEdit';
-import BarLoader from '../../../components/loaders/BarLoader';
-import BarsLoader from '../../../components/loaders/BarsLoader';
+import BarLoader from '../../loaders/BarLoader';
+import BarsLoader from '../../loaders/BarsLoader';
 
 // static data
 import { GenderDropDown } from '../../../data/lists/FormData';
 
 // css
-import '../../styles/global/globalView.css';
-import '../../styles/global/globalForm.css';
+import '../../../styles/global/globalView.css';
+import '../../../styles/global/globalForm.css';
 import './AccountView.css';
 
 export class AccountView extends React.Component {
@@ -41,7 +41,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Enter first name"
               required = "required"
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />
 
@@ -53,7 +53,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Enter last name"
               required = "required"
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />
 
@@ -65,7 +65,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Enter age"
               required = ""
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />
 
@@ -75,8 +75,7 @@ export class AccountView extends React.Component {
               data={GenderDropDown} 
               placeholder="select gender"
               required = ""
-              readonly = "readonly"
-              disabled = "" 
+              disabled = "disabled" 
             /> 
 
             <InputEdit 
@@ -87,7 +86,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Enter username"
               required = "required"
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />
 
@@ -99,7 +98,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Enter email"
               required = "required"
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />           
 
@@ -111,7 +110,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Enter password"
               required = "required"
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />
 
@@ -123,7 +122,7 @@ export class AccountView extends React.Component {
               inputValue = ""
               inputPlaceholder = "Confirm password"
               required = "required"
-              readonly = ""
+              readOnly = ""
               disabled = ""
             />
 

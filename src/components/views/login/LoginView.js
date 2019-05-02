@@ -7,8 +7,8 @@ import { connect } from "react-redux";
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 
 // css
-import '../../styles/global/globalView.css';
-import '../../styles/global/globalForm.css';
+import '../../../styles/global/globalView.css';
+import '../../../styles/global/globalForm.css';
 import './LogInView.css';
 
 export class LogInView extends React.Component {
