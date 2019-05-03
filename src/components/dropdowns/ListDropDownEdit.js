@@ -42,7 +42,7 @@ export default class ListDropDownEdit extends React.Component {
     );
   }
 
-  openDropDown = (name) => {
+  openDropDown = (e,name) => {
     this.setState({ 
       open:  name
     }, () => {
@@ -70,15 +70,16 @@ export default class ListDropDownEdit extends React.Component {
         opts['disabled'] = 'disabled';
     }  
     return (
-      <div className={"list-dropdown-edit-wrapper"}>           
-        <div className={"list-dropdown-item " + ((this.state.name === this.state.open) ? " open" : "") } key={this.state.name+"-dropdown-"+this.props.index} onClick={() => this.openDropDown(this.state.name)}>
+      <div className={"list-dropdown-edit-wrapper"}  onClick={(e) => this.openDropDown(e,this.state.name)}>           
+        <div className={"list-dropdown-item " + ((this.state.name === this.state.open) ? " open" : "") } key={this.state.name+"-dropdown-"+this.props.index}>
             <input 
+                type="text"
                 name={this.state.name} 
                 id={this.state.id} 
                 className={"input-dropdown"} 
                 placeholder={this.state.placeholder} 
                 data-name={this.state.name} 
-                value={this.state.selectedValue} 
+                value={this.state.selectedValue}
                 {...opts}
             />
             { this.state.name === this.state.open ? this.openList(this.state.data,this.state.name) : null }

@@ -75,7 +75,10 @@ export class AccountView extends React.Component {
               data={GenderDropDown} 
               placeholder="select gender"
               required = ""
-              disabled = "disabled" 
+              // styling on safari 
+              disabled = "disabled"
+              // readonly conflict name with react 
+              // readonly = "readonly" 
             /> 
 
             <InputEdit 
