@@ -1,0 +1,33 @@
+@import '../../sass/baseApp/baseAppVariables.scss';
+
+.view {
+    background-color: $first-background-color;
+    padding: 6.0rem 1.0rem;
+    z-index: 100;
+}
+
+.view {
+    h1, h2, h3, h4, h5, h6 { 
+        font-weight: 100;
+        padding: 0;
+        margin: 1rem;  
+    }
+    h1 {   
+        font-size: 2.5rem;
+    }
+    h2 {   
+        font-size: 2.0rem;
+    }
+    h3 {   
+        font-size: 1.5rem;
+    }
+    h4, h5, h6 {   
+        font-size: 1.0rem;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .view {
+        padding: 6.0rem 3.0rem;
+    }
+}

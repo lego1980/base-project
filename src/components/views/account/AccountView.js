@@ -16,8 +16,8 @@ import BarsLoader from '../../loaders/BarsLoader';
 import { GenderDropDown } from '../../../data/lists/FormData';
 
 // css
-import '../../../styles/global/globalView.css';
-import '../../../styles/global/globalForm.css';
+import '../../../styles/global/globalView.scss';
+import '../../../styles/global/globalForm.scss';
 import './AccountView.css';
 
 export class AccountView extends React.Component {

@@ -1,19 +1,20 @@
+@import '../../sass/baseApp/baseAppVariables.scss';
+
 form {
     width: 75%;
     display: block;
     margin: 5rem auto;
     -moz-appearance: none;
     -webkit-appearance: none;
-}
-
-form h1 {    
-    width: auto;
-    text-align: center;
-    font-size: 2.5rem;
-    display: block; 
-    font-weight: 100;
-    padding: 0;
-    margin: 1rem;  
+    h1 {    
+        width: auto;
+        text-align: center;
+        font-size: 2.5rem;
+        display: block; 
+        font-weight: 100;
+        padding: 0;
+        margin: 1rem;  
+    }
 }
 
 input,
@@ -34,7 +35,7 @@ a.link-button {
 }
 
 input::placeholder {
-    color: rgba(161,161,161,1);
+    color: $placeholder-color;
 }
 
 input[type="button"],
@@ -42,7 +43,7 @@ input[type="submit"],
 input[type="reset"],
 a.link-button {
     cursor: pointer;
-    background-color: rgba(97,218,251,1);
+    background-color: $first-link-color;
 }
 
 a.link-button {
@@ -55,16 +56,16 @@ a.link-button {
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
-    background-color: rgba(190,240,253,1);
+    background-color: $first-link-background-color-hover;
 }
 
 a.link-button:hover {
     color: rgba(0,0,0,1);
-    background-color: rgba(190,240,253,1);
+    background-color: $first-link-background-color-hover;
 }
 
 @media screen and (min-width: 760px) {
     form {
-        width: 25%;
+        width: 30%;
     }
 }

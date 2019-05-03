@@ -2,8 +2,8 @@
 import React from 'react';
 
 // css
-import '../../../styles/global/globalView.css';
-import '../../../styles/global/globalForm.css';
+import '../../../styles/global/globalView.scss';
+import '../../../styles/global/globalForm.scss';
 import './ContactView.css';
 
 export default class ContactView extends React.Component {

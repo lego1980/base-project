@@ -11,7 +11,7 @@ import BarLoader from '../../loaders/BarLoader';
 import BarsLoader from '../../loaders/BarsLoader';
 
 // css
-import '../../../styles/global/globalView.css';
+import '../../../styles/global/globalView.scss';
 import './ParallaxView.2.css';
 
 export class ParallaxView extends React.Component {

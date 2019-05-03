@@ -10,7 +10,7 @@ import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 // import BarsLoader from '../../loaders/BarsLoader';
 
 // css
-import '../../../styles/global/globalView.css';
+import '../../../styles/global/globalView.scss';
 import './ParallaxView.css';
 
 export class ParallaxView extends React.Component {

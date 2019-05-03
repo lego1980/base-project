@@ -2,10 +2,10 @@
 @import '../../../sass/baseApp/baseAppVariables.scss';
 
 html {
-  color: $font-default-color; /* rgba(255,255,255,1); */
+  color: $font-default-color;
   font-size: 10px;
   font-family: Verdana, Geneva, serif;
-  background-color: rgba(40,44,52,1);
+  background-color: $first-background-color;
 }
 
 body {
@@ -17,6 +17,6 @@ body {
 }
 
 a {
-  color: rgba(97,218,251,1);
+  color: $first-link-color;
   text-decoration: none;
 }
