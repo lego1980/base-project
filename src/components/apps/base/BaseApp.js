@@ -13,7 +13,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // css
 import './BaseApp.scss';
 import '../../../styles/fonts/base.css';
-import '../../../styles/pageSlider/pageSlider.css';
+import '../../../styles/pageSlider/pageSlider.scss';
 import '../../../styles/keyframes/slideY.css';
 
 // mudules - components

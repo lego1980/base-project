@@ -1,5 +1,12 @@
 @import '../../sass/baseApp/baseAppVariables.scss';
 
+.page {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
 .view {
     background-color: $first-background-color;
     padding: 0;

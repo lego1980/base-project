@@ -2,14 +2,14 @@
 import React from 'react';
 
 // css
-import '../../../styles/global/globalView.scss';
+import stylesView from '../../../styles/global/globalView.module.scss';
 import './AboutView.css';
 
 export default class AboutView extends React.Component {
   render() {
     
     return (
-      <div className={"page view about-view"}>
+      <div className={"page about-view " + stylesView['view']}>
         ABOUT VIEW
       </div>
     );

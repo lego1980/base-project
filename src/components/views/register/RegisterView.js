@@ -7,14 +7,14 @@ import { connect } from "react-redux";
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 
 // css
-import '../../../styles/global/globalView.scss';
-import '../../../styles/global/globalForm.scss';
+import stylesViews from '../../../styles/global/globalView.module.scss';
+import stylesForms from '../../../styles/global/globalForm.module.scss';
 import styles from './RegisterView.module.scss';
 
 export class RegisterView extends React.Component {  
   render() {
     return (
-      <main className={"page view " + styles['register-view']}>        
+      <main className={stylesViews['page'] + " " + stylesViews['view'] + " "  + styles['register-view']}>        
         <form className={"form"}>
           <h1>Create Account</h1>
           <input type="text" name="username" placeholder="username" required />
@@ -23,7 +23,7 @@ export class RegisterView extends React.Component {
           <input type="password" name="confirmPassword" placeholder="confirm password" required />
           <input type="submit" value="GET STARTED" />
           {/* <input type="reset" value="CLEAR" /> */}
-          <Link to="/login/" className="link-button">LOG IN</Link>
+          <Link to="/login/" className={stylesForms['link-button']}>LOG IN</Link>
         </form>
       </main>
     )

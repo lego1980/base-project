@@ -16,8 +16,8 @@ import BarsLoader from '../../loaders/BarsLoader';
 import { GenderDropDown } from '../../../data/lists/FormData';
 
 // css
-import '../../../styles/global/globalView.scss';
-import '../../../styles/global/globalForm.scss';
+import sytlesViews from '../../../styles/global/globalView.module.scss';
+import sytlesForms from '../../../styles/global/globalForm.module.scss';
 import './AccountView.css';
 
 export class AccountView extends React.Component {
@@ -28,9 +28,9 @@ export class AccountView extends React.Component {
     return (
       <div>
         <BarLoader done={(complete) ? "done" : ""} /> 
-        <div className={"page view account-view"}>         
+        <div className={sytlesViews['page'] + " " + sytlesViews['view']}>         
           <BarsLoader done={(complete) ? "done" : ""} /> 
-          <form className={"form"}>
+          <form className={sytlesForms['form']}>
             <h1>Account</h1>
             
             <InputEdit 
@@ -75,7 +75,6 @@ export class AccountView extends React.Component {
               data={GenderDropDown} 
               placeholder="select gender"
               required = ""
-              // styling on safari 
               disabled = "disabled"
               // readonly conflict name with react 
               // readonly = "readonly" 

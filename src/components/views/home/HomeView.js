@@ -11,7 +11,8 @@ import BarLoader from '../../../components/loaders/BarLoader';
 import BarsLoader from '../../../components/loaders/BarsLoader';
 
 // css
-import '../../../styles/global/globalView.scss';
+import view from '../../../styles/global/globalView.module.scss';
+import form from '../../../styles/global/globalForm.module.scss';
 import './HomeView.css';
 
 export class HomeView extends React.Component {

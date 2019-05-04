@@ -2,8 +2,8 @@
 import React from 'react';
 
 // css
-import '../../../styles/global/globalView.scss';
-import '../../../styles/global/globalForm.scss';
+import view from '../../../styles/global/globalView.module.scss';
+import form from '../../../styles/global/globalForm.module.scss';
 import './DefaultView.css';
 
 export default class DefaultView extends React.Component {

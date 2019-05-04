@@ -6,35 +6,22 @@ import { connect } from "react-redux";
 // actions
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 
-// components
-import BarLoader from '../../loaders/BarLoader';
-import BarsLoader from '../../loaders/BarsLoader';
-
 // css
-import '../../../styles/global/globalView.scss';
+import stylesView from '../../../styles/global/globalView.module.scss';
 import './ParallaxView.2.css';
 
 export class ParallaxView extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate",nextProps,nextState);
     // if (nextProps.users.fetched && !nextProps.users.fetching) {      
     // }
     return true;
   }
   
   render() {
-    //let props = this.props;
-    let complete = true; //false; // (props.users.fetched && !props.users.fetching) ? true : false;
 
     return (
       <main>
-        <BarLoader done={(complete) ? "done" : ""} /> 
-        <div className={"page view parallax-view"}>         
-          <BarsLoader done={(complete) ? "done" : ""} />      
-
-          {/* https://css-tricks.com/forums/topic/parallax-working-on-every-devices-ipad-iphone-android-windows/ */}
-
-         
+        <div className={"page parallax-view " + stylesView['view']}>
           <div className={"section bgimg-1"}>
             <div className={"box"}>
               <div className={"inner-box"}>
