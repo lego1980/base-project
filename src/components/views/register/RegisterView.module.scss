@@ -1,0 +1,17 @@
+@import '../../../sass/baseApp/baseAppVariables.scss';
+
+.register-view {
+    background-image: url("../../../images/parallax/img_parallax2.jpg"); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    box-sizing: $border-box;
+    form {
+        margin-top: 25vh;
+        background-color: $black-background-color-opacity-5;
+        padding: 1rem;
+        box-sizing: $border-box;
+    }
+}

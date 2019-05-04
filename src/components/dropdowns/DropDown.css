@@ -22,9 +22,11 @@
     margin: 0;
     background-color: rgba(0,0,0,0.9); 
     border: 1px solid rgba(0,0,0,1);
+    min-width: 1.7rem;
     z-index: 600;
 }
 
 .dropdown-list li {
     color: rgba(255,255,255,1);
+    white-space: nowrap;
 }

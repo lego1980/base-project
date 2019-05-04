@@ -1,5 +1,5 @@
 .parallax-view {
-    padding: 5.0rem 0 0;
+    padding: 0;
 }
 
 .section {
@@ -91,7 +91,7 @@
 
 @media screen and (min-width: 760px) {
     .parallax-view {
-        padding: 5.0rem 0 0;
+        padding: 0;
     }
 
     .box,

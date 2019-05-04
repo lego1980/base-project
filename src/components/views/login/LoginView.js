@@ -9,13 +9,12 @@ import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 // css
 import '../../../styles/global/globalView.scss';
 import '../../../styles/global/globalForm.scss';
-import './LogInView.css';
+import sytles from './LogInView.module.scss';
 
 export class LogInView extends React.Component {
   render() {
     return (
-      <main className={"page view log-in-view"}>
-        
+      <main className={"page view " + sytles['log-in-view']}>        
         <form>
           <h1>User Login</h1>
           <input type="text" name="username" placeholder="username" required />

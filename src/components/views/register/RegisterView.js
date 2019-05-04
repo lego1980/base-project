@@ -9,12 +9,12 @@ import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 // css
 import '../../../styles/global/globalView.scss';
 import '../../../styles/global/globalForm.scss';
-import  './RegisterView.css';
+import styles from './RegisterView.module.scss';
 
 export class RegisterView extends React.Component {  
   render() {
     return (
-      <main className={"page view sign-up-view"}>        
+      <main className={"page view " + styles['register-view']}>        
         <form className={"form"}>
           <h1>Create Account</h1>
           <input type="text" name="username" placeholder="username" required />
