@@ -14,7 +14,7 @@ form {
         font-weight: 100;
         padding: 0;
         margin: 1rem;  
-    }
+    }       
 }
 
 input,
@@ -32,6 +32,11 @@ a.link-button {
     outline: none;
     box-shadow: none; /* FF - red error shadow */
     box-sizing: border-box;
+}
+
+input.error::placeholder,
+.error {
+    color: $error-red-text-color;
 }
 
 input::placeholder {
