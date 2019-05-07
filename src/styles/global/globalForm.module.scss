@@ -58,6 +58,18 @@ a.link-button {
     margin: 1rem auto;
 }
 
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+    cursor: not-allowed;
+}
+
+input[type="button"].progress:disabled,
+input[type="submit"].progress:disabled,
+input[type="reset"].progress:disabled {
+    cursor: progress;
+}
+
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {

@@ -1,7 +1,16 @@
+@import '../../sass/baseApp/baseAppVariables.scss';
+
+.overlay-wrapper {
+  background-color: $black-background-color-opacity-5;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
 .bars-loader,
 .bars-loader:before,
 .bars-loader:after {
-  background: rgba(97,218,251,1);
+  background: $second-background-color;
   -webkit-animation: load1 1s infinite ease-in-out;
   animation: load1 1s infinite ease-in-out;
   width: 1em;
@@ -9,39 +18,42 @@
 }
 
 .bars-loader {
-  color: rgba(97,218,251,1);
+  color: $second-font-color;
   text-indent: -9999em;
-  margin: 50% auto;
+  /* margin: 50% auto; */
+  margin: 50vh 50vw;
   position: absolute;
   font-size: 11px;
+  background: $second-background-color;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
-}
-.bars-loader:before,
-.bars-loader:after {
-  position: absolute;
-  top: 0;
-  content: '';
-}
-.bars-loader:before {
-  left: -1.5em;
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-.bars-loader:after {
-  left: 1.5em;
-}
-
-.bars-loader.done,
-.bars-loader.done:before,
-.bars-loader.done:after {
-  opacity: 0;
-  transition: opacity 500ms linear;
-  -webkit-animation: none;
-  animation: none;
+  &:before,
+  &:after {    
+    position: absolute;
+    top: 0;
+    content: '';
+  }
+  &:before {
+    left: -1.5em;
+  }
+  &:after {
+    left: 1.5em;
+  }
+  &.done,
+  &.done:before,
+  &.done:after {
+    opacity: 0;
+    transition: opacity 500ms linear;
+    -webkit-animation: none;
+    animation: none;
+  }
 }
 
 @-webkit-keyframes load1 {

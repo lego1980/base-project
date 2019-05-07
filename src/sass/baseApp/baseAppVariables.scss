@@ -8,24 +8,28 @@ $third-color: rgba(255,255,255,1);
 $first-link-color: rgba(97,218,251,1);
 $first-link-background-color-hover: rgba(190,240,253,1);
 
-$first-background-color: rgba(40,44,52,1);
-
-
 $placeholder-color: rgba(161,161,161,1);
+$font-link-color: rgba(97,218,251,1);
 
 
 /* Text color */
 $font-default-color: rgba(255,255,255,1);
+$font-second-color: rgba(97,218,251,1);
+
+$first-font-color: rgba(40,44,52,1);
+$second-font-color: rgba(97,218,251,1);
+$third-font-color: rgba(255,255,255,1);
 
 /* Text link color */
-$font-link-color: rgba(97,218,251,1);
 
 /* Background color */
-$background-primary-color: rgba(40,44,52,1);
+$first-background-color: rgba(40,44,52,1);
+$second-background-color: rgba(97,218,251,1);
 
 
 /* other */
 $border-box: border-box;
 $error-red-text-color: rgba(255,0,0,1);
 $white-background-color-opacity-5: rgba(255,255,255,0.5);
+$light-gray-background-color-opacity-1: rgba(221,221,221,1);
 $black-background-color-opacity-5: rgba(0,0,0,0.5);

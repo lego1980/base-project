@@ -3,10 +3,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
+// components
+import BarLoader from '../../loaders/BarLoader';
+import BarsOverlayLoader from '../../loaders/BarsOverlayLoader';
+
 // actions
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
 
-//
+// utils
 import { validate } from '../../../utils/FormValidations';
 
 // css
@@ -19,6 +23,7 @@ export class LogInView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      submitProgress: false,
       submitButton: false,
       username: "",
       password: "",
@@ -36,10 +41,21 @@ export class LogInView extends React.Component {
   }
 
   onSubmitHandler = (e) => {
-    let error = this.checkError();
+    let that = this;
+    that.setState({ 
+      submitButton : false,
+      submitProgress : true
+    });
+
+    let error = that.checkError();
     if (error.length === 0) {
       //proceed post
-      console.log("Posting...",error)
+      console.log("Posting...",error);
+    } else {
+      that.setState({ 
+        submitButton : true,
+        submitProgress : false
+      });
     }
     e.preventDefault();
   }
@@ -72,11 +88,13 @@ export class LogInView extends React.Component {
         }).then(() => {
           if (that.state.username.length !== 0 && that.state.password.length !== 0 && that.checkError().length === 0) {
             that.setState({ 
-              submitButton : true
+              submitButton : true,
+              submitProgress : false
             });
           } else {
             that.setState({ 
-              submitButton : false
+              submitButton : false,
+              submitProgress : false
             });
           }
         });   
@@ -86,8 +104,11 @@ export class LogInView extends React.Component {
 
   render() {
     // console.log("render",this.state.submitButton,this.state.username.length,this.state.password.length);
+    let submitProgress = this.state.submitProgress;
     return (
-      <main className={stylesViews['page'] + " " + stylesViews['view'] + " " + styles['log-in-view']}>        
+      <main className={stylesViews['page'] + " " + stylesViews['view'] + " " + styles['log-in-view']}>  
+        <BarLoader done={(submitProgress) ? "" : "done"} />  
+        <BarsOverlayLoader done={(submitProgress) ? "" : "done"} />      
         <form noValidate onSubmit={(e) => this.onSubmitHandler(e)}>
           <h1>User Login</h1>
           <input 
@@ -109,6 +130,7 @@ export class LogInView extends React.Component {
           <input 
             type="submit" 
             value="LOG IN"
+            className ={(this.state.submitProgress) ? stylesForms['progress']  : ''}
             disabled={!this.state.submitButton}
           />     
           <Link to="/register/" className={stylesForms['link-button']}>REGISTER</Link>
