@@ -11,7 +11,7 @@ import BarsOverlayLoader from "../../loaders/BarsOverlayLoader";
 import { ROUTE_ACTIONS } from "../../../redux/actions/route/RoutesActions";
 
 // utils
-import { validate } from "../../../utils/FormValidations";
+import { validate, checkError } from "../../../utils/FormValidations";
 
 // css
 import stylesViews from "../../../styles/global/globalView.module.scss";
@@ -47,31 +47,23 @@ export class LogInView extends React.Component {
       submitProgress : true
     });
 
-    let error = that.checkError();
-    if (error.length === 0) {
-      //proceed post
-      console.log("Posting...",error);
-    } else {
-      that.setState({ 
-        submitButton : true,
-        submitProgress : false
-      });
-    }
+    checkError(that.state.error).then((data) => {
+      if (data.length === 0) {
+        //proceed post
+        console.log("Posting...");
+      } else {
+        that.setState({ 
+          submitButton : true,
+          submitProgress : false
+        });
+      }
+    });
+   
     e.preventDefault();
   }
 
-  checkError = () => {
-    let that = this;  
-    let error = Object
-      .values(that.state.error)
-      .filter((item) => {
-        return item.valid === false;
-      });
-    return error;  
-  }
-
   onChangeHandler = (e) => {   
-    let that = this;
+    let that = this;    
     let element = e.target || null;
     that.setState({ 
       [element["name"]] : element.value
@@ -84,26 +76,29 @@ export class LogInView extends React.Component {
                     that.state.error, 
                     { [element["name"]] : { valid : obj.bool, msg : obj.msg }}
                 )                      
-            }); 
-        }).then(() => {
-          if (that.state.username.length !== 0 && that.state.password.length !== 0 && that.checkError().length === 0) {
-            that.setState({ 
-              submitButton : true,
-              submitProgress : false
-            });
-          } else {
-            that.setState({ 
-              submitButton : false,
-              submitProgress : false
-            });
-          }
-        });   
+            })
+        }).then(() => {            
+          checkError(that.state.error).then((data) => {
+            if (that.state.username.length !== 0 && that.state.password.length !== 0 && data.length === 0) {
+              that.setState({ 
+                submitButton : true,
+                submitProgress : false
+              });
+            } else {
+              that.setState({ 
+                submitButton : false,
+                submitProgress : false
+              });
+            }
+          });    
+        });
       }
     });
   }
 
   render() {
     // console.log("render",this.state.submitButton,this.state.username.length,this.state.password.length);
+    // console.log("this.state.submitButton",this.state.submitButton );
     let submitProgress = this.state.submitProgress;
     return (
       <main className={stylesViews["page"] + " " + stylesViews["view"] + " " + styles["log-in-view"]}>  
@@ -135,12 +130,23 @@ export class LogInView extends React.Component {
           />
           <label htmlFor="password" className={((this.state.error.password.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.password.msg}</label>
 
-          <input 
-            type="submit" 
-            value="LOG IN"
-            className ={(this.state.submitProgress) ? stylesForms["progress"]  : ""}
-            disabled={!this.state.submitButton}
-          />     
+          { this.state.submitButton === false
+            ?
+              <input 
+                type="submit" 
+                value="LOG IN"
+                className ={(this.state.submitProgress) ? stylesForms["progress"]  : ""}
+                disabled
+              />
+            :
+              <input 
+                type="submit" 
+                value="LOG IN"
+                className ={(this.state.submitProgress) ? stylesForms["progress"]  : ""}                
+              />
+          }
+
+               
           <Link to="/register/" className={stylesForms["link-button"]}>REGISTER</Link>
         </form>
       </main>

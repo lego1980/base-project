@@ -16,6 +16,28 @@ export const patternField = async(elm) => {
     return true;
 }
 
+export const checkError = async(data) => {
+    console.log("checkError",data);
+    // console.log("Object",Object);
+    let obj = data; 
+    let error = [];
+    // old safari ipad 1 doesnt support values
+    // let error = Object.values(dataArray).filter((item) => {
+    //     return item.valid === false;
+    // }); 
+    try {
+        console.log("obj try");
+        let error = Object.keys(obj).filter((value) => { 
+            return obj[value].valid === false;
+        });
+        return error;
+    } catch(err) {
+        console.log("checkError err",err);
+        //return empty array
+        return error;
+    }
+}
+
 export const validate = async(element) => {
     let elm = element;        
     let obj = {
