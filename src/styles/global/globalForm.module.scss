@@ -76,9 +76,61 @@ input[type="reset"]:hover {
     background-color: $first-link-background-color-hover;
 }
 
+
+input[type="button"]:disabled:hover,
+input[type="submit"]:disabled:hover,
+input[type="reset"]:disabled:hover {
+    background-color: $first-link-color;
+}
+
 a.link-button:hover {
     color: rgba(0,0,0,1);
     background-color: $first-link-background-color-hover;
+}
+
+.hide-label {
+    opacity: 0;
+}
+
+.show-label {
+    display: inline-block;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    color: $font-default-color;
+    background-color: $error-red-background-color;
+    opacity: 0;
+    margin-top: -8rem;
+    box-shadow: 0 10px 6px -6px #777;
+    transition: opacity 300ms ease-in-out;     
+}
+
+input.error:focus + .show-label {
+    display: inline-block;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    color: $font-default-color;
+    background-color: $error-red-background-color;
+    opacity: 1;
+    margin-top: -8rem;
+    box-shadow: 0 10px 6px -6px #777;
+    transition: opacity 300ms ease-in-out;  
+}
+
+.show-label::before  {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: $error-red-background-color;
+    box-shadow: 0 10px 6px -6px #777;
+    transform: rotate(45deg);
+    
 }
 
 @media screen and (min-width: 760px) {

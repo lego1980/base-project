@@ -26,7 +26,7 @@ export default class HeaderModule extends React.Component {
         <div className={"header-links header-dropdown"}>
           <DropDown />
         </div> 
-        <nav>      
+        <nav role="navigation">      
           <ul className={"header-links header-inline"}>
             <li><Link to="/" className="icon icon-home">HOME</Link></li>
             <li><Link to="/register/" className="icon icon-pen">REGISTER</Link></li>

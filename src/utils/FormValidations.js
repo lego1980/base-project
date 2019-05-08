@@ -18,13 +18,25 @@ export const patternField = async(elm) => {
 
 export const validate = async(element) => {
     let elm = element;        
+    let obj = {
+        bool : true,
+        msg : "",
+    };
     return requiredField(elm).then(function(bool) {
         if (bool) {
             return patternField(elm).then(function(bool2) {
-                return bool2;
+                obj.bool = bool2;
+                if (bool2 === false) {
+                    obj.msg = "Enter a valid " + elm["name"];
+                }
+                return obj;
             });
         } else {
-            return bool; 
+            obj.bool = bool;
+            if (bool === false) {
+                obj.msg = elm["name"] + " is a required field";
+            }            
+            return obj; 
         }        
     });
 }
