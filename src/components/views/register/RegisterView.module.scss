@@ -5,7 +5,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: local;
     height: 100vh;
     box-sizing: $border-box;
     form {
@@ -15,3 +15,9 @@
         box-sizing: $border-box;
     }
 }
+
+@media screen and (min-width: 760px) {
+    .register-view {
+      background-attachment: local;
+    }
+  } 

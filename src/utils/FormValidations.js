@@ -56,7 +56,7 @@ export const validate = async(element) => {
         } else {
             obj.bool = bool;
             if (bool === false) {
-                obj.msg = elm["name"] + " is a required field";
+                obj.msg = elm["name"] + " is field";
             }            
             return obj; 
         }        
