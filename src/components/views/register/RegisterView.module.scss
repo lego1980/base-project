@@ -9,10 +9,11 @@
     height: 100vh;
     box-sizing: $border-box;
     form {
-        margin-top: 25vh;
+        margin-top: 20vh;
         background-color: $black-background-color-opacity-5;
         padding: 1rem;
         box-sizing: $border-box;
+        box-shadow: none;
     }
 }
 

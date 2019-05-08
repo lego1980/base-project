@@ -46,7 +46,6 @@ export class LogInView extends React.Component {
       submitButton : false,
       submitProgress : true
     });
-
     checkError(that.state.error).then((data) => {
       if (data.length === 0) {
         //proceed post
@@ -57,19 +56,30 @@ export class LogInView extends React.Component {
           submitProgress : false
         });
       }
-    });
-   
+    });   
     e.preventDefault();
   }
 
-  onChangeHandler = (e) => {   
+  onChangeHandler = (e,matchBool,inputName,inputValue) => {   
     let that = this;    
     let element = e.target || null;
+    let matchObj = null;
+    
+    // get match object 
+    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined) {
+      matchObj = {
+        bool: matchBool,
+        name: inputName,
+        value: inputValue
+      }
+    }
+    
     that.setState({ 
       [element["name"]] : element.value
     }, () => {
+      
       if (element) {
-        validate(element).then((obj) => {
+        validate(element,matchObj).then((obj) => {
             that.setState({ 
                 error: Object.assign(
                     {}, 
@@ -93,17 +103,17 @@ export class LogInView extends React.Component {
           });    
         });
       }
+          
     });
   }
 
   render() {
-    // console.log("render",this.state.submitButton,this.state.username.length,this.state.password.length);
-    // console.log("this.state.submitButton",this.state.submitButton );
     let submitProgress = this.state.submitProgress;
     return (
       <main className={stylesViews["page"] + " " + stylesViews["view"] + " " + styles["log-in-view"]}>  
         <BarLoader done={(submitProgress) ? "" : "done"} />  
         <BarsOverlayLoader done={(submitProgress) ? "" : "done"} />      
+        
         <form noValidate onSubmit={(e) => this.onSubmitHandler(e)}>
           <h1>User Login</h1>
                    
@@ -114,7 +124,6 @@ export class LogInView extends React.Component {
             placeholder="username"            
             onChange = {(e) => this.onChangeHandler(e)}
             className={(!this.state.error.username.valid) ? stylesForms["error"]  : ""}
-            // pattern="[A-Za-z]{3}"
             required
           />
           <label htmlFor="username" className={((this.state.error.username.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.username.msg}</label> 
@@ -129,24 +138,14 @@ export class LogInView extends React.Component {
             required
           />
           <label htmlFor="password" className={((this.state.error.password.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.password.msg}</label>
+          
+          <input 
+            type="submit" 
+            value="LOG IN"
+            className = {(this.state.submitProgress) ? stylesForms["progress"]  : ""}
+            disabled = {!this.state.submitButton}
+          />
 
-          { this.state.submitButton === false
-            ?
-              <input 
-                type="submit" 
-                value="LOG IN"
-                className ={(this.state.submitProgress) ? stylesForms["progress"]  : ""}
-                disabled
-              />
-            :
-              <input 
-                type="submit" 
-                value="LOG IN"
-                className ={(this.state.submitProgress) ? stylesForms["progress"]  : ""}                
-              />
-          }
-
-               
           <Link to="/register/" className={stylesForms["link-button"]}>REGISTER</Link>
         </form>
       </main>
