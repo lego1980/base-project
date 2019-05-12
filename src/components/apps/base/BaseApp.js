@@ -24,7 +24,7 @@ import HeaderModule from '../../modules/header/HeaderModule';
 import ParallaxView from '../../views/parallax/ParallaxView.2';
 import RegisterView from '../../views/register/RegisterView';
 import LogInView from '../../views/login/LogInView';
-import AccountView from '../../views/account/AccountView';
+import AccountView from '../../views/account/AccountView.1';
 import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
 import ErrorView from '../../views/error/ErrorView';

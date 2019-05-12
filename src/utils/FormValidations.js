@@ -1,4 +1,5 @@
 export const requiredField = async(elm) => {
+    console.log("requiredField",elm);
     let node = elm;
     if (node["required"] && node["value"].length === 0) {
         return false;
@@ -49,38 +50,55 @@ export const matchInput = async(elm,matchObj) => {
 export const validate = async(element,matchObj) => {
     let elm = element;        
     let obj = {
+        name : elm["name"],
+        bool : null,
+        msg : "",
+    };
+    let matchedObj = {
+        name : null,
         bool : true,
         msg : "",
     };
     let mObj = matchObj;
 
-    return matchInput(elm,mObj).then((matched) => {        
+    return matchInput(elm,mObj).then((matched) => {  
+        console.log("matched",matched,mObj);      
         if (matched) {
+            // set other to true if matched and return obj
+            if (mObj) {
+                matchedObj = {
+                    name : mObj.name,
+                    bool : true,
+                    msg: ""
+                }
+            }
+            
             return requiredField(elm).then((bool) => {
+                console.log("requiredField",bool); 
                 if (bool) {
                     return patternField(elm).then((bool2) => {
+                        console.log("patternField",bool2); 
                         obj.bool = bool2;
                         if (bool2 === false) {
                             obj.msg = "Enter a valid " + (elm.getAttribute("data-name") || elm["name"]);
                         }
-                        return obj;
+                        return new Array(obj,matchedObj);
                     });
                 } else {
                     obj.bool = bool;
                     if (bool === false) {
                         obj.msg = (elm.getAttribute("data-name") || elm["name"]) + " is required";
                     }            
-                    return obj; 
+                    return new Array(obj,matchedObj); 
                 }        
             });   
         } else {
-            console.log("elm",elm,elm.getAttribute("data-name"));
             obj.bool = matched;
             if (matched === false) {
                 //obj.msg = mObj.name + " and " + (elm.getAttribute("data-name") || elm["name"]) + " does not match";
-                obj.msg = mObj.name + " does not match";
+                obj.msg = mObj.label + " does not match";
             }
-            return obj;  
+            return new Array(obj);  
         }
     });
 

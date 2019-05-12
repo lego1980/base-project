@@ -2,6 +2,7 @@
 import React from 'react';
 
 // css
+import stylesForms from '../../styles/global/globalForm.module.scss';
 import './ListDropDown.css';
 
 export default class ListDropDown extends React.Component {
@@ -9,6 +10,8 @@ export default class ListDropDown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      parent: this.props.parent || [],
+      handler: this.props.handler,
       id: this.props.id,   
       name: this.props.name || "dropdown",
       index: this.props.index || 1,
@@ -19,11 +22,19 @@ export default class ListDropDown extends React.Component {
     };
   }
 
-  setItem = (event) => {
+  setItem = (event,matchBool,inputName,inputValue) => {
+
+    let element = document.getElementsByName(this.state.name)[0]; //get first one //document.getElementsByName(this.state.name) || document.getElementById(this.state.id) || null;
+    let matchInputBool = matchBool || undefined;
+    let matchInputName = inputName || undefined;
+    let matchInputValue = inputValue || undefined;
+
     this.setState({
       selectedValue: event.target.getAttribute('data-name') 
     }, () => {
       document.addEventListener('click', this.closeDropDown);
+      console.log("onChangeHandler",element);
+      this.state.parent.onChangeHandler(element,matchInputBool,matchInputName,matchInputValue);
     });
   }
 
@@ -74,14 +85,15 @@ export default class ListDropDown extends React.Component {
             <input 
                 name={this.state.name} 
                 id={this.state.id} 
-                className={"input-dropdown"} 
+                className={"input-dropdown " + ((!this.state.parent.state.error[this.state.id].valid) ? stylesForms["error"]  : "")}
                 placeholder={this.state.placeholder} 
                 data-name={this.state.name} 
                 value={this.state.selectedValue} 
-                {...opts}
+                {...opts}                
             />
             { this.state.name === this.state.open ? this.openList(this.state.data,this.state.name) : null }
         </div>
+        {/* <label htmlFor={this.state.id} className={((this.state.parent.state.error[this.state.name].msg.length !== 0) ? stylesForms["show-label-dropdown"] : "")}>{this.state.parent.state.error[this.state.name].msg}</label>  */}
       </div>
     );
   }

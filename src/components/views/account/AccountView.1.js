@@ -1,14 +1,18 @@
 // core
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-
-// components
-import BarLoader from "../../loaders/BarLoader";
-import BarsOverlayLoader from "../../loaders/BarsOverlayLoader";
 
 // actions
 import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
+import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
+
+// components
+import ListDropDown from '../../dropdowns/ListDropDown';
+import BarLoader from "../../loaders/BarLoader";
+import BarsOverlayLoader from "../../loaders/BarsOverlayLoader";
+
+// static data
+import { GenderDropDown } from '../../../data/lists/FormData';
 
 // utils
 import { validate, checkError } from "../../../utils/FormValidations";
@@ -16,10 +20,10 @@ import { validate, checkError } from "../../../utils/FormValidations";
 // css
 import stylesViews from '../../../styles/global/globalView.module.scss';
 import stylesForms from '../../../styles/global/globalForm.module.scss';
-import styles from './RegisterView.module.scss';
+import styles from './AccountView.1.module.scss';
 
-export class RegisterView extends React.Component {    
-  
+export class AccountView extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,24 +33,29 @@ export class RegisterView extends React.Component {
       email: "",
       password: "",
       confirmPassword: "",
+      gender: "",
       error: {
         username: { 
-          valid : null,
+          valid : true,
           msg: "" 
         },
         email: { 
-          valid : null,
+          valid : true,
           msg: "" 
         },
         password: {
-          valid : null,
+          valid : true,
           msg: ""  
         },
         confirmPassword: {
-          valid : null,
+          valid : true,
           msg: ""  
+        },
+        gender: { 
+          valid : true,
+          msg: "" 
         }
-      }       
+      }        
     };
   }
 
@@ -70,9 +79,10 @@ export class RegisterView extends React.Component {
     e.preventDefault();
   }
 
-  onChangeHandler = (e,matchBool,inputName,inputLabel,inputValue) => {   
+  onChangeHandler = (e,matchBool,inputName,inputValue) => {   
+    console.log("onChangeHandler",e);
     let that = this;    
-    let element = e.target || null;
+    let element = e.target || e || null;
     let matchObj = null;
     
     // get match object 
@@ -80,7 +90,6 @@ export class RegisterView extends React.Component {
       matchObj = {
         bool: matchBool,
         name: inputName,
-        label: inputLabel,
         value: inputValue
       }
     }
@@ -90,21 +99,16 @@ export class RegisterView extends React.Component {
     }, () => {
       
       if (element) {
-        validate(element,matchObj).then((arrObj) => {
-            console.log("validate",arrObj);
-            arrObj.map((obj) => {
-              if (obj != null) {
-                that.setState({ 
-                  error: Object.assign(
-                      {}, 
-                      that.state.error, 
-                      { [obj.name] : { valid : obj.bool, msg : obj.msg }}
-                  )
-                                               
-                })
-              }              
-            });
-            
+        validate(element,matchObj).then((obj) => {
+            console.log("validate",obj)
+            that.setState({ 
+                error: Object.assign(
+                    {}, 
+                    that.state.error, 
+                    { [element["name"]] : { valid : obj.bool, msg : obj.msg }}
+                )                      
+            })
+            console.log("that.state.error",that.state.error);
         }).then(() => {            
           checkError(that.state.error).then((data) => {
             if (data.length === 0) {
@@ -126,14 +130,16 @@ export class RegisterView extends React.Component {
   }
   
   render() {
+    // let props = this.props;
+    // let complete = (props.users.fetched && !props.users.fetching) ? true : false;
+
     let submitProgress = this.state.submitProgress;
     return (
-      <main className={stylesViews['page'] + " " + stylesViews['view'] + " "  + styles['register-view']}>        
+      <main className={stylesViews["page"] + " " + stylesViews["view"] + " " + styles["account-view"]}>  
         <BarLoader done={(submitProgress) ? "" : "done"} />  
-        <BarsOverlayLoader done={(submitProgress) ? "" : "done"} />
-
+        <BarsOverlayLoader done={(submitProgress) ? "" : "done"} />      
+        
         <form noValidate onSubmit={(e) => this.onSubmitHandler(e)}>
-
           <h1>Create Account</h1>
 
           <input 
@@ -142,10 +148,22 @@ export class RegisterView extends React.Component {
             name="username" 
             placeholder="username"            
             onChange = {(e) => this.onChangeHandler(e)}
-            className={(this.state.error.username.valid === false) ? stylesForms["error"]  : ""}
+            className={(!this.state.error.username.valid) ? stylesForms["error"]  : ""}
             required
           />
           <label htmlFor="username" className={((this.state.error.username.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.username.msg}</label> 
+
+          <ListDropDown
+              id={"gender"} 
+              name={"gender"} 
+              data={GenderDropDown} 
+              placeholder="select gender"
+              required
+              disabled = "disabled"
+              parent = {this}
+              // readonly conflict name with react 
+              // readonly = "readonly" 
+            /> 
 
           <input 
             type="text" 
@@ -153,26 +171,19 @@ export class RegisterView extends React.Component {
             name="email" 
             placeholder="email"            
             onChange = {(e) => this.onChangeHandler(e)}
-            className={(this.state.error.email.valid === false) ? stylesForms["error"]  : ""}
+            className={(!this.state.error.email.valid) ? stylesForms["error"]  : ""}
             pattern="[a-z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-z0-9.-]+\.[a-z]{2,}$"
             required
           />
           <label htmlFor="email" className={((this.state.error.email.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.email.msg}</label> 
-
-          {
-            /* 
-            https://www.w3resource.com/javascript/form/password-validation.php
-            To check a password between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter 
-            */
-          }
 
           <input 
             type="password" 
             id="password"
             name="password" 
             placeholder="password"            
-            onChange = {(e) => this.onChangeHandler(e,true,"confirmPassword","confirm password",this.state.confirmPassword)}
-            className={(this.state.error.password.valid === false) ? stylesForms["error"]  : ""}
+            onChange = {(e) => this.onChangeHandler(e)}
+            className={(!this.state.error.password.valid) ? stylesForms["error"]  : ""}
             pattern="[A-Za-z]\w{7,14}$"
             required
           />
@@ -184,21 +195,19 @@ export class RegisterView extends React.Component {
             name="confirmPassword"
             data-name="confirm password" 
             placeholder="confirm password"            
-            onChange = {(e) => this.onChangeHandler(e,true,"password","password",this.state.password)}
-            className={(this.state.error.confirmPassword.valid === false) ? stylesForms["error"]  : ""}
-            pattern="[A-Za-z]\w{7,14}$"
+            onChange = {(e) => this.onChangeHandler(e)}
+            className={(!this.state.error.confirmPassword.valid) ? stylesForms["error"]  : ""}
             required
           />
           <label htmlFor="confirmPassword" className={((this.state.error.confirmPassword.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.confirmPassword.msg}</label> 
 
           <input 
             type="submit" 
-            value="GET STARTED"
+            value="SAVE"
             className = {(this.state.submitProgress) ? stylesForms["progress"]  : ""}
             disabled = {!this.state.submitButton}
           />
 
-          <Link to="/login/" className={stylesForms['link-button']}>LOG IN</Link>
         </form>
       </main>
     )
@@ -207,14 +216,16 @@ export class RegisterView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    route: state.route
+    route: state.route,
+    users: state.users
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    ...ROUTE_ACTIONS(dispatch)
+    ...ROUTE_ACTIONS(dispatch), 
+    ...USERS_ACTIONS(dispatch) 
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(RegisterView);
+export default connect(mapStateToProps,mapDispatchToProps)(AccountView);

@@ -1,4 +1,11 @@
 
+
+.list-dropdown-item input:disabled {
+    background-color: rgba(255,255,255,1);
+    /* color: rgba(161,161,161,1); */
+}
+
+
 .list-dropdown-list { 
     width: 100%;
     right: 0;

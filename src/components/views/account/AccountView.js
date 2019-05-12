@@ -16,8 +16,8 @@ import BarsLoader from '../../loaders/BarsLoader';
 import { GenderDropDown } from '../../../data/lists/FormData';
 
 // css
-import sytlesViews from '../../../styles/global/globalView.module.scss';
-import sytlesForms from '../../../styles/global/globalForm.module.scss';
+import stylesViews from '../../../styles/global/globalView.module.scss';
+import stylesForms from '../../../styles/global/globalForm.module.scss';
 import './AccountView.css';
 
 export class AccountView extends React.Component {
@@ -28,9 +28,9 @@ export class AccountView extends React.Component {
     return (
       <div>
         <BarLoader done={(complete) ? "done" : ""} /> 
-        <div className={sytlesViews['page'] + " " + sytlesViews['view']}>         
+        <div className={stylesViews['page'] + " " + stylesViews['view']}>         
           <BarsLoader done={(complete) ? "done" : ""} /> 
-          <form className={sytlesForms['form']}>
+          <form className={stylesForms['form']}>
             <h1>Account</h1>
             
             <InputEdit 

@@ -89,7 +89,7 @@ export class LogInView extends React.Component {
             })
         }).then(() => {            
           checkError(that.state.error).then((data) => {
-            if (that.state.username.length !== 0 && that.state.password.length !== 0 && data.length === 0) {
+            if (data.length === 0) {
               that.setState({ 
                 submitButton : true,
                 submitProgress : false
