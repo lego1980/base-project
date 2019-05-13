@@ -29,11 +29,11 @@ export class LogInView extends React.Component {
       password: "",
       error: {
         username: { 
-          valid : true,
+          valid : null,
           msg: "" 
         },
         password: {
-          valid : true,
+          valid : null,
           msg: ""  
         }
       }       
@@ -60,16 +60,17 @@ export class LogInView extends React.Component {
     e.preventDefault();
   }
 
-  onChangeHandler = (e,matchBool,inputName,inputValue) => {   
+  onChangeHandler = (e,matchBool,inputName,inputLabel,inputValue) => {   
     let that = this;    
     let element = e.target || null;
     let matchObj = null;
     
     // get match object 
-    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined) {
+    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined && typeof inputLabel !== undefined) {
       matchObj = {
         bool: matchBool,
         name: inputName,
+        label: inputLabel,
         value: inputValue
       }
     }
@@ -79,14 +80,18 @@ export class LogInView extends React.Component {
     }, () => {
       
       if (element) {
-        validate(element,matchObj).then((obj) => {
-            that.setState({ 
+        validate(element,matchObj).then((arrObj) => {
+          return arrObj.map((obj) => {
+            if (obj != null) {
+              that.setState({ 
                 error: Object.assign(
                     {}, 
                     that.state.error, 
-                    { [element["name"]] : { valid : obj.bool, msg : obj.msg }}
-                )                      
-            })
+                    { [obj.name] : { valid : obj.bool, msg : obj.msg }}
+                )                             
+              }) 
+            }            
+          });
         }).then(() => {            
           checkError(that.state.error).then((data) => {
             if (data.length === 0) {
@@ -100,7 +105,8 @@ export class LogInView extends React.Component {
                 submitProgress : false
               });
             }
-          });    
+          });
+          return true;    
         });
       }
           
@@ -123,22 +129,22 @@ export class LogInView extends React.Component {
             name="username" 
             placeholder="username"            
             onChange = {(e) => this.onChangeHandler(e)}
-            className={(!this.state.error.username.valid) ? stylesForms["error"]  : ""}
+            className={(this.state.error.username.valid === false) ? stylesForms["error"]  : ""}
             required
           />
           <label htmlFor="username" className={((this.state.error.username.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.username.msg}</label> 
 
           <input 
-            type="password"
-            id="password"  
+            type="password" 
+            id="password"
             name="password" 
-            placeholder="password"
+            placeholder="password"            
             onChange = {(e) => this.onChangeHandler(e)}
-            className={(!this.state.error.password.valid) ? stylesForms["error"]  : ""}
+            className={(this.state.error.password.valid === false) ? stylesForms["error"]  : ""}
             required
           />
-          <label htmlFor="password" className={((this.state.error.password.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.password.msg}</label>
-          
+          <label htmlFor="password" className={((this.state.error.password.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.password.msg}</label> 
+
           <input 
             type="submit" 
             value="LOG IN"

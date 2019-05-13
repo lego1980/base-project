@@ -27,7 +27,7 @@ export const checkError = async(data) => {
     try {
         // console.log("obj try");
         let error = Object.keys(obj).filter((value) => { 
-            return obj[value].valid === false;
+            return obj[value].valid === false || obj[value].valid === null;
         });
         return error;
     } catch(err) {

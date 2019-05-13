@@ -76,7 +76,7 @@ export class RegisterView extends React.Component {
     let matchObj = null;
     
     // get match object 
-    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined) {
+    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined && typeof inputLabel !== undefined) {
       matchObj = {
         bool: matchBool,
         name: inputName,
@@ -92,15 +92,14 @@ export class RegisterView extends React.Component {
       if (element) {
         validate(element,matchObj).then((arrObj) => {
             console.log("validate",arrObj);
-            arrObj.map((obj) => {
+            return arrObj.map((obj) => {
               if (obj != null) {
                 that.setState({ 
                   error: Object.assign(
                       {}, 
                       that.state.error, 
                       { [obj.name] : { valid : obj.bool, msg : obj.msg }}
-                  )
-                                               
+                  )                        
                 })
               }              
             });
