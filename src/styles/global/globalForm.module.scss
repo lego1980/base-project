@@ -105,7 +105,7 @@ a.link-button:hover {
     margin-left: 0.5rem;
     margin-top: -9rem;
     box-shadow: 0 1rem 0.6rem -0.6rem rgba(0,0,0,0.5);
-    transition: opacity 300ms ease-in-out;      
+    transition: opacity 150ms ease;      
     z-index: -1;   
 }
  
@@ -149,7 +149,7 @@ input.error:focus + .show-label {
     margin-left: 0.5rem;
     margin-top: -8rem;
     box-shadow: 0 1rem 0.6rem -0.6rem rgba(0,0,0,0.5);
-    transition: opacity 300ms ease-in-out; 
+    transition: opacity 150ms ease; 
     z-index: 1000;    
     &::before  {
         content: "";
@@ -164,7 +164,7 @@ input.error:focus + .show-label {
     }
 }
 
-input.error:focus + .show-label-dropdown {
+input.error:disabled + .show-label-dropdown {
     display: inline-block;
     position: absolute;
     width: auto;

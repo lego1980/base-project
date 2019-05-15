@@ -91,8 +91,8 @@ export class RegisterView extends React.Component {
       
       if (element) {
         validate(element,matchObj).then((arrObj) => {
-            console.log("validate",arrObj);
-            return arrObj.map((obj) => {
+            //console.log("validate",arrObj);
+            arrObj.map((obj) => {
               if (obj != null) {
                 that.setState({ 
                   error: Object.assign(
@@ -101,7 +101,8 @@ export class RegisterView extends React.Component {
                       { [obj.name] : { valid : obj.bool, msg : obj.msg }}
                   )                        
                 })
-              }              
+              }
+              return true;              
             });
             
         }).then(() => {            

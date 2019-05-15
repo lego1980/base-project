@@ -36,23 +36,23 @@ export class AccountView extends React.Component {
       gender: "",
       error: {
         username: { 
-          valid : true,
+          valid : null,
           msg: "" 
         },
         email: { 
-          valid : true,
+          valid : null,
           msg: "" 
         },
         password: {
-          valid : true,
+          valid : null,
           msg: ""  
         },
         confirmPassword: {
-          valid : true,
+          valid : null,
           msg: ""  
         },
         gender: { 
-          valid : true,
+          valid : null,
           msg: "" 
         }
       }        
@@ -79,17 +79,18 @@ export class AccountView extends React.Component {
     e.preventDefault();
   }
 
-  onChangeHandler = (e,matchBool,inputName,inputValue) => {   
-    console.log("onChangeHandler",e);
+  onChangeHandler = (e,matchBool,inputName,inputLabel,inputValue) => {   
+    //console.log("onChangeHandler",e);
     let that = this;    
     let element = e.target || e || null;
     let matchObj = null;
     
     // get match object 
-    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined) {
+    if (matchBool === true && typeof inputName !== undefined && typeof inputValue !== undefined && typeof inputLabel !== undefined) {
       matchObj = {
         bool: matchBool,
         name: inputName,
+        label: inputLabel,
         value: inputValue
       }
     }
@@ -99,16 +100,19 @@ export class AccountView extends React.Component {
     }, () => {
       
       if (element) {
-        validate(element,matchObj).then((obj) => {
-            console.log("validate",obj)
-            that.setState({ 
+        validate(element,matchObj).then((arrObj) => {
+          arrObj.map((obj) => {
+            if (obj != null) {
+              that.setState({ 
                 error: Object.assign(
                     {}, 
                     that.state.error, 
-                    { [element["name"]] : { valid : obj.bool, msg : obj.msg }}
-                )                      
-            })
-            console.log("that.state.error",that.state.error);
+                    { [obj.name] : { valid : obj.bool, msg : obj.msg }}
+                )                        
+              })
+            }
+            return true;              
+          });
         }).then(() => {            
           checkError(that.state.error).then((data) => {
             if (data.length === 0) {
@@ -148,7 +152,7 @@ export class AccountView extends React.Component {
             name="username" 
             placeholder="username"            
             onChange = {(e) => this.onChangeHandler(e)}
-            className={(!this.state.error.username.valid) ? stylesForms["error"]  : ""}
+            className={(this.state.error.username.valid === false) ? stylesForms["error"]  : ""}
             required
           />
           <label htmlFor="username" className={((this.state.error.username.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.username.msg}</label> 
@@ -171,7 +175,7 @@ export class AccountView extends React.Component {
             name="email" 
             placeholder="email"            
             onChange = {(e) => this.onChangeHandler(e)}
-            className={(!this.state.error.email.valid) ? stylesForms["error"]  : ""}
+            className={(this.state.error.email.valid === false) ? stylesForms["error"]  : ""}
             pattern="[a-z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-z0-9.-]+\.[a-z]{2,}$"
             required
           />
@@ -182,8 +186,8 @@ export class AccountView extends React.Component {
             id="password"
             name="password" 
             placeholder="password"            
-            onChange = {(e) => this.onChangeHandler(e)}
-            className={(!this.state.error.password.valid) ? stylesForms["error"]  : ""}
+            onChange = {(e) => this.onChangeHandler(e,true,"confirmPassword","confirm password",this.state.confirmPassword)}
+            className={(this.state.error.password.valid === false) ? stylesForms["error"]  : ""}
             pattern="[A-Za-z]\w{7,14}$"
             required
           />
@@ -195,8 +199,9 @@ export class AccountView extends React.Component {
             name="confirmPassword"
             data-name="confirm password" 
             placeholder="confirm password"            
-            onChange = {(e) => this.onChangeHandler(e)}
-            className={(!this.state.error.confirmPassword.valid) ? stylesForms["error"]  : ""}
+            onChange = {(e) => this.onChangeHandler(e,true,"password","password",this.state.password)}
+            className={(this.state.error.confirmPassword.valid === false) ? stylesForms["error"]  : ""}
+            pattern="[A-Za-z]\w{7,14}$"
             required
           />
           <label htmlFor="confirmPassword" className={((this.state.error.confirmPassword.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.confirmPassword.msg}</label> 

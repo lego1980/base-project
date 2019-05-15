@@ -1,5 +1,5 @@
 export const requiredField = async(elm) => {
-    console.log("requiredField",elm);
+    //console.log("requiredField",elm);
     let node = elm;
     if (node["required"] && node["value"].length === 0) {
         return false;
@@ -62,7 +62,7 @@ export const validate = async(element,matchObj) => {
     let mObj = matchObj;
 
     return matchInput(elm,mObj).then((matched) => {  
-        console.log("matched",matched,mObj);      
+        //console.log("matched",matched,mObj);      
         if (matched) {
             // set other to true if matched and return obj
             if (mObj) {
@@ -74,22 +74,25 @@ export const validate = async(element,matchObj) => {
             }
             
             return requiredField(elm).then((bool) => {
-                console.log("requiredField",bool); 
+                //console.log("requiredField",bool);
+                let arrObj = []; 
                 if (bool) {
                     return patternField(elm).then((bool2) => {
-                        console.log("patternField",bool2); 
+                        //console.log("patternField",bool2); 
                         obj.bool = bool2;
                         if (bool2 === false) {
                             obj.msg = "Enter a valid " + (elm.getAttribute("data-name") || elm["name"]);
                         }
-                        return new Array(obj,matchedObj);
+                        arrObj = [obj,matchedObj];
+                        return arrObj;
                     });
                 } else {
                     obj.bool = bool;
                     if (bool === false) {
                         obj.msg = (elm.getAttribute("data-name") || elm["name"]) + " is required";
-                    }            
-                    return new Array(obj,matchedObj); 
+                    }
+                    arrObj = [obj,matchedObj];            
+                    return arrObj; 
                 }        
             });   
         } else {

@@ -33,7 +33,7 @@ export default class ListDropDown extends React.Component {
       selectedValue: event.target.getAttribute('data-name') 
     }, () => {
       document.addEventListener('click', this.closeDropDown);
-      console.log("onChangeHandler",element);
+      //console.log("onChangeHandler",element);
       this.state.parent.onChangeHandler(element,matchInputBool,matchInputName,matchInputValue);
     });
   }
@@ -85,15 +85,15 @@ export default class ListDropDown extends React.Component {
             <input 
                 name={this.state.name} 
                 id={this.state.id} 
-                className={"input-dropdown " + ((!this.state.parent.state.error[this.state.id].valid) ? stylesForms["error"]  : "")}
+                className={"input-dropdown " + ((this.state.parent.state.error[this.state.id].valid === false) ? stylesForms["error"]  : "")}
                 placeholder={this.state.placeholder} 
                 data-name={this.state.name} 
                 value={this.state.selectedValue} 
                 {...opts}                
             />
             { this.state.name === this.state.open ? this.openList(this.state.data,this.state.name) : null }
+            {/* <label htmlFor={this.state.id} className={((this.state.parent.state.error[this.state.name].msg.length !== 0) ? stylesForms["show-label-dropdown"] : "")}>{this.state.parent.state.error[this.state.name].msg}</label> */}
         </div>
-        {/* <label htmlFor={this.state.id} className={((this.state.parent.state.error[this.state.name].msg.length !== 0) ? stylesForms["show-label-dropdown"] : "")}>{this.state.parent.state.error[this.state.name].msg}</label>  */}
       </div>
     );
   }

@@ -81,7 +81,7 @@ export class LogInView extends React.Component {
       
       if (element) {
         validate(element,matchObj).then((arrObj) => {
-          return arrObj.map((obj) => {
+          arrObj.map((obj) => {
             if (obj != null) {
               that.setState({ 
                 error: Object.assign(
@@ -90,7 +90,8 @@ export class LogInView extends React.Component {
                     { [obj.name] : { valid : obj.bool, msg : obj.msg }}
                 )                             
               }) 
-            }            
+            }
+            return true;            
           });
         }).then(() => {            
           checkError(that.state.error).then((data) => {
