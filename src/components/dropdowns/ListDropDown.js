@@ -82,6 +82,7 @@ export default class ListDropDown extends React.Component {
     return (
       <div className={"list-dropdown-wrapper"}>           
         <div className={"list-dropdown-item " + ((this.state.name === this.state.open) ? " open" : "") } key={this.state.name+"-dropdown-"+this.props.index} onClick={() => this.openDropDown(this.state.name)}>
+            <span className={"icon-wrapper"}></span>
             <input 
                 name={this.state.name} 
                 id={this.state.id} 

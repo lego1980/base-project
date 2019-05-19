@@ -1,5 +1,28 @@
 @import '../../../sass/baseApp/baseAppVariables.scss';
 
+// https://stackoverflow.com/questions/26681059/create-a-circle-avatar-from-a-rectangle-image-keeping-proportions-and-just-using
+.avatar-wrapper {
+    font-size: 15rem; 
+    width: 15rem;
+    height: 15rem;
+    overflow: hidden;
+    margin: auto;
+    border-radius:50%;
+    position: relative;
+    &.icon:before {
+        margin: 0;
+        position: absolute;
+        z-index: -1;
+    } 
+    img {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%) ;
+        height: inherit;      
+    }
+}
+
 .account-view {
     // input[type=text],
     // input[type=password] {

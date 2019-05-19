@@ -51,6 +51,14 @@ export class AccountView extends React.Component {
           valid : null,
           msg: ""  
         },
+        firstName: { 
+          valid : null,
+          msg: "" 
+        },
+        lastName: { 
+          valid : null,
+          msg: "" 
+        },
         gender: { 
           valid : null,
           msg: "" 
@@ -146,6 +154,11 @@ export class AccountView extends React.Component {
         <form noValidate onSubmit={(e) => this.onSubmitHandler(e)}>
           <h1>Create Account</h1>
 
+          <div className={styles["avatar-wrapper"] + " " + styles["icon"] + " icon-user"}>
+              <img src="https://www.geek.com/wp-content/uploads/2018/06/goku_large-625x352.png" alt="Avatar" />
+              {/* <img src="http://i3.ytimg.com/vi/hCr4XKf3Dsk/maxresdefault.jpg" /> */}              
+          </div>
+
           <input 
             type="text" 
             id="username"
@@ -156,18 +169,6 @@ export class AccountView extends React.Component {
             required
           />
           <label htmlFor="username" className={((this.state.error.username.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.username.msg}</label> 
-
-          <ListDropDown
-              id={"gender"} 
-              name={"gender"} 
-              data={GenderDropDown} 
-              placeholder="select gender"
-              required
-              disabled = "disabled"
-              parent = {this}
-              // readonly conflict name with react 
-              // readonly = "readonly" 
-            /> 
 
           <input 
             type="text" 
@@ -205,6 +206,42 @@ export class AccountView extends React.Component {
             required
           />
           <label htmlFor="confirmPassword" className={((this.state.error.confirmPassword.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.confirmPassword.msg}</label> 
+
+          <input 
+            type="text" 
+            id="firstName"
+            name="firstName"
+            data-name="first name"  
+            placeholder="first name"            
+            onChange = {(e) => this.onChangeHandler(e)}
+            className={(this.state.error.firstName.valid === false) ? stylesForms["error"]  : ""}
+            required
+          />
+          <label htmlFor="firstName" className={((this.state.error.firstName.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.firstName.msg}</label> 
+
+          <input 
+            type="text" 
+            id="lastName"
+            name="lastName" 
+            data-name="last name"  
+            placeholder="last name"            
+            onChange = {(e) => this.onChangeHandler(e)}
+            className={(this.state.error.lastName.valid === false) ? stylesForms["error"]  : ""}
+            required
+          />
+          <label htmlFor="lastName" className={((this.state.error.lastName.msg.length !== 0) ? stylesForms["show-label"] : "")}>{this.state.error.lastName.msg}</label> 
+
+          <ListDropDown
+              id={"gender"} 
+              name={"gender"} 
+              data={GenderDropDown} 
+              placeholder="select gender"
+              required
+              disabled = "disabled"
+              parent = {this}
+              // readonly conflict name with react 
+              // readonly = "readonly" 
+            /> 
 
           <input 
             type="submit" 
