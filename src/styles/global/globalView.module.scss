@@ -31,6 +31,13 @@
     }
 }
 
+.content {
+    margin: 6rem 1rem 1rem;
+    padding: 0.5rem;
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+}
+
 @media screen and (min-width: 760px) {
     .view {
         padding: 0;

@@ -18,9 +18,10 @@
       background-color: $second-background-color;
       animation: loading 2s linear infinite;
     }
-    &.done {    
+    &.done { 
+      bottom: -1rem;   
       background-color: $first-background-color;
-      transition: background-color 500ms linear;
+      transition: background-color 500ms linear, bottom 500ms ease;
       &:before{
         animation: none; /*loading 2s linear forwards;*/
       }

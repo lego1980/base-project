@@ -27,6 +27,9 @@ import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView.1';
 import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
+import FaqView from '../../views/faq/FaqView';
+import TermsView from '../../views/terms/TermsView';
+import PrivacyView from '../../views/privacy/PrivacyView';
 import ErrorView from '../../views/error/ErrorView';
 
 export class BaseApp extends React.Component {
@@ -84,6 +87,21 @@ export class BaseApp extends React.Component {
                       path='/contact/'
                       exact                      
                       render={(props) => <ContactView {...props} />}
+                    />
+                    <Route
+                      path='/faq/'
+                      exact                      
+                      render={(props) => <FaqView {...props} />}
+                    />
+                    <Route
+                      path='/terms/'
+                      exact                      
+                      render={(props) => <TermsView {...props} />}
+                    />
+                    <Route
+                      path='/privacy/'
+                      exact                      
+                      render={(props) => <PrivacyView {...props} />}
                     />
                     <Route               
                       render={(props) => <ErrorView {...props} />}
