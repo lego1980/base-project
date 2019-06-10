@@ -15,7 +15,7 @@ import { BaseAppStore } from './redux/stores/base/BaseAppStore';
 import * as serviceWorker from './serviceWorker';
 
 const app = document.getElementById('root');
-
+// test
 ReactDOM.render(
     <Provider store={BaseAppStore}>
         <BaseApp />
