@@ -12,6 +12,8 @@ import InputEdit from '../../inputs/InputEdit';
 import BarLoader from '../../loaders/BarLoader';
 import BarsLoader from '../../loaders/BarsLoader';
 
+import DefaultModal from '../../modals/defaultModal/DefaultModal';
+
 // static data
 import { GenderDropDown } from '../../../data/lists/FormData';
 
@@ -21,6 +23,23 @@ import stylesForms from '../../../styles/global/globalForm.module.scss';
 import './AccountView.css';
 
 export class AccountView extends React.Component {
+
+  constructor(props) {
+      super(props);
+      this.state = {
+          modalOpen: this.props.modalOpen || false, 
+          header: this.props.modalHeader || "",
+          body:  this.props.modalBody || ""
+      }
+  }
+
+  updateStatus = (bool) => {
+      console.log("updateStatus",bool);
+      this.setState({
+        modalOpen:  bool      
+      })
+  }
+
   render() {
     let props = this.props;
     let complete = (props.users.fetched && !props.users.fetching) ? true : false;
@@ -131,6 +150,14 @@ export class AccountView extends React.Component {
             <input type="submit" value="UPDATE" />
           </form>
         </div>
+        <button type="button" onClick={(e) => this.updateStatus(true,e)}>Open Modal</button>
+        {
+            this.state.modalOpen === true 
+            ?         
+                <DefaultModal callback={this.state.updateStatus} modalOpen={this.state.modalOpen} modalHeader={"This is header modal"} modalBody={"This is body modal"} />
+            :
+                null  
+        }        
       </div>
     );
   }
