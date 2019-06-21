@@ -11,14 +11,14 @@
     z-index: 1000;
     &.open {
         display: block;
-        animation: fadeIn ease-in 300ms;
+        animation: fadeIn ease-in 5000ms;
     }
     .wrapper-modal {
         display: block;
         position: relative;
         width: 80%;
         height: 50%;
-        margin: 30% auto 0;
+        margin: 10% auto 0;
         padding: 10px 0;
         background: rgba(255,255,255,1);
         border: 1px solid rgba(255,255,255,1); 
@@ -32,8 +32,21 @@
             &.button-close-modal {
                 position: absolute;
                 right: 0px;
-                display: inline-block;
+                margin-right: 10px;
+                padding: 13px;
+                height: 50px;
+                width: 50px;
+                color: #162a36 !important;
+                overflow: hidden;
+                float: left;
+                font-size: 24px;
+                background-color: transparent;
+                border: 0;
+                outline: none;
                 cursor: pointer;
+                &::before {
+                    content: "\69";
+                }
             }
         }   
     }
