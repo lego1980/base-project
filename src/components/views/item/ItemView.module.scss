@@ -1,0 +1,26 @@
+@import '../../../sass/baseApp/baseAppVariables.scss';
+
+.item-view {
+    display: block;
+    margin: 5rem auto;
+    .item-wrapper {
+        padding: 2rem;
+        .item-label {
+            display: block;
+        }
+        .item-image-wrapper {
+            background-color: #999999;
+            width: inherit;
+            height: 150px; 
+            overflow: hidden;
+            position: relative;
+            .item-image {
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%) ;
+                height: inherit; 
+            }           
+        }
+    }
+}

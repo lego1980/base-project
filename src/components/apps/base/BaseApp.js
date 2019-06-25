@@ -25,6 +25,8 @@ import ParallaxView from '../../views/parallax/ParallaxView.2';
 import RegisterView from '../../views/register/RegisterView';
 import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView.1';
+import ItemsView from '../../views/items/ItemsView';
+import ItemView from '../../views/item/ItemView';
 import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
 import FaqView from '../../views/faq/FaqView';
@@ -77,6 +79,16 @@ export class BaseApp extends React.Component {
                       path='/account/'
                       exact
                       render={(props) => <AccountView {...props} />}
+                    />
+                    <Route
+                      path='/items/'
+                      exact
+                      render={(props) => <ItemsView {...props} />}
+                    />
+                    <Route
+                      path='/item/:id'
+                      exact
+                      render={(props) => <ItemView {...props} />}
                     />
                     <Route
                       path='/about/'

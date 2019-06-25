@@ -22,6 +22,7 @@ export default class DropDown extends React.Component {
         <li><Link to="/register/" className="icon icon-pen">REGISTER</Link></li>
         <li><Link to="/login/" className="icon icon-signin">LOG IN</Link></li>
         <li><Link to="/account/" className="icon icon-settings">ACCOUNT</Link></li>
+        <li><Link to="/items/" className="icon icon-settings">ITEMS</Link></li>
       </ul>
     );
   }
