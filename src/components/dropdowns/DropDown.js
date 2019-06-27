@@ -22,7 +22,8 @@ export default class DropDown extends React.Component {
         <li><Link to="/register/" className="icon icon-pen">REGISTER</Link></li>
         <li><Link to="/login/" className="icon icon-signin">LOG IN</Link></li>
         <li><Link to="/account/" className="icon icon-settings">ACCOUNT</Link></li>
-        <li><Link to="/items/" className="icon icon-settings">ITEMS</Link></li>
+        <li><Link to="/items/" className="icon icon-list">ITEMS</Link></li>
+        <li><Link to="/people/" className="icon icon-user">PEOPLE</Link></li>
       </ul>
     );
   }
@@ -51,10 +52,8 @@ export default class DropDown extends React.Component {
           this.state.arrayList.map((name, index) => {
             return (
               <div className={"dropdown-item"} key={`${name}-${index}`}>
-                <span data-name={name} className={"dropdown-name icon icon-list"} onClick={(event) => this.openDropDown(event) }>
-                  
-                </span>
-                  { name === this.state.open ? this.openList() : null }
+                <span data-name={name} className={"dropdown-name icon icon-reorder"} onClick={(event) => this.openDropDown(event) }></span>
+                { name === this.state.open ? this.openList() : null }
               </div>
             );
           })

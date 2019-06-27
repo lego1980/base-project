@@ -1,6 +1,6 @@
 // core
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // utils
 import { validate, checkError } from '../../../utils/FormValidations';

@@ -31,7 +31,9 @@ export default class HeaderModule extends React.Component {
             <li><Link to="/" className="icon icon-home">HOME</Link></li>
             <li><Link to="/register/" className="icon icon-pen">REGISTER</Link></li>
             <li><Link to="/login/" className="icon icon-signin">LOG IN</Link></li>
-            {/* <li><Link to="/account/" className="icon icon-settings">Account</Link></li> */}
+            <li><Link to="/account/" className="icon icon-settings">ACCOUNT</Link></li>
+            <li><Link to="/items/" className="icon icon-list">ITEMS</Link></li>
+            <li><Link to="/people/" className="icon icon-user">PEOPLE</Link></li>
           </ul> 
         </nav>       
       </header>

@@ -16,19 +16,25 @@
     .wrapper-modal {
         display: block;
         position: relative;
-        width: 80%;
-        height: 50%;
+        width: 50%;
+        height: auto;
         margin: 10% auto 0;
-        padding: 10px 0;
+        padding: 10px;
         background: rgba(255,255,255,1);
         border: 1px solid rgba(255,255,255,1); 
         .header-modal,
         .body-modal {
             position: relative;
-            width: inherit;
-            padding: 0 10px;
+            width: 100%;
+            padding: 0;
+            margin: auto;
+            z-index: 0;
+            form {
+                width: inherit;
+            }
         }
         .button {
+            z-index: 1;
             &.button-close-modal {
                 position: absolute;
                 right: 0px;
@@ -49,5 +55,14 @@
                 }
             }
         }   
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .default-modal {
+        .wrapper-modal {
+            width: 300px;             
+        }
     }
 }

@@ -27,6 +27,7 @@ import LogInView from '../../views/login/LogInView';
 import AccountView from '../../views/account/AccountView.1';
 import ItemsView from '../../views/items/ItemsView';
 import ItemView from '../../views/item/ItemView';
+import PeopleView from '../../views/items/PeopleView';
 import AboutView from '../../views/about/AboutView';
 import ContactView from '../../views/contact/ContactView';
 import FaqView from '../../views/faq/FaqView';
@@ -89,6 +90,11 @@ export class BaseApp extends React.Component {
                       path='/item/:id'
                       exact
                       render={(props) => <ItemView {...props} />}
+                    />
+                    <Route
+                      path='/people/'
+                      exact
+                      render={(props) => <PeopleView {...props} />}
                     />
                     <Route
                       path='/about/'

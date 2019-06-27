@@ -24,7 +24,7 @@ export class ItemView extends React.Component {
     super(props);
     this.state = {
       pageLoading: false,
-      item : ItemsData.find((item) => item.id == this.props.match.params.id)
+      item : ItemsData.find((item) => item.id.toString() === this.props.match.params.id)
     }
   }
   

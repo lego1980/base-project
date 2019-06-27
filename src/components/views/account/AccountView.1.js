@@ -10,7 +10,7 @@ import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 import ListDropDown from '../../dropdowns/ListDropDown';
 import BarLoader from '../../loaders/BarLoader';
 import BarsOverlayLoader from '../../loaders/BarsOverlayLoader';
-import DefaultModal from '../../modals/defaultModal/DefaultModal';
+// import DefaultModal from '../../modals/defaultModal/DefaultModal';
 import ConfirmAccountModal from '../../modals/confirmAccount/ConfirmAccountModal';
 
 // static data

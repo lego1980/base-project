@@ -4,7 +4,9 @@
     display: block;
     margin: 5rem auto;
     .item-wrapper {
-        padding: 2rem;
+        padding: 2rem;                
+        max-width: 100%;
+        display: block;
         .item-label {
             display: block;
         }
@@ -21,6 +23,16 @@
                 transform: translate(-50%,-50%) ;
                 height: inherit; 
             }           
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .item-view {
+        .item-wrapper {                
+            max-width: 300px;
+            display: inline-block;
+            vertical-align: top;               
         }
     }
 }
