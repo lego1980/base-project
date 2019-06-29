@@ -38,7 +38,7 @@ import ErrorView from '../../views/error/ErrorView';
 export class BaseApp extends React.Component {
   componentWillMount() {
     //console.log("componentWillMount this.props BaseApp",this.props);   
-    let usersOptions = { page : 2 }; 
+    let usersOptions = { page : 1 }; 
     this.props.getUsers(usersOptions);
     return true;
   }
@@ -137,7 +137,7 @@ export class BaseApp extends React.Component {
 const mapStateToProps = (state) => {
   return {
     route: state.route,
-    users: state.users
+    data: state.users
   }
 }
 

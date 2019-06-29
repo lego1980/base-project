@@ -8,6 +8,7 @@ const initialState = {
 };
 
 export const usersReducer = (state = initialState, action) => {
+    console.log("usersReducer",action);
     switch (action.type) {
         case GET_USERS_PENDING:
             return { 
