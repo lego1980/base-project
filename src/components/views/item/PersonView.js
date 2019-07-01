@@ -13,15 +13,15 @@ import BarsOverlayLoader from '../../loaders/BarsOverlayLoader';
 
 // css
 import stylesViews from '../../../styles/global/globalView.module.scss';
-import styles from './PeopleView.module.scss';
+import styles from './PersonView.module.scss';
 
-export class PeopleView extends React.Component {
+export class PersonView extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
         pageLoading: true,
-        usersData: null
+        userData: null
     }
   }
   
@@ -30,7 +30,7 @@ export class PeopleView extends React.Component {
     if (this.props.usersData.users !== null && this.props.usersData.fetched === true) {
       this.setState({
         pageLoading: false,   
-        usersData: this.props.usersData.users
+        userData: this.props.usersData.users.data.find((item) => item.id.toString() === this.props.match.params.id)
       });
     } else {
       let that = this;
@@ -39,7 +39,7 @@ export class PeopleView extends React.Component {
         this.props.initUsers(usersOptions).then(() => {
           that.setState({
             pageLoading: false,   
-            usersData: that.props.usersData.users
+            userData: that.props.usersData.users.data.find((item) => item.id.toString() === this.props.match.params.id)
           });
         });
        
@@ -53,28 +53,20 @@ export class PeopleView extends React.Component {
         <main className={stylesViews["page"] + " " + stylesViews["view"] + " " + styles["items-view"]}>  
           <BarLoader done={(this.state.pageLoading === true) ? "" : "done"} />  
           <BarsOverlayLoader done={(this.state.pageLoading === true) ? "" : "done"} /> 
-          <h1>People</h1>   
-          <div className={styles["items-wrapper"]}> 
-            { 
-                this.state.usersData !== null
-                ?
-                  this.state.usersData.data.map((user, index) => {
-                    return(
-                      <div key={index+"-"+user.id} className={styles["item-wrapper"]}>   
-                        <div className={styles["item-image-wrapper"]}>
-                            <img src={user.avatar} alt={user.first_name} title={user.last_name} className={styles["item-image"]} />
-                        </div>        
-                        <p><strong className={styles["item-label"]}>Name</strong>{user.first_name} {user.last_name}</p>
-                        <p><strong className={styles["item-label"]}>Email</strong>{user.email}</p>
-                        <Link to={"/person/"+user.id}>View more</Link>
-                      </div>
-                    )
-                  }) 
-                :
-                  null
-            } 
-              
-          </div>  
+          { 
+              this.state.userData !== null
+              ?
+                <div className={styles["item-wrapper"]}>   
+                  <h1>{this.state.userData.first_name} {this.state.userData.last_name}</h1>  
+                  <div className={styles["item-image-wrapper"]}>
+                      <img src={this.state.userData.avatar} alt={this.state.userData.first_name} title={this.state.userData.last_name} className={styles["item-image"]} />
+                  </div>        
+                  <p><strong className={styles["item-label"]}>Email</strong>{this.state.userData.email}</p>
+                  <Link to={"/people/"}>Back to People</Link>
+                </div>
+              :
+                null
+          } 
         </main> 
     )
   }
@@ -92,4 +84,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PeopleView);
+export default connect(mapStateToProps,mapDispatchToProps)(PersonView);

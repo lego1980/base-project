@@ -1,20 +1,22 @@
 @import '../../../sass/baseApp/baseAppVariables.scss';
 
-.item-view {
+
+
+.items-view {
     display: block;
     margin: 5rem auto;
     .item-wrapper {
         h1 {
-            margin: 1rem 0;
+            margin: 1rem 0 2rem;
         }
-        padding: 2rem;                
+        padding: 2rem;                          
         max-width: 100%;
         display: block;
         .item-label {
             display: block;
         }
         .item-image-wrapper {
-            background-color: #999999;
+            background-color: transparent;
             width: inherit;
             height: 150px; 
             overflow: hidden;
@@ -24,18 +26,18 @@
                 top:50%;
                 left:50%;
                 transform: translate(-50%,-50%) ;
-                height: inherit; 
+                height: inherit;                
+                border-radius: 50%; 
             }           
         }
     }
 }
-
 @media screen and (min-width: 768px) {
-    .item-view {
-        .item-wrapper {                
+    .items-view {
+        .item-wrapper { 
             max-width: 300px;
-            display: inline-block;
-            vertical-align: top;               
+            display: inline-block;                   
+            vertical-align: top;            
         }
     }
 }

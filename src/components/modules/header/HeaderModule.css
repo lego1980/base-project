@@ -30,7 +30,7 @@
     display: block;
     position: absolute;
     top: -5px;
-    left: -15px;
+    left: -30px;
     height: 5.0rem;
     animation: logo-spin infinite 20s linear;
 }

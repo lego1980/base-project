@@ -39,16 +39,16 @@ export class ItemView extends React.Component {
     return (
         <main className={stylesViews["page"] + " " + stylesViews["view"] + " " + styles["item-view"]}>  
             <BarLoader done={(pageLoading) ? "" : "done"} />  
-            <BarsOverlayLoader done={(pageLoading) ? "" : "done"} /> 
-            <h1>{this.state.item.name}</h1>   
+            <BarsOverlayLoader done={(pageLoading) ? "" : "done"} />             
             <div className={styles["item-wrapper"]}>   
+                <h1>{this.state.item.name}</h1>   
                 <div className={styles["item-image-wrapper"]}>
                     <img src={this.state.item.image} alt={this.state.item.imageAlt} title={this.state.item.imageTitle} className={styles["item-image"]} />
                 </div>        
                 <p><strong className={styles["item-label"]}>Name</strong>{this.state.item.name}</p>
                 <p><strong className={styles["item-label"]}>Price</strong>{this.state.item.price}</p>
                 <p><strong className={styles["item-label"]}>Description</strong>{this.state.item.description}</p>
-                <Link to={this.state.item.href}>Go Now!!!</Link>
+                <Link to={"/items/"}>Back to Items</Link>
             </div>                    
         </main> 
     )

@@ -52,7 +52,7 @@ export class ItemsView extends React.Component {
                             <p><strong className={styles["item-label"]}>Name</strong>{item.name}</p>
                             <p><strong className={styles["item-label"]}>Price</strong>{item.price}</p>
                             <p><strong className={styles["item-label"]}>Description</strong>{item.description}</p>
-                            <Link to={item.href}>Go Now!!!</Link>
+                            <Link to={item.href}>View Item</Link>
                         </div>
                     )
                 }) 
