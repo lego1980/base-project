@@ -1,15 +1,19 @@
-import { GET_USERS_PENDING, GET_USERS_FULFILLED, GET_USERS_REJECTED } from'../../actions/users/UsersActions';
+import { GET_USERS_PENDING, GET_USERS_FULFILLED, GET_USERS_REJECTED, GET_USERS } from'../../actions/users/UsersActions';
 
 const initialState = {
     fetching: false,
     fetched: false,
-    users: [],
+    users: null,
     error: null
 };
 
 export const usersReducer = (state = initialState, action) => {
     console.log("usersReducer",action);
     switch (action.type) {
+        case GET_USERS:
+            return { 
+                ...state             
+            };
         case GET_USERS_PENDING:
             return { 
                 ...state,

@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
 // actions
-// import { ROUTE_ACTIONS } from '../../../redux/actions/route/RoutesActions';
-// import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
+import { USERS_ACTIONS } from'../../../redux/actions/users/UsersActions';
 
 // components
 import BarLoader from '../../loaders/BarLoader';
@@ -20,23 +20,33 @@ export class PeopleView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        pageLoading: this.props.data.fetching,
-        users: null
+        pageLoading: true,
+        usersData: null
     }
   }
   
-  componentDidMount() {    
+  componentDidMount() { 
     window.scrollTo(0,0);
-  }
-
-  componentWillReceiveProps(next) {
-    console.log("componentWillReceiveProps",next);
-    if (typeof next.data.users !== "undefined") {
+    if (this.props.usersData.users !== null && this.props.usersData.fetched === true) {
       this.setState({
-        users: next.data.users.data
-      })
+        pageLoading: false,   
+        usersData: this.props.usersData.users
+      });
+    } else {
+      let that = this;
+      if (this.props.usersData.fetched === false) {
+        let usersOptions = { page : 1 }; 
+        this.props.initUsers(usersOptions).then(() => {
+          that.setState({
+            pageLoading: false,   
+            usersData: that.props.usersData.users
+          });
+        });
+       
+      }
     }
   }
+
   
   render() {
     return (
@@ -44,12 +54,11 @@ export class PeopleView extends React.Component {
           <BarLoader done={(this.state.pageLoading === true) ? "" : "done"} />  
           <BarsOverlayLoader done={(this.state.pageLoading === true) ? "" : "done"} /> 
           <h1>Items</h1>   
-          <div className={styles["items-wrapper"]}>   
-
+          <div className={styles["items-wrapper"]}> 
             { 
-                this.state.users !== null
+                this.state.usersData !== null
                 ?
-                  this.state.users.map((user, index) => {
+                  this.state.usersData.data.map((user, index) => {
                     return(
                       <div key={index} className={styles["item-wrapper"]}>   
                         <div className={styles["item-image-wrapper"]}>
@@ -73,9 +82,14 @@ export class PeopleView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    route: state.route,
-    data: state.users
+    usersData: state.users
   }
 }
 
-export default connect(mapStateToProps)(PeopleView);
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    ...USERS_ACTIONS(dispatch) 
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(PeopleView);
